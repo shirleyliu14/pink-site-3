@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>主題講義｜忘不掉的記憶</title>
+
+<style>
+/* ===== Root ===== */
+:root{
+  --bg:#fff7fb;
+  --bg2:#f9f2ff;
+  --stroke:#f1d7ea;
+  --text:#2b2b2b;
+  --muted:#6d5b68;
+  --pink:#ff6fb1;
+  --lav:#a66bff;
+  --shadow:0 18px 45px rgba(166,107,255,.12);
+  --shadow2:0 10px 25px rgba(255,111,177,.12);
+  font-family: ui-sans-serif, system-ui, -apple-system,
+  "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+/* ===== Responsive Font ===== */
+html{
+  font-size: clamp(16px, 1.2vw + 12px, 20px);
+}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:
+  radial-gradient(1200px 600px at 10% 0%, var(--bg) 0%, transparent 55%),
+  radial-gradient(1200px 600px at 100% 20%, var(--bg2) 0%, transparent 50%),
+  linear-gradient(135deg,#fff 0%,#fff8fd 50%,#fbf5ff 100%);
+}
+
+/* ===== Layout ===== */
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:clamp(18px,3vw,30px);
+}
+
+.topbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+/* ===== Buttons ===== */
+.btn{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:42px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  font-size:0.9rem;
+  background:rgba(255,255,255,.75);
+  color:#4d2f3f;
+  transition:.15s;
+  user-select:none;
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  border-color:transparent;
+  color:white;
+  box-shadow:var(--shadow2);
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+
+/* ===== Card ===== */
+.card{
+  border:1px solid var(--stroke);
+  border-radius:22px;
+  background:rgba(255,255,255,.8);
+  box-shadow:var(--shadow);
+  padding:clamp(18px,3vw,28px);
+}
+
+/* ===== Headings ===== */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.7rem;
+  color:#5a3f4e;
+  background:rgba(255,255,255,.7);
+  border:1px solid var(--stroke);
+  padding:7px 12px;
+  border-radius:999px;
+}
+
+h1{
+  margin:12px 0 6px;
+  font-size:clamp(24px,2vw + 14px,34px);
+}
+
+.meta{
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.8;
+  margin-bottom:16px;
+}
+
+/* ===== Grid ===== */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* ===== Boxes ===== */
+.box{
+  border:1px solid var(--stroke);
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  padding:16px;
+}
+
+.box h3{
+  margin:0 0 8px;
+  font-size:1rem;
+}
+
+.box ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:0.9rem;
+}
+
+/* ===== Text ===== */
+.divider{
+  height:1px;
+  background:var(--stroke);
+  margin:18px 0;
+}
+
+.p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:0.95rem;
+  margin:0;
+}
+
+.highlight{
+  background:linear-gradient(transparent 60%, rgba(255,111,177,.25) 0%);
+  padding:0 2px;
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <a class="btn" href="index.html">← 回到單元總覽</a>
+    <a class="btn primary" href="#" target="_blank">寫作繳交／講義下載</a>
+  </div>
+
+  <!-- Main Card -->
+  <div class="card">
+
+    <span class="badge">主題寫作 × 情意題 × 生命經驗</span>
+
+    <h1>忘不掉的記憶</h1>
+
+    <p class="meta">
+      核心概念：回憶 × 情感 × 成長 × 生命轉折｜
+      適用：國三～高三｜
+      對應：學測國寫／會考作文
+    </p>
+
+    <!-- Grid -->
+    <div class="grid">
+
+      <!-- Box 1 -->
+      <div class="box">
+        <h3>一、主題理解｜什麼是「忘不掉」？</h3>
+        <ul>
+          <li>與情感高度連結的經驗（愛、失落、遺憾、感動）</li>
+          <li>改變自我認知的重要時刻</li>
+          <li>與親人、師長、朋友相關的深刻片段</li>
+          <li>人生第一次「真正長大」的瞬間</li>
+        </ul>
+      </div>
+
+      <!-- Box 2 -->
+      <div class="box">
+        <h3>二、情節挖掘｜讓記憶「活起來」</h3>
+        <ul>
+          <li>場景：時間、地點、氣味、聲音、光線</li>
+          <li>動作：誰做了什麼？你的反應是什麼？</li>
+          <li>心理：當下的困惑、害怕、期待、後悔</li>
+          <li>細節：一句話、一個表情、一個物件</li>
+        </ul>
+      </div>
+
+      <!-- Box 3 -->
+      <div class="box">
+        <h3>三、討論引導｜從回憶到反思</h3>
+        <ul>
+          <li>這段記憶為什麼會留下來？</li>
+          <li>如果時光倒流，你會做不同選擇嗎？</li>
+          <li>這段經驗如何影響現在的你？</li>
+          <li>它帶給你的是力量，還是提醒？</li>
+        </ul>
+      </div>
+
+      <!-- Box 4 -->
+      <div class="box">
+        <h3>四、寫作任務｜結構化書寫</h3>
+        <ul>
+          <li>開頭：用畫面或情緒帶出記憶</li>
+          <li>中段：還原事件＋心理變化</li>
+          <li>轉折：關鍵瞬間（領悟／失去／理解）</li>
+          <li>結尾：回望當下的自己與未來</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Section -->
+    <p class="p">
+      ✦ 寫作提醒：避免流水帳，請聚焦「一個片段」深入描寫，讓讀者
+      <span class="highlight">看見你的心路歷程</span>，而不只是事情經過。
+    </p>
+
+    <br>
+
+    <p class="p">
+      ✦ 進階挑戰：嘗試加入「今昔對照」——比較當年的你與現在的你，
+      讓文章呈現<span class="highlight">成長的厚度</span>。
+    </p>
+
+  </div>
+
+</div>
+</body>
+</html>
