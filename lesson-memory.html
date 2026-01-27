@@ -1,147 +1,243 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>忘不掉的記憶｜國寫素養導向</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>忘不掉的記憶｜國寫素養導向</title>
 
-  <!--（樣式完全不變，略）-->
-  <style>
-    /* 原樣式完整保留 */
-    :root{
-      --bg:#fff7fb;
-      --card:#ffffff;
-      --ink:#2b2430;
-      --muted:#6b6070;
-      --pink:#ff6fb5;
-      --lav:#b58bff;
-      --line:#f0d6ea;
-      --shadow: 0 10px 30px rgba(34, 20, 40, .08);
-      --r:18px;
-      --pad:18px;
-      --max: 980px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      background: radial-gradient(1200px 700px at 20% 10%, #ffe2f1 0%, transparent 55%),
-                  radial-gradient(900px 600px at 85% 20%, #efe6ff 0%, transparent 55%),
-                  var(--bg);
-      color:var(--ink);
-      line-height:1.65;
-    }
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 60px;}
-    /*（中間樣式未更動，完整保留）*/
-  </style>
+<style>
+body{
+margin:0;
+font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+background:#fff7fb;
+line-height:1.7;
+color:#2b2430;
+}
+
+.wrap{
+max-width:980px;
+margin:auto;
+padding:24px;
+}
+
+.hero{
+background:#ffe8f3;
+border-radius:20px;
+padding:24px;
+margin-bottom:24px;
+}
+
+.title{
+font-size:28px;
+font-weight:700;
+}
+
+.card{
+background:#fff;
+border-radius:18px;
+padding:18px;
+margin-bottom:20px;
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+h2{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.videoGrid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:16px;
+}
+
+@media(max-width:900px){
+.videoGrid{grid-template-columns:1fr;}
+}
+
+.videoCard{
+border:1px solid #f0d6ea;
+border-radius:18px;
+overflow:hidden;
+background:#fff;
+}
+
+.videoTop{
+padding:14px;
+background:#faf0f7;
+}
+
+.iframeWrap{
+aspect-ratio:16/9;
+position:relative;
+}
+
+iframe{
+position:absolute;
+width:100%;
+height:100%;
+border:0;
+}
+
+.q{
+background:#f8f2ff;
+border-radius:12px;
+padding:12px;
+margin:10px;
+font-size:14px;
+}
+
+.line{
+border-bottom:2px dotted #bbb;
+height:20px;
+margin-top:6px;
+}
+
+textarea{
+width:100%;
+min-height:150px;
+border-radius:12px;
+border:1px solid #ddd;
+padding:12px;
+font-size:14px;
+}
+
+.footer{
+text-align:center;
+color:#777;
+font-size:13px;
+margin-top:30px;
+}
+</style>
 </head>
 
 <body>
+
 <div class="wrap">
 
-<!-- ====== 前段內容不變（略）====== -->
-
-
-<!-- ================== 三則影片區 ================== -->
-<div class="section">
-  <div class="sectionTitle">
-    <h3>三則影片｜理解 × 象徵 × 反思</h3>
-    <span class="pill">看完每支就停下來回答</span>
-  </div>
-
-  <div class="videoGrid">
-
-    <!-- ====== Video 1（已更換）====== -->
-    <div class="videoCard">
-      <div class="videoTop">
-        <div class="kicker">影片一</div>
-        <div class="name">記憶的月台</div>
-        <div class="muted small">抓線索：等待、月台、每天來的原因</div>
-      </div>
-
-      <div class="iframeWrap">
-        <iframe
-          src="https://www.youtube.com/embed/xTRyYdUHtK0"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <div style="padding:14px;">
-        <div class="q">
-          <b>Q1 老婆婆難以忘懷的是什麼？為何天天來？</b>
-          <div class="answerLine"></div><div class="answerLine"></div>
-        </div>
-
-        <div class="q">
-          <b>Q2「月台」除了地點，還象徵什麼情感？</b>
-          <div class="answerLine"></div><div class="answerLine"></div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ====== Video 2（已更換）====== -->
-    <div class="videoCard">
-      <div class="videoTop">
-        <div class="kicker">影片二</div>
-        <div class="name">當不掉的記憶</div>
-        <div class="muted small">抓線索：典當、鋼琴、父親的選擇</div>
-      </div>
-
-      <div class="iframeWrap">
-        <iframe
-          src="https://www.youtube.com/embed/MZRuw37aqLY"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <div style="padding:14px;">
-        <div class="q">
-          <b>Q1 爸爸當掉了什麼換取鋼琴？</b>
-          <div class="answerLine"></div>
-        </div>
-
-        <div class="q">
-          <b>Q2 什麼是「當不掉的」？為什麼？</b>
-          <div class="answerLine"></div><div class="answerLine"></div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ====== Video 3（已更換）====== -->
-    <div class="videoCard">
-      <div class="videoTop">
-        <div class="kicker">影片三</div>
-        <div class="name">記憶的紅氣球</div>
-        <div class="muted small">抓線索：寫信、陪伴、希望</div>
-      </div>
-
-      <div class="iframeWrap">
-        <iframe
-          src="https://www.youtube.com/embed/CNGZyGi9Vz8"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <div style="padding:14px;">
-        <div class="q">
-          <b>Q1 紅氣球的作用／象徵是什麼？</b>
-          <div class="answerLine"></div><div class="answerLine"></div>
-        </div>
-
-        <div class="q">
-          <b>Q2 警察為何要傑瑞不能停止寫信？</b>
-          <div class="answerLine"></div><div class="answerLine"></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<!-- 標題 -->
+<div class="hero">
+<div class="title">忘不掉的記憶｜國寫素養導向學習</div>
+<p>從三則影片出發，培養感官描寫與生命反思能力</p>
 </div>
 
-<!-- ====== 後段內容不變（略）====== -->
+<!-- 教學目標 -->
+<div class="card">
+<h2>📌 教學目標</h2>
+<ul>
+<li>培養學生整理記憶素材的能力</li>
+<li>練習感官描寫與情感書寫</li>
+<li>連結國寫命題方向</li>
+</ul>
+</div>
+
+<!-- 文本連結 -->
+<div class="card">
+<h2>📖 文本連結</h2>
+<p>琦君〈髻〉強調氣味與觸感的記憶；112 學測國寫以「氣味記憶」引導生命書寫。</p>
+</div>
+
+<!-- 影片區 -->
+<div class="card">
+
+<h2>🎬 影片觀察與思考</h2>
+
+<div class="videoGrid">
+
+<!-- 影片一 -->
+<div class="videoCard">
+
+<div class="videoTop">
+<b>影片一｜當不掉的記憶</b><br>
+典當 × 親情 × 犧牲
+</div>
+
+<div class="iframeWrap">
+<iframe src="https://www.youtube.com/watch?v=MZRuw37aqLY"
+allowfullscreen></iframe>
+</div>
+
+<div class="q">
+<b>Q1 爸爸當掉了什麼？</b>
+<div class="line"></div>
+
+<b>Q2 什麼是「當不掉的」？為什麼？</b>
+<div class="line"></div>
+<div class="line"></div>
+</div>
 
 </div>
+
+<!-- 影片二 -->
+<div class="videoCard">
+
+<div class="videoTop">
+<b>影片二｜記憶的紅氣球</b><br>
+陪伴 × 書信 × 希望
+</div>
+
+<div class="iframeWrap">
+<iframe src="https://www.youtube.com/watch?v=CNGZyGi9Vz8"
+allowfullscreen></iframe>
+</div>
+
+<div class="q">
+<b>Q1 紅氣球象徵什麼？</b>
+<div class="line"></div>
+
+<b>Q2 為何不能停止寫信？</b>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+
+</div>
+
+<!-- 影片三 -->
+<div class="videoCard">
+
+<div class="videoTop">
+<b>影片三｜記憶的月台</b><br>
+等待 × 思念 × 回憶
+</div>
+
+<div class="iframeWrap">
+<iframe src="https://www.youtube.com/watch?v=xTRyYdUHtK0"
+allowfullscreen></iframe>
+</div>
+
+<div class="q">
+<b>Q1 老婆婆為何天天來月台？</b>
+<div class="line"></div>
+
+<b>Q2 月台象徵什麼情感？</b>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- 寫作區 -->
+<div class="card">
+
+<h2>✍️ 短文書寫練習</h2>
+
+<p>
+請以「我的＿＿＿＿記憶」為題，書寫 200 字以上短文，
+須包含感官描寫與生命反思。
+</p>
+
+<textarea placeholder="請在此輸入草稿…"></textarea>
+
+</div>
+
+<div class="footer">
+高二國寫素養導向教材｜記憶與情感主題
+</div>
+
+</div>
+
 </body>
 </html>
