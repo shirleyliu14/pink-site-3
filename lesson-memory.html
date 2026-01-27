@@ -1,243 +1,437 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>忘不掉的記憶｜國寫素養導向</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>忘不掉的記憶｜國寫素養導向</title>
+  <style>
+    :root{
+      --bg:#fff7fb;
+      --card:#ffffff;
+      --ink:#2b2430;
+      --muted:#6b6070;
+      --pink:#ff6fb5;
+      --lav:#b58bff;
+      --line:#f0d6ea;
+      --shadow: 0 10px 30px rgba(34, 20, 40, .08);
+      --r:18px;
+      --pad:18px;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, #ffe2f1 0%, transparent 55%),
+                  radial-gradient(900px 600px at 85% 20%, #efe6ff 0%, transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.65;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 60px;}
+    .hero{
+      background: linear-gradient(135deg, rgba(255,111,181,.15), rgba(181,139,255,.15));
+      border:1px solid rgba(255,111,181,.18);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--r) + 8px);
+      padding: 26px;
+      position: relative;
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 12px; border-radius:999px;
+      background: rgba(255,111,181,.12);
+      border: 1px solid rgba(255,111,181,.18);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .title{
+      font-size: 30px; line-height:1.2; margin: 6px 0 10px;
+      letter-spacing:.5px;
+    }
+    .subtitle{color:var(--muted); margin:0 0 12px;}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px;}
+    .chip{
+      font-size: 12.5px; color: var(--muted);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(181,139,255,.10);
+      border: 1px solid rgba(181,139,255,.18);
+    }
 
-<style>
-body{
-margin:0;
-font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-background:#fff7fb;
-line-height:1.7;
-color:#2b2430;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .title{font-size:26px}
+    }
 
-.wrap{
-max-width:980px;
-margin:auto;
-padding:24px;
-}
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(240,214,234,.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--r);
+      padding: var(--pad);
+    }
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow: 0 6px 16px rgba(255,111,181,.25);
+    }
+    .muted{color: var(--muted)}
+    .list{margin: 10px 0 0; padding-left: 18px;}
+    .list li{margin: 6px 0;}
+    .quote{
+      border-left: 4px solid rgba(181,139,255,.45);
+      padding: 10px 12px;
+      background: rgba(181,139,255,.08);
+      border-radius: 12px;
+      color: var(--ink);
+      margin: 10px 0 0;
+    }
 
-.hero{
-background:#ffe8f3;
-border-radius:20px;
-padding:24px;
-margin-bottom:24px;
-}
+    .section{margin-top: 16px;}
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      margin: 22px 0 10px;
+    }
+    .sectionTitle h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .pill{
+      font-size:12px;
+      color: var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px dashed rgba(255,111,181,.35);
+      background: rgba(255,111,181,.08);
+      white-space:nowrap;
+    }
 
-.title{
-font-size:28px;
-font-weight:700;
-}
+    .videoGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      .videoGrid{grid-template-columns:1fr}
+    }
+    .videoCard{
+      background: var(--card);
+      border: 1px solid rgba(240,214,234,.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--r);
+      overflow:hidden;
+    }
+    .videoTop{
+      padding: 14px 14px 6px;
+      display:flex; flex-direction:column; gap:4px;
+    }
+    .videoTop .kicker{font-size:12px; color:var(--muted)}
+    .videoTop .name{font-weight:700}
+    .iframeWrap{
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #f6eef6;
+      border-top: 1px solid rgba(240,214,234,.9);
+    }
+    iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
 
-.card{
-background:#fff;
-border-radius:18px;
-padding:18px;
-margin-bottom:20px;
-box-shadow:0 6px 18px rgba(0,0,0,.06);
-}
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 860px){
+      .twoCol{grid-template-columns:1fr}
+    }
 
-h2{
-font-size:18px;
-margin-bottom:10px;
-}
+    .q{
+      border: 1px solid rgba(181,139,255,.18);
+      background: rgba(181,139,255,.06);
+      border-radius: 14px;
+      padding: 12px;
+      margin: 10px 0;
+    }
+    .q b{display:block; margin-bottom:6px}
+    .answerLine{
+      margin-top: 8px;
+      border-bottom: 2px dotted rgba(107,96,112,.25);
+      height: 22px;
+    }
 
-.videoGrid{
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:16px;
-}
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-weight: 700;
+      color:#fff;
+      background: linear-gradient(135deg, var(--pink), var(--lav));
+      box-shadow: 0 10px 22px rgba(181,139,255,.18);
+      transition: transform .08s ease;
+    }
+    .btn:active{transform: translateY(1px);}
+    .btn2{
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid rgba(240,214,234,.9);
+      box-shadow: var(--shadow);
+    }
 
-@media(max-width:900px){
-.videoGrid{grid-template-columns:1fr;}
-}
-
-.videoCard{
-border:1px solid #f0d6ea;
-border-radius:18px;
-overflow:hidden;
-background:#fff;
-}
-
-.videoTop{
-padding:14px;
-background:#faf0f7;
-}
-
-.iframeWrap{
-aspect-ratio:16/9;
-position:relative;
-}
-
-iframe{
-position:absolute;
-width:100%;
-height:100%;
-border:0;
-}
-
-.q{
-background:#f8f2ff;
-border-radius:12px;
-padding:12px;
-margin:10px;
-font-size:14px;
-}
-
-.line{
-border-bottom:2px dotted #bbb;
-height:20px;
-margin-top:6px;
-}
-
-textarea{
-width:100%;
-min-height:150px;
-border-radius:12px;
-border:1px solid #ddd;
-padding:12px;
-font-size:14px;
-}
-
-.footer{
-text-align:center;
-color:#777;
-font-size:13px;
-margin-top:30px;
-}
-</style>
+    .footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12.5px;
+      text-align:center;
+    }
+    .hr{
+      height:1px; background: rgba(240,214,234,.9);
+      margin: 18px 0;
+      border-radius: 999px;
+    }
+    .small{font-size:13px}
+    textarea{
+      width:100%;
+      min-height: 140px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid rgba(240,214,234,.95);
+      padding: 12px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+    }
+    .tip{
+      background: rgba(255,111,181,.07);
+      border: 1px solid rgba(255,111,181,.16);
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">🌸 國寫素養導向｜高二｜記憶主題素材收集</div>
+      <h1 class="title">忘不掉的記憶：從影片走向國寫</h1>
+      <p class="subtitle">
+        透過三則短片，練習把「物件／地點／氣味／行為」轉化為寫作素材，並完成一段有描寫、有情感、也有省思的短文。
+      </p>
+      <div class="chips">
+        <span class="chip">記憶媒介</span>
+        <span class="chip">象徵意義</span>
+        <span class="chip">感官描寫</span>
+        <span class="chip">情感轉折</span>
+        <span class="chip">深層反思</span>
+      </div>
+    </section>
 
-<div class="wrap">
+    <div class="grid">
+      <section class="card">
+        <h2><span class="dot"></span>教學目標</h2>
+        <ul class="list">
+          <li>看影片時能抓到「記憶媒介」與「象徵意義」</li>
+          <li>能用<strong>感官描寫</strong>把抽象的情緒寫成具體畫面</li>
+          <li>能把個人經驗升級為<strong>有思辨的生活反思</strong></li>
+        </ul>
 
-<!-- 標題 -->
-<div class="hero">
-<div class="title">忘不掉的記憶｜國寫素養導向學習</div>
-<p>從三則影片出發，培養感官描寫與生命反思能力</p>
-</div>
+        <div class="hr"></div>
 
-<!-- 教學目標 -->
-<div class="card">
-<h2>📌 教學目標</h2>
-<ul>
-<li>培養學生整理記憶素材的能力</li>
-<li>練習感官描寫與情感書寫</li>
-<li>連結國寫命題方向</li>
-</ul>
-</div>
+        <h2><span class="dot"></span>文本連結：琦君〈髻〉＋112學測「氣味記憶」</h2>
+        <p class="muted small">
+          琦君〈髻〉寫親情記憶常被「手勢、觸感、髮香」喚醒；112年學測國寫也以「花草樹木的氣味記憶」引導考生回到感官與生命經驗的交會處。
+        </p>
+        <div class="quote">
+          你可以把「氣味」當成一把鑰匙：它打開的不只是回憶，更是你對人的牽掛、對時間的理解、對自己的看見。
+        </div>
+      </section>
 
-<!-- 文本連結 -->
-<div class="card">
-<h2>📖 文本連結</h2>
-<p>琦君〈髻〉強調氣味與觸感的記憶；112 學測國寫以「氣味記憶」引導生命書寫。</p>
-</div>
+      <aside class="card">
+        <h2><span class="dot"></span>課程流程（建議 50 分鐘）</h2>
+        <ol class="list">
+          <li>暖身：什麼東西最容易喚起你的記憶？（3 分）</li>
+          <li>看影片：每支 3–5 分＋即時提問（20 分）</li>
+          <li>跨片比較：記憶媒介 × 象徵（10 分）</li>
+          <li>短寫：200 字以上（12 分）</li>
+          <li>分享與回饋（5 分）</li>
+        </ol>
+        <div class="hr"></div>
+        <div class="tip">
+          小提醒：寫作時務必出現<strong>至少 2 種感官</strong>（氣味／觸感／聲音／畫面…），文章才會更有「國寫質地」。
+        </div>
+      </aside>
+    </div>
 
-<!-- 影片區 -->
-<div class="card">
+    <div class="section">
+      <div class="sectionTitle">
+        <h3>三則影片｜理解 × 象徵 × 反思</h3>
+        <span class="pill">看完每支就停下來回答</span>
+      </div>
 
-<h2>🎬 影片觀察與思考</h2>
+      <div class="videoGrid">
+        <!-- Video 1 -->
+        <div class="videoCard">
+          <div class="videoTop">
+            <div class="kicker">影片一</div>
+            <div class="name">記憶的月台</div>
+            <div class="muted small">抓線索：等待、月台、每天來的原因</div>
+          </div>
+          <div class="iframeWrap">
+            <iframe
+              src="https://www.youtube.com/embed/CNGZyGi9Vz8"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div style="padding:14px;">
+            <div class="q">
+              <b>Q1 老婆婆難以忘懷的是什麼？為何天天來？</b>
+              <div class="answerLine"></div><div class="answerLine"></div>
+            </div>
+            <div class="q">
+              <b>Q2「月台」除了地點，還象徵什麼情感？</b>
+              <div class="answerLine"></div><div class="answerLine"></div>
+            </div>
+          </div>
+        </div>
 
-<div class="videoGrid">
+        <!-- Video 2 -->
+        <div class="videoCard">
+          <div class="videoTop">
+            <div class="kicker">影片二</div>
+            <div class="name">當不掉的記憶</div>
+            <div class="muted small">抓線索：典當、鋼琴、父親的選擇</div>
+          </div>
+          <div class="iframeWrap">
+            <iframe
+              src="https://www.youtube.com/embed/xTRyYdUHtK0"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div style="padding:14px;">
+            <div class="q">
+              <b>Q1 爸爸當掉了什麼換取鋼琴？</b>
+              <div class="answerLine"></div>
+            </div>
+            <div class="q">
+              <b>Q2 什麼是「當不掉的」？為什麼？</b>
+              <div class="answerLine"></div><div class="answerLine"></div>
+            </div>
+          </div>
+        </div>
 
-<!-- 影片一 -->
-<div class="videoCard">
+        <!-- Video 3 -->
+        <div class="videoCard">
+          <div class="videoTop">
+            <div class="kicker">影片三</div>
+            <div class="name">記憶的紅氣球</div>
+            <div class="muted small">抓線索：寫信、陪伴、希望</div>
+          </div>
+          <div class="iframeWrap">
+            <iframe
+              src="https://www.youtube.com/embed/MZRuw37aqLY"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div style="padding:14px;">
+            <div class="q">
+              <b>Q1 紅氣球的作用／象徵是什麼？</b>
+              <div class="answerLine"></div><div class="answerLine"></div>
+            </div>
+            <div class="q">
+              <b>Q2 警察為何要傑瑞不能停止寫信？</b>
+              <div class="answerLine"></div><div class="answerLine"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="videoTop">
-<b>影片一｜當不掉的記憶</b><br>
-典當 × 親情 × 犧牲
-</div>
+    <div class="section">
+      <div class="sectionTitle">
+        <h3>跨片比較｜把「看懂」變成「寫得出」</h3>
+        <span class="pill">國寫高分常靠「比較＋提升層次」</span>
+      </div>
 
-<div class="iframeWrap">
-<iframe src="https://www.youtube.com/watch?v=MZRuw37aqLY"
-allowfullscreen></iframe>
-</div>
+      <div class="twoCol">
+        <div class="card">
+          <h2><span class="dot"></span>共通點整理</h2>
+          <div class="q">
+            <b>Q1 三部影片各自的「記憶媒介」是什麼？</b>
+            <div class="muted small">提示：物品／地點／行為／信件…</div>
+            <div class="answerLine"></div><div class="answerLine"></div>
+          </div>
+          <div class="q">
+            <b>Q2 這些媒介如何保存情感？（請用「因為…所以…」）</b>
+            <div class="answerLine"></div><div class="answerLine"></div>
+          </div>
+        </div>
 
-<div class="q">
-<b>Q1 爸爸當掉了什麼？</b>
-<div class="line"></div>
+        <div class="card">
+          <h2><span class="dot"></span>連結〈髻〉與「氣味記憶」</h2>
+          <div class="q">
+            <b>Q3 你曾被哪種氣味喚起記憶？那記憶帶著什麼情感？</b>
+            <div class="muted small">提示：髮香、洗衣精、雨後青草、樹木、食物…</div>
+            <div class="answerLine"></div><div class="answerLine"></div><div class="answerLine"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<b>Q2 什麼是「當不掉的」？為什麼？</b>
-<div class="line"></div>
-<div class="line"></div>
-</div>
+    <div class="section">
+      <div class="sectionTitle">
+        <h3>短寫任務｜200 字以上（可直接當國寫練筆前導）</h3>
+        <span class="pill">至少 2 種感官描寫</span>
+      </div>
 
-</div>
+      <div class="card">
+        <p class="muted">
+          請以「我的＿＿＿＿記憶」為題（可填：月台／紅氣球／鋼琴／髮香／樹木氣味…），寫一段短文：
+        </p>
+        <ul class="list">
+          <li><strong>開頭</strong>：用畫面或氣味把讀者拉進情境</li>
+          <li><strong>中段</strong>：交代事件與情感轉折</li>
+          <li><strong>結尾</strong>：提出反思（你因此理解了什麼／改變了什麼）</li>
+        </ul>
+        <div class="hr"></div>
+        <textarea placeholder="在這裡先打草稿（可複製到作業或學習單）..."></textarea>
+        <div class="cta">
+          <button class="btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">回到最上方</button>
+          <button class="btn btn2" onclick="alert('小提醒：寫完後檢查是否有「感官描寫」與「反思句」！')">寫作檢核</button>
+        </div>
+      </div>
+    </div>
 
-<!-- 影片二 -->
-<div class="videoCard">
-
-<div class="videoTop">
-<b>影片二｜記憶的紅氣球</b><br>
-陪伴 × 書信 × 希望
-</div>
-
-<div class="iframeWrap">
-<iframe src="https://www.youtube.com/watch?v=CNGZyGi9Vz8"
-allowfullscreen></iframe>
-</div>
-
-<div class="q">
-<b>Q1 紅氣球象徵什麼？</b>
-<div class="line"></div>
-
-<b>Q2 為何不能停止寫信？</b>
-<div class="line"></div>
-<div class="line"></div>
-</div>
-
-</div>
-
-<!-- 影片三 -->
-<div class="videoCard">
-
-<div class="videoTop">
-<b>影片三｜記憶的月台</b><br>
-等待 × 思念 × 回憶
-</div>
-
-<div class="iframeWrap">
-<iframe src="https://www.youtube.com/watch?v=xTRyYdUHtK0"
-allowfullscreen></iframe>
-</div>
-
-<div class="q">
-<b>Q1 老婆婆為何天天來月台？</b>
-<div class="line"></div>
-
-<b>Q2 月台象徵什麼情感？</b>
-<div class="line"></div>
-<div class="line"></div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<!-- 寫作區 -->
-<div class="card">
-
-<h2>✍️ 短文書寫練習</h2>
-
-<p>
-請以「我的＿＿＿＿記憶」為題，書寫 200 字以上短文，
-須包含感官描寫與生命反思。
-</p>
-
-<textarea placeholder="請在此輸入草稿…"></textarea>
-
-</div>
-
-<div class="footer">
-高二國寫素養導向教材｜記憶與情感主題
-</div>
-
-</div>
-
+    <div class="footer">
+      © 課堂教材（高二國寫素養導向）｜主題：記憶與情感
+    </div>
+  </div>
 </body>
 </html>
