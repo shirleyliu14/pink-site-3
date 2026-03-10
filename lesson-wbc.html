@@ -1,213 +1,503 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>2026WBC棒球賽台韓大戰</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2026WBC棒球賽台韓大戰</title>
+  <style>
+    :root{
+      --bg:#fff9fc;
+      --bg-soft:#fffdff;
+      --card:#ffffff;
+      --ink:#3b3340;
+      --muted:#7b7280;
+      --pink:#f7a8c8;
+      --pink-deep:#ec7fb0;
+      --lav:#c9b4f6;
+      --lav-deep:#a78be8;
+      --line:#f1dbe7;
+      --soft:#fdf1f7;
+      --soft-2:#f6f0ff;
+      --shadow:0 8px 24px rgba(98, 78, 116, .08);
+      --radius:20px;
+      --max:960px;
+    }
 
-<style>
+    *{box-sizing:border-box}
 
-:root{
-  --bg:#fff9fc;
-  --card:#ffffff;
-  --ink:#3b3340;
-  --muted:#7b7280;
-  --pink:#f7a8c8;
-  --pink-deep:#ec7fb0;
-  --lav:#c9b4f6;
-  --lav-deep:#a78be8;
-  --line:#f1dbe7;
-  --shadow:0 8px 24px rgba(98,78,116,.08);
-  --max:960px;
-}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:
+        linear-gradient(180deg,#fffafd 0%,#fff7fb 100%);
+      line-height:1.8;
+    }
 
-*{box-sizing:border-box}
+    a{
+      color:var(--lav-deep);
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
 
-body{
-  margin:0;
-  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-  color:var(--ink);
-  background:linear-gradient(180deg,#fffafd 0%,#fff7fb 100%);
-  line-height:1.8;
-}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 16px 64px;
+    }
 
-a{
-  color:var(--lav-deep);
-  text-decoration:none;
-}
+    .hero{
+      background:linear-gradient(135deg, #fff3f8 0%, #f8f3ff 100%);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px 24px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+    }
 
-.wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:28px 16px 64px;
-}
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #efd9e5;
+      color:#9a78b7;
+      font-size:13px;
+      margin-bottom:12px;
+    }
 
-/* 回首頁按鈕區 */
-.top-nav{
-  margin-bottom:16px;
-}
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4.5vw,40px);
+      line-height:1.25;
+      color:#4a3d52;
+      font-weight:700;
+    }
 
-/* 按鈕樣式 */
-.btn{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
-  color:#fff;
-  font-size:14px;
-  font-weight:700;
-}
+    .subtitle{
+      color:var(--muted);
+      font-size:15px;
+    }
 
-.hero{
-  background:linear-gradient(135deg,#fff3f8 0%,#f8f3ff 100%);
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:32px 24px;
-  box-shadow:var(--shadow);
-  margin-bottom:18px;
-}
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+    }
 
-.eyebrow{
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #efd9e5;
-  color:#9a78b7;
-  font-size:13px;
-  margin-bottom:12px;
-}
+    .chip{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#765f86;
+      font-size:13px;
+    }
 
-h1{
-  margin:0 0 10px;
-  font-size:clamp(28px,4.5vw,40px);
-  color:#4a3d52;
-}
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px 20px;
+      margin-bottom:16px;
+    }
 
-.subtitle{
-  color:var(--muted);
-  font-size:15px;
-}
+    .section-title{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#584b62;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
-.meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
+    .sub-title{
+      margin:18px 0 8px;
+      font-size:17px;
+      color:#8a6bb2;
+    }
 
-.chip{
-  padding:7px 12px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid var(--line);
-  font-size:13px;
-}
+    .soft-box{
+      background:linear-gradient(180deg,#fff9fc 0%,#fff 100%);
+      border:1px solid #f3dce7;
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:10px;
+    }
 
-.section{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  box-shadow:var(--shadow);
-  padding:22px 20px;
-  margin-bottom:16px;
-}
+    .highlight-box{
+      background:linear-gradient(135deg,#fff3f8 0%,#f6f0ff 100%);
+      border:1px solid #eedbea;
+      border-radius:18px;
+      padding:16px;
+      margin-top:12px;
+    }
 
-.section-title{
-  font-size:22px;
-  margin-bottom:14px;
-}
+    .timeline{
+      display:grid;
+      gap:12px;
+      margin-top:8px;
+    }
 
-.video-card{
-  background:#fff8fc;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
-  margin-top:10px;
-}
+    .timeline-item{
+      background:#fff;
+      border:1px solid #f0dce7;
+      border-left:5px solid var(--pink);
+      border-radius:0 16px 16px 0;
+      padding:12px 14px;
+    }
 
-.video-title{
-  font-weight:700;
-}
+    .timeline-time{
+      color:#a57aa0;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:4px;
+    }
 
-.footer{
-  text-align:center;
-  color:#978d99;
-  font-size:13px;
-  margin-top:18px;
-}
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
 
-</style>
+    .video-card{
+      background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .video-title{
+      font-weight:700;
+      color:#564a60;
+      margin-bottom:6px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      opacity:.92;
+    }
+
+    ul{
+      margin:8px 0 0 1.1em;
+      padding:0;
+    }
+
+    li{
+      margin:6px 0;
+    }
+
+    .tab-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .tab-btn{
+      border:none;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#6c5f76;
+      border-radius:999px;
+      padding:10px 16px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .tab-btn.active{
+      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .tab-panel{
+      display:none;
+      background:linear-gradient(180deg,#fff 0%,#fff9fc 100%);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 16px;
+    }
+
+    .tab-panel.active{
+      display:block;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .tag{
+      font-size:12px;
+      color:#9a6689;
+      background:#fff3f8;
+      border:1px solid #f0d6e3;
+      border-radius:999px;
+      padding:5px 10px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#978d99;
+      font-size:13px;
+      margin-top:18px;
+      padding:10px 0 0;
+    }
+
+    @media (max-width: 768px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+      .wrap{
+        padding:20px 12px 48px;
+      }
+      .hero{
+        padding:24px 18px;
+      }
+      .section{
+        padding:18px 16px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
 
-<div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">課堂講義頁｜時事 × 體育 × 思辨</div>
+      <h1>2026WBC棒球賽台韓大戰</h1>
+      <div class="subtitle">
+        這場比賽不只是比分的拉鋸，也是意志、壓力、團隊與國族情感的交會。  
+        台灣在延長十局以 5：4 擊敗韓國，寫下 WBC 對韓首勝。這份講義可作為國三、高二、高三課堂討論與寫作引導材料。
+      </div>
+      <div class="meta">
+        <span class="chip">2026/03/08</span>
+        <span class="chip">東京巨蛋</span>
+        <span class="chip">台灣 5：4 韓國</span>
+        <span class="chip">延長 10 局</span>
+        <span class="chip">WBC 對韓首勝</span>
+      </div>
+    </section>
 
-<!-- 回到首頁 -->
-<div class="top-nav">
-<a href="index.html" class="btn">← 回到單元總覽</a>
-</div>
+    <section class="section">
+      <h2 class="section-title">一、賽事概況</h2>
+      <div class="grid-2">
+        <div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">開局氣勢</div>
+              <div>張育成首局開轟，替台灣打出先聲奪人的氣勢。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">中段拉鋸</div>
+              <div>鄭宗哲六局全壘打，幫助台灣維持競爭優勢，但韓國也持續追平，戰況緊張。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">關鍵一擊</div>
+              <div>八局上 Stuart Fairchild 兩分砲，讓台灣再次超前，成為全場高潮之一。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">延長決勝</div>
+              <div>十局上姜坤宇短打送回致勝分，十局下本壘阻殺成功，台灣守住勝利。</div>
+            </div>
+          </div>
+        </div>
 
-<section class="hero">
-<div class="eyebrow">課堂講義頁｜時事 × 體育 × 思辨</div>
-<h1>2026 WBC 棒球賽台韓大戰</h1>
+        <div>
+          <div class="soft-box">
+            <strong>這場比賽的重要意義</strong>
+            <ul>
+              <li>台灣寫下 WBC 對韓國的歷史性勝利。</li>
+              <li>比賽多次追平、逆轉，戲劇張力十足。</li>
+              <li>球員賽後落淚，展現勝利背後的情緒累積。</li>
+              <li>可延伸探討運動精神、壓力承受與團隊合作。</li>
+            </ul>
+          </div>
 
-<div class="subtitle">
-台灣在延長十局以 5：4 擊敗韓國，寫下 WBC 對韓首勝。
-這場比賽不只是比分競爭，更是一場意志與團隊精神的展現。
-</div>
+          <div class="highlight-box">
+            <strong>課堂引言</strong><br>
+            真正令人難忘的，不只是比分，而是在最緊繃的時刻，一群人仍然願意咬緊牙關、彼此相信，將比賽撐到最後。
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="meta">
-<span class="chip">2026/03/08</span>
-<span class="chip">東京巨蛋</span>
-<span class="chip">台灣 5：4 韓國</span>
-<span class="chip">延長10局</span>
-</div>
+    <section class="section">
+      <h2 class="section-title">二、關鍵人物與賽後評論</h2>
 
-</section>
+      <div class="tag-row">
+        <span class="tag">張育成</span>
+        <span class="tag">鄭宗哲</span>
+        <span class="tag">Stuart Fairchild</span>
+        <span class="tag">古林睿煬</span>
+        <span class="tag">姜坤宇</span>
+      </div>
 
-<section class="section">
-<h2 class="section-title">一、賽事概況</h2>
+      <h3 class="sub-title">1. 關鍵人物</h3>
+      <ul>
+        <li><strong>張育成：</strong>首局全壘打，替全隊開啟比賽氣勢。</li>
+        <li><strong>鄭宗哲：</strong>六局開轟，持續為台灣保有競爭優勢。</li>
+        <li><strong>Stuart Fairchild：</strong>八局兩分砲，讓台灣再次超前。</li>
+        <li><strong>古林睿煬：</strong>先發有效壓制韓國打線，是守住前段局勢的重要人物。</li>
+        <li><strong>姜坤宇：</strong>十局關鍵短打，送回致勝分。</li>
+      </ul>
 
-<ul>
-<li>張育成首局全壘打，替台灣打出氣勢。</li>
-<li>鄭宗哲六局全壘打，維持競爭優勢。</li>
-<li>Stuart Fairchild 八局兩分砲再次超前。</li>
-<li>十局姜坤宇短打送回致勝分。</li>
-</ul>
+      <h3 class="sub-title">2. 賽後評論</h3>
+      <ul>
+        <li>韓國媒體以「震撼敗戰」形容這場比賽，顯示台灣此勝帶來的衝擊。</li>
+        <li>韓國總教練柳志炫肯定台灣實力，也點出古林睿煬的壓制力是關鍵。</li>
+        <li>台灣球員賽後落淚，反映這場勝利不只是技術上的成果，也是一種情緒的釋放。</li>
+      </ul>
 
-</section>
+      <div class="highlight-box">
+        <strong>思考：</strong>
+        為什麼一場球賽，會讓球員、球迷、媒體與社會都投入如此強烈的情感？
+      </div>
+    </section>
 
-<section class="section">
-<h2 class="section-title">二、課堂影片</h2>
+    <section class="section">
+      <h2 class="section-title">三、課堂影片連結</h2>
 
-<div class="video-card">
-<div class="video-title">2026 WBC 台韓戰精華</div>
-<a class="btn" target="_blank"
-href="https://www.youtube.com/watch?v=Bla3AodFnng">
-觀看影片
-</a>
-</div>
+      <div class="video-card">
+        <div class="video-title">【全場精華】中華 vs 南韓｜2026 WBC C組預賽</div>
+        <div>可作為課堂導入，快速掌握比賽過程與關鍵攻防。</div>
+        <a class="btn" target="_blank" href="https://www.youtube.com/watch?v=Bla3AodFnng">開啟影片</a>
+      </div>
 
-</section>
+      <div class="video-card">
+        <div class="video-title">【2026 WBC】03/08 中華隊 vs 韓國｜中華隊精華</div>
+        <div>適合觀察台灣隊整體攻守節奏與逆轉關鍵。</div>
+        <a class="btn" target="_blank" href="https://www.youtube.com/watch?v=6uZauHM6lUk">開啟影片</a>
+      </div>
 
-<section class="section">
-<h2 class="section-title">三、課堂討論</h2>
+      <div class="video-card">
+        <div class="video-title">韓國教頭賽後評論新聞影片</div>
+        <div>可搭配媒體識讀，討論賽後評論與媒體框架。</div>
+        <a class="btn" target="_blank" href="https://www.youtube.com/watch?v=GF614jfp03s">開啟影片</a>
+      </div>
 
-<ul>
-<li>為什麼這場比賽讓球員與球迷如此激動？</li>
-<li>比賽中的「逆轉」代表什麼精神？</li>
-<li>運動是否會強化國家認同？</li>
-</ul>
+      <div class="video-card">
+        <div class="video-title">球迷與現場反應影片</div>
+        <div>適合引導學生思考：運動為何能形成強烈的群體情感？</div>
+        <a class="btn" target="_blank" href="https://www.youtube.com/watch?v=HU4wKIOJTvM">開啟影片</a>
+      </div>
+    </section>
 
-</section>
+    <section class="section">
+      <h2 class="section-title">四、分齡討論議題</h2>
 
-<div class="footer">
-2026 WBC 台韓大戰｜粉紫色講義版
-</div>
+      <div class="tab-row">
+        <button class="tab-btn active" data-tab="tab1">國三</button>
+        <button class="tab-btn" data-tab="tab2">高二</button>
+        <button class="tab-btn" data-tab="tab3">高三</button>
+      </div>
 
-</div>
+      <div id="tab1" class="tab-panel active">
+        <h3 class="sub-title">國三｜運動精神與成長</h3>
+        <ul>
+          <li>台灣隊在被追平後，為什麼還能堅持到最後？</li>
+          <li>你認為一場比賽中，個人表現重要，還是團隊合作重要？為什麼？</li>
+          <li>你是否曾在壓力之下完成一件原本做不到的事？</li>
+          <li>如果你是球員，贏球後最想感謝誰？為什麼？</li>
+        </ul>
+        <div class="soft-box">
+          <strong>小寫作：</strong>請以〈那一刻，我沒有放棄〉為題，寫下自己面對壓力仍努力撐住的一次經驗。
+        </div>
+      </div>
 
+      <div id="tab2" class="tab-panel">
+        <h3 class="sub-title">高二｜媒體、競技與國族情緒</h3>
+        <ul>
+          <li>為什麼台韓對戰常被稱為「宿敵之戰」？</li>
+          <li>媒體以「震撼敗戰」描述韓國輸球，是在報導事實，還是在塑造情緒？</li>
+          <li>運動賽事中的國家認同，可能帶來哪些正面與負面影響？</li>
+          <li>球迷若把勝負視為國家榮辱，對運動本身是助力還是壓力？</li>
+        </ul>
+        <div class="soft-box">
+          <strong>延伸思辨：</strong>運動賽事究竟是純粹競技，還是國家形象的延伸舞台？
+        </div>
+      </div>
+
+      <div id="tab3" class="tab-panel">
+        <h3 class="sub-title">高三｜國寫延伸與價值思辨</h3>
+        <ul>
+          <li>一場球賽除了輸贏，還可以看出哪些值得書寫的價值？</li>
+          <li>球員為何會在勝利後落淚？那眼淚代表什麼？</li>
+          <li>當一個人終於突破長期未能跨越的關卡，他真正贏得的是什麼？</li>
+          <li>你如何理解「關鍵時刻」？它是平時累積，還是瞬間爆發？</li>
+        </ul>
+        <div class="soft-box">
+          <strong>國寫練習題：</strong><br>
+          1.〈勝負之外〉<br>
+          2.〈關鍵的一刻〉<br>
+          3.〈當壓力逼近時，我選擇……〉
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">五、教師引導建議</h2>
+      <ul>
+        <li><strong>導入：</strong>先播放比賽精華，請學生記下自己最震撼的一幕。</li>
+        <li><strong>理解：</strong>帶學生釐清比賽脈絡，整理關鍵人物與轉折。</li>
+        <li><strong>討論：</strong>依年級使用不同討論題，引導學生從事實走向反思。</li>
+        <li><strong>統整：</strong>最後回到「這場比賽為什麼讓人感動」進行口頭分享。</li>
+        <li><strong>延伸：</strong>可銜接短文寫作、國寫素材整理、時事評論寫作。</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>可板書核心概念：</strong><br>
+        勝負、壓力、逆轉、團隊、國族情感、媒體敘事、運動精神、成長
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">六、結語</h2>
+      <div class="highlight-box">
+        台韓之戰之所以動人，不只是因為台灣贏了，而是因為它讓人看見：在最膠著、最緊繃的時刻，仍願意撐住、相信彼此的人，往往才真正贏得尊敬。
+      </div>
+    </section>
+
+    <div class="footer">
+      2026WBC棒球賽台韓大戰｜粉色＋粉紫色簡約版 Google Sites 講義風格
+    </div>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
