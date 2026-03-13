@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>《今生也請多指教》教學講義</title>
+  <style>
+    :root{
+      --bg:#fff9fc;
+      --bg-soft:#fffdff;
+      --card:#ffffff;
+      --ink:#3b3340;
+      --muted:#7b7280;
+      --pink:#f7a8c8;
+      --pink-deep:#ec7fb0;
+      --lav:#c9b4f6;
+      --lav-deep:#a78be8;
+      --line:#f1dbe7;
+      --soft:#fdf1f7;
+      --soft-2:#f6f0ff;
+      --shadow:0 8px 24px rgba(98, 78, 116, .08);
+      --radius:20px;
+      --max:960px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#fffafd 0%,#fff7fb 100%);
+      line-height:1.8;
+    }
+
+    a{
+      color:var(--lav-deep);
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 16px 64px;
+    }
+
+    .top-nav{
+      margin-bottom:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      opacity:.92;
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#fff3f8 0%,#f8f3ff 100%);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px 24px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      opacity:.18;
+      pointer-events:none;
+    }
+
+    .hero::before{
+      width:180px;
+      height:180px;
+      background:var(--pink);
+      top:-50px;
+      right:-20px;
+      filter:blur(6px);
+    }
+
+    .hero::after{
+      width:140px;
+      height:140px;
+      background:var(--lav);
+      bottom:-40px;
+      left:-20px;
+      filter:blur(8px);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #efd9e5;
+      color:#9a78b7;
+      font-size:13px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4.5vw,40px);
+      line-height:1.25;
+      color:#4a3d52;
+      font-weight:700;
+      position:relative;
+      z-index:1;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:15px;
+      position:relative;
+      z-index:1;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .chip{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#765f86;
+      font-size:13px;
+    }
+
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px 20px;
+      margin-bottom:16px;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#584b62;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .sub-title{
+      margin:18px 0 8px;
+      font-size:17px;
+      color:#8a6bb2;
+    }
+
+    .soft-box{
+      background:linear-gradient(180deg,#fff9fc 0%,#fff 100%);
+      border:1px solid #f3dce7;
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:10px;
+    }
+
+    .highlight-box{
+      background:linear-gradient(135deg,#fff3f8 0%,#f6f0ff 100%);
+      border:1px solid #eedbea;
+      border-radius:18px;
+      padding:16px;
+      margin-top:12px;
+    }
+
+    .topic-box{
+      background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);
+      border:1px solid var(--line);
+      border-left:5px solid var(--lav);
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:12px;
+    }
+
+    .topic-box h4{
+      margin:0 0 8px;
+      color:#6a4f92;
+      font-size:18px;
+    }
+
+    .question{
+      background:linear-gradient(180deg,#fff7fb,#ffffff);
+      border:1px solid #f2dced;
+      border-radius:18px;
+      padding:16px;
+      margin:14px 0;
+    }
+
+    .answer-line{
+      display:block;
+      margin-top:8px;
+      border-bottom:2px dashed #eacdf3;
+      height:24px;
+    }
+
+    .answer-lines .answer-line{
+      margin-top:10px;
+    }
+
+    details{
+      border:1px solid #eadbf7;
+      border-radius:18px;
+      background:#fff;
+      margin:12px 0;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px 18px;
+      font-weight:700;
+      color:#6a4f92;
+      background:linear-gradient(180deg,#fff4fb,#fcf8ff);
+      border-bottom:1px solid #f0e2fb;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .details-body{
+      padding:16px 18px;
+      color:#584b60;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .age-card{
+      border:1px solid #efdff7;
+      border-radius:20px;
+      padding:16px;
+      background:linear-gradient(180deg,#fff,#fff8fd);
+      box-shadow:0 8px 20px rgba(190,150,220,.08);
+    }
+
+    .age-card h4{
+      margin:0 0 8px;
+      color:#d4569f;
+      font-size:18px;
+    }
+
+    .age-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#978d99;
+      font-size:13px;
+      margin-top:18px;
+      padding:10px 0 0;
+    }
+
+    ul{
+      margin:8px 0 0 1.1em;
+      padding:0;
+    }
+
+    li{
+      margin:6px 0;
+    }
+
+    @media (max-width: 768px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+      .wrap{
+        padding:20px 12px 48px;
+      }
+      .hero{
+        padding:24px 18px;
+      }
+      .section{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top-nav">
+      <a href="index.html" class="btn">← 回到單元總覽</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">韓劇議題教學 × 國文素養討論</div>
+      <h1>今生也請多指教</h1>
+      <div class="subtitle">
+        適用對象：國三、高一、高二、高三｜主題聚焦：記憶、命運、選擇、創傷、自我認同、愛與時間。
+        這部作品不只是一段跨越前世今生的愛情故事，更是一場關於遺憾、修補與成長的深層追問。
+      </div>
+      <div class="meta">
+        <span class="chip">生命教育</span>
+        <span class="chip">情感書寫</span>
+        <span class="chip">影視文本閱讀</span>
+        <span class="chip">國寫延伸素材</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">一、作品基本資料</h2>
+      <div class="grid-2">
+        <div class="soft-box">
+          <strong>基本資訊</strong>
+          <ul>
+            <li>作品名稱：《今生也請多指教》</li>
+            <li>韓文名稱：이번 생도 잘 부탁해</li>
+            <li>英文名稱：See You in My 19th Life</li>
+            <li>戲劇類型：奇幻／愛情／成長</li>
+            <li>集數：12 集</li>
+          </ul>
+        </div>
+        <div class="soft-box">
+          <strong>教學關鍵字</strong>
+          <ul>
+            <li>記憶</li>
+            <li>命運</li>
+            <li>創傷</li>
+            <li>選擇</li>
+            <li>自我認同</li>
+            <li>愛與時間</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>教學切入點</strong><br>
+        這部劇最適合課堂討論的地方，在於它透過「記得前世」的奇幻設定，讓學生思考：如果人生能重來，遺憾能否被修補？如果記憶永遠不消失，人會更成熟，還是更疲憊？
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">二、故事概要</h2>
+      <p>
+        女主角潘知音擁有記得所有前世記憶的能力。在第十八世時，她與文瑞夏相遇，建立深厚感情，卻因意外而分離。到了第十九世，她帶著過去的記憶再次回到瑞夏身邊，希望重新靠近，也試圖修補曾經未竟的遺憾。
+      </p>
+      <p>
+        然而，這場重逢並不只是浪漫的延續，而是牽動著創傷、命運、失落與自我辨認。她必須面對的，不只是眼前的人，更是始終未曾真正離開的過去。
+      </p>
+      <div class="highlight-box">
+        <strong>核心提問：</strong>
+        人要如何與過去共處？又如何在記憶之中，仍然選擇活向未來？
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">三、核心主題分析</h2>
+
+      <div class="topic-box">
+        <h4>1. 記憶與自我</h4>
+        <p>記憶塑造了人的性格與選擇。女主角因保有前世記憶而更成熟，卻也更難真正放下過去。</p>
+        <ul>
+          <li>記憶是成長的養分，還是心靈的負擔？</li>
+          <li>若一直活在過去，人是否還能真正活在當下？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>2. 命運與選擇</h4>
+        <p>角色不斷試圖改變遺憾，讓人思考：人生究竟是被命運推著走，還是由每一次選擇慢慢塑形？</p>
+        <ul>
+          <li>命運像既定道路，還是可被改寫的草稿？</li>
+          <li>若結局未必可控，努力是否仍有意義？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>3. 創傷與修復</h4>
+        <p>劇中角色都帶著傷痕前行，不是忘記傷痛，而是學習如何與傷痛共處。</p>
+        <ul>
+          <li>真正的成長，不一定是忘記，而是學會承受。</li>
+          <li>陪伴、理解與時間，是否能讓創傷變得可被安放？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>4. 愛與時間</h4>
+        <p>愛在劇中不只是相遇，更是一種跨越時間的辨認與守候。</p>
+        <ul>
+          <li>愛會因時間而改變，還是因記憶而延續？</li>
+          <li>若來生仍能相見，我們會不會還是同樣的人？</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">四、可與學生討論的議題</h2>
+
+      <div class="topic-box">
+        <h4>議題一：如果你能記得前世，你願意嗎？</h4>
+        <p>可以從「多了經驗」與「多了承擔」兩面來討論。</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題二：遺憾能不能被改寫？</h4>
+        <p>如果人生能重來一次，我們真的會做得更好嗎？還是依舊會受性格、環境與情感所限制？</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題三：忘記過去，是一種幸福嗎？</h4>
+        <p>記憶讓人完整，但也可能讓人沉重。適度遺忘是否反而是一種保護？</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題四：一個人能否真正走出創傷？</h4>
+        <p>是靠時間、靠陪伴，還是靠自己重新理解曾經發生的事？</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">五、學生版學習單</h2>
+
+      <div class="question">
+        <strong>1. 本劇女主角最特殊的能力是什麼？</strong>
+        <span class="answer-line"></span>
+      </div>
+
+      <div class="question">
+        <strong>2. 女主角在第十九世重新接近男主角，背後最主要的原因是什麼？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>3. 這部劇除了愛情之外，還觸及哪些更深層的人生議題？請至少寫出兩項。</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>4. 為什麼「記得所有前世」這項能力，既是禮物也是負擔？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>5. 如果人生可以重來一次，你最想改變的是哪一件事？為什麼？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">六、教師版詳解</h2>
+
+      <details open>
+        <summary>第 1 題詳解</summary>
+        <div class="details-body">
+          <strong>參考答案：</strong>她能記得自己所有前世的記憶。<br>
+          <strong>解析：</strong>這是整部劇最核心的奇幻設定，也是推動情節與議題思辨的關鍵。
+        </div>
+      </details>
+
+      <details>
+        <summary>第 2 題詳解</summary>
+        <div class="details-body">
+          <strong>參考答案：</strong>她希望重新找到前世重要的人，彌補過去的遺憾，並再次靠近文瑞夏。<br>
+          <strong>解析：</strong>這不只是愛情重逢，也包含對失去的回應與修補。
+        </div>
+      </details>
+
+      <details>
+        <summary>第 3 題詳解</summary>
+        <div class="details-body">
+          <strong>參考答案：</strong>記憶、自我認同、命運、選擇、創傷、修復、愛與時間。<br>
+          <strong>解析：</strong>可觀察學生是否能從劇情表層走向主題抽象化。
+        </div>
+      </details>
+
+      <details>
+        <summary>第 4 題詳解</summary>
+        <div class="details-body">
+          <strong>參考答案示例：</strong><br>
+          這項能力讓她比別人更成熟，也更能理解人性；但同時，她無法忘記痛苦與失去，因此也比別人更沉重。
+        </div>
+      </details>
+
+      <details>
+        <summary>第 5 題詳解</summary>
+        <div class="details-body">
+          <strong>作答方向：</strong><br>
+          開放式作答，重點在於是否清楚寫出「想改變什麼」以及「為什麼」，並能進一步延伸到反思與成長。
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">七、分齡教學建議</h2>
+      <div class="grid-2">
+        <div class="age-card">
+          <h4>國三</h4>
+          <p>以「如果人生能重來」為切入，重在經驗連結與簡單價值判斷，適合短答與口頭討論。</p>
+        </div>
+        <div class="age-card">
+          <h4>高一</h4>
+          <p>可加入「記憶與自我認同」討論，練習將戲劇情節轉化為抽象主題。</p>
+        </div>
+        <div class="age-card">
+          <h4>高二</h4>
+          <p>適合進一步討論命運與選擇的辯證關係，連結學測國寫常見的自我反思題型。</p>
+        </div>
+        <div class="age-card">
+          <h4>高三</h4>
+          <p>可結合國寫情意題、知性題，進行深層價值思辨與短文寫作。</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>建議課堂流程：</strong><br>
+        影片或劇情簡介導入 10 分鐘 → 主題討論 15 分鐘 → 學習單書寫 15～20 分鐘 → 小組分享與教師收束 10 分鐘
+      </div>
+    </section>
+
+    <div class="footer">
+      今生也請多指教｜粉色＋粉紫色簡約版 Google Sites 講義風格
+    </div>
+
+  </div>
+</body>
+</html>
