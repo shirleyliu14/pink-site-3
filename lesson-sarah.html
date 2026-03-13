@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>《莎拉的真偽人生》專題教學頁</title>
+  <style>
+    :root{
+      --bg:#fff9fc;
+      --bg-soft:#fffdff;
+      --card:#ffffff;
+      --ink:#3b3340;
+      --muted:#7b7280;
+      --pink:#f7a8c8;
+      --pink-deep:#ec7fb0;
+      --lav:#c9b4f6;
+      --lav-deep:#a78be8;
+      --line:#f1dbe7;
+      --soft:#fdf1f7;
+      --soft-2:#f6f0ff;
+      --shadow:0 8px 24px rgba(98, 78, 116, .08);
+      --radius:20px;
+      --max:960px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#fffafd 0%,#fff7fb 100%);
+      line-height:1.8;
+    }
+
+    a{
+      color:var(--lav-deep);
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 16px 64px;
+    }
+
+    .top-nav{
+      margin-bottom:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      opacity:.92;
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#fff3f8 0%,#f8f3ff 100%);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px 24px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #efd9e5;
+      color:#9a78b7;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4.5vw,40px);
+      line-height:1.25;
+      color:#4a3d52;
+      font-weight:700;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:15px;
+      max-width:720px;
+      margin:0 auto;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+      justify-content:center;
+    }
+
+    .chip{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#765f86;
+      font-size:13px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px 20px;
+      margin-bottom:16px;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#584b62;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .sub-title{
+      margin:18px 0 8px;
+      font-size:17px;
+      color:#8a6bb2;
+    }
+
+    .soft-box{
+      background:linear-gradient(180deg,#fff9fc 0%,#fff 100%);
+      border:1px solid #f3dce7;
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:10px;
+    }
+
+    .highlight-box{
+      background:linear-gradient(135deg,#fff3f8 0%,#f6f0ff 100%);
+      border:1px solid #eedbea;
+      border-radius:18px;
+      padding:16px;
+      margin-top:12px;
+    }
+
+    .info-card{
+      background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .info-title{
+      font-weight:700;
+      color:#564a60;
+      margin-bottom:6px;
+      font-size:16px;
+    }
+
+    ul{
+      margin:8px 0 0 1.1em;
+      padding:0;
+    }
+
+    li{
+      margin:6px 0;
+    }
+
+    .number-list{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .number-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:linear-gradient(180deg,#fff 0%,#fff9fc 100%);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .num{
+      min-width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background:#fff3f8;
+      border:1px solid #f0d6e3;
+      color:#9a6689;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .issue-box{
+      background:#fff;
+      border:1px solid #f0dce7;
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:12px;
+    }
+
+    .issue-label{
+      display:inline-block;
+      font-size:12px;
+      color:#9a6689;
+      background:#fff3f8;
+      border:1px solid #f0d6e3;
+      border-radius:999px;
+      padding:4px 10px;
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .footer{
+      text-align:center;
+      color:#978d99;
+      font-size:13px;
+      margin-top:18px;
+      padding:10px 0 0;
+    }
+
+    @media (max-width: 768px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+      .wrap{
+        padding:20px 12px 48px;
+      }
+      .hero{
+        padding:24px 18px;
+      }
+      .section{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top-nav">
+      <a href="index.html" class="btn">← 回到單元總覽</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">課堂講義頁｜跨媒介文本 × 自我認同 × 高中國文</div>
+      <h1>莎拉的真偽人生</h1>
+      <div class="subtitle">
+        當名字可以借用，學歷可以偽造，生活可以被精心包裝，我們究竟該如何定義「真正的自己」？
+        本單元透過《莎拉的真偽人生》帶領學生思考：謊言是生存的手段，還是靈魂的枷鎖；表象是社會通行證，還是自我迷失的起點。
+      </div>
+      <div class="meta">
+        <span class="chip">跨媒介文本分析</span>
+        <span class="chip">自我認同</span>
+        <span class="chip">符號消費</span>
+        <span class="chip">媒體批判</span>
+        <span class="chip">高中國文</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">一、課程核心｜真假之間的辯證</h2>
+      <div class="highlight-box">
+        在階級森嚴、表象至上的社會裡，一個人若想翻身，是否必須先「改寫自己」？  
+        而當外在身份被重新包裝之後，內在的自我會因此獲得自由，還是更加空洞？
+      </div>
+      <div class="soft-box">
+        本單元可引導學生從角色處境、社會價值、媒體文化與個人經驗四個角度切入，討論「真實」與「表演」之間的灰色地帶。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">二、教學重點</h2>
+      <div class="number-list">
+        <div class="number-item">
+          <div class="num">01</div>
+          <div>
+            <strong>認同焦慮</strong><br>
+            分析主角為何必須抹去過去，才能進入另一種人生；並思考這種「重生」究竟是解放，還是自我否定。
+          </div>
+        </div>
+
+        <div class="number-item">
+          <div class="num">02</div>
+          <div>
+            <strong>符號消費</strong><br>
+            衣著、皮包、住所、學歷、談吐，如何在現代社會中被視為個人價值的象徵？我們又是如何被這些符號說服的？
+          </div>
+        </div>
+
+        <div class="number-item">
+          <div class="num">03</div>
+          <div>
+            <strong>媒體批判</strong><br>
+            在社群媒體時代，每個人是否都在經營一個「被觀看的自己」？我們呈現的究竟是真實，還是經過剪裁的版本？
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">三、思辨議題</h2>
+
+      <div class="issue-box">
+        <div class="issue-label">ISSUE 01</div>
+        <div>如果誠實意味著貧窮與被忽視，而謊言象徵翻身與被看見，你會如何選擇？這個選擇背後反映了什麼價值觀？</div>
+      </div>
+
+      <div class="issue-box">
+        <div class="issue-label">ISSUE 02</div>
+        <div>為什麼社會如此容易被「表象」說服？我們該如何培養不被包裝與標籤迷惑的判斷力？</div>
+      </div>
+
+      <div class="issue-box">
+        <div class="issue-label">ISSUE 03</div>
+        <div>一個人若長期活在他人期待與自我表演中，是否還能保有真正的自我？還是終將分不清「我是誰」？</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">四、課堂討論與寫作延伸</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <div class="info-title">討論方向</div>
+          <ul>
+            <li>主角的謊言是「道德問題」，還是「生存策略」？</li>
+            <li>社會是否對出身、外表、學歷有過度迷信？</li>
+            <li>你是否也曾在不同場合扮演不同版本的自己？</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="info-title">寫作任務</div>
+          <ul>
+            <li>情意題：以〈我最不想被看見的那一面〉為題，書寫自我與他人眼光的拉扯。</li>
+            <li>知性題：以「表象是否決定價值」為核心，結合文本與生活經驗論述。</li>
+            <li>延伸題：在社群時代，真實是否仍然重要？請提出你的觀點。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">五、教師引導建議</h2>
+      <ul>
+        <li><strong>導入：</strong>先請學生思考「如果可以重新包裝自己，你最想改掉什麼？」作為暖身提問。</li>
+        <li><strong>理解：</strong>引導學生從角色背景、階級壓力與人際關係切入，理解主角行為動機。</li>
+        <li><strong>分析：</strong>帶學生辨識文本中的象徵物與社會符號，如名牌、住處、學歷、語言風格。</li>
+        <li><strong>思辨：</strong>由角色命運回扣到現代社群文化，討論「被看見」與「做自己」是否能並存。</li>
+        <li><strong>延伸：</strong>可銜接國寫、短文評論、媒體識讀或自我認同主題寫作。</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>可板書核心概念：</strong><br>
+        自我認同、階級焦慮、表象、謊言、生存策略、社群展演、符號消費、真實與偽裝
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">六、結語</h2>
+      <div class="highlight-box">
+        《莎拉的真偽人生》之所以動人，不只在於它揭露了一個人的謊言，更在於它迫使我們直視：當世界過度迷信包裝與光鮮時，我們是否也曾在不知不覺間，把真實的自己藏了起來。
+      </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+      <h2 class="section-title" style="justify-content:center;">七、課堂活動</h2>
+      <a href="#" class="btn">下載學習單 PDF</a>
+      <div class="footer" style="margin-top:14px;">
+        莎拉的真偽人生｜粉色＋粉紫色簡約版 Google Sites 講義風格
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
