@@ -25,8 +25,6 @@
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    html{scroll-behavior:smooth;}
-
     body{
       font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
       color:var(--ink);
@@ -43,102 +41,26 @@
       padding:28px 18px 60px;
     }
 
-    /* 上方首頁卡片風返回區 */
-    .overview-card{
-      display:block;
-      text-decoration:none;
-      margin-bottom:20px;
-      border-radius:28px;
-      overflow:hidden;
-      border:1.5px solid var(--line);
-      background:
-        radial-gradient(circle at top right, rgba(255,126,182,.18), transparent 32%),
-        radial-gradient(circle at bottom left, rgba(183,140,255,.16), transparent 30%),
-        linear-gradient(135deg,#fff7fb 0%, #f5eeff 100%);
-      box-shadow:var(--shadow);
-      transition:.25s ease;
-      position:relative;
+    .top-nav{
+      margin-bottom:16px;
     }
 
-    .overview-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 34px rgba(138, 104, 178, .18);
-    }
-
-    .overview-card-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:20px 22px;
-    }
-
-    .overview-card-left{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      min-width:0;
-    }
-
-    .overview-icon{
-      width:64px;
-      height:64px;
-      border-radius:20px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex:0 0 64px;
-      font-size:30px;
-      color:#fff;
-      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
-      box-shadow:0 10px 22px rgba(183,140,255,.28);
-    }
-
-    .overview-text{
-      min-width:0;
-    }
-
-    .overview-kicker{
+    .back-btn{
       display:inline-block;
-      padding:4px 10px;
+      padding:10px 16px;
       border-radius:999px;
-      background:rgba(255,255,255,.75);
-      border:1px solid var(--line);
-      color:#9c5da8;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.5px;
-      margin-bottom:8px;
-    }
-
-    .overview-title{
-      margin:0;
-      font-size:24px;
-      line-height:1.25;
-      color:#5d3f79;
-      font-weight:900;
-    }
-
-    .overview-sub{
-      margin:6px 0 0;
-      color:var(--muted);
+      background:linear-gradient(90deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
       font-size:14px;
-      line-height:1.6;
+      box-shadow:0 8px 20px rgba(183,140,255,.24);
+      transition:.2s ease;
     }
 
-    .overview-arrow{
-      flex:0 0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      background:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      color:#9a75d8;
-      font-size:24px;
-      font-weight:900;
+    .back-btn:hover{
+      transform:translateY(-2px);
+      opacity:.95;
     }
 
     .hero{
@@ -348,35 +270,15 @@
       .grid-2,.two-col{
         grid-template-columns:1fr;
       }
-      .overview-card-inner{
-        align-items:flex-start;
-      }
-      .overview-title{
-        font-size:21px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <!-- 回到單元總覽：首頁卡片風 -->
-    <!-- 將 href 改成你的單元總覽頁網址即可 -->
-    <a class="overview-card" href="https://sites.google.com/view/你的網站/單元總覽">
-      <div class="overview-card-inner">
-        <div class="overview-card-left">
-          <div class="overview-icon">↩</div>
-          <div class="overview-text">
-            <div class="overview-kicker">UNIT OVERVIEW</div>
-            <h2 class="overview-title">回到單元總覽</h2>
-            <p class="overview-sub">
-              返回上層課程首頁，查看其他單元、講義卡片與課程資源整理。
-            </p>
-          </div>
-        </div>
-        <div class="overview-arrow">➜</div>
-      </div>
-    </a>
+    <div class="top-nav">
+      <a href="index.html" class="back-btn">← 回到單元總覽</a>
+    </div>
 
     <section class="hero">
       <div class="badge">國文｜電影素養教學｜按鈕切換版</div>
