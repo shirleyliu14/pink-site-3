@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>《東方快車謀殺案》教學講義</title>
+  <style>
+    :root{
+      --bg:#fff9fc;
+      --bg-soft:#fffdff;
+      --card:#ffffff;
+      --ink:#3b3340;
+      --muted:#7b7280;
+      --pink:#f7a8c8;
+      --pink-deep:#ec7fb0;
+      --lav:#c9b4f6;
+      --lav-deep:#a78be8;
+      --line:#f1dbe7;
+      --soft:#fdf1f7;
+      --soft-2:#f6f0ff;
+      --shadow:0 8px 24px rgba(98, 78, 116, .08);
+      --radius:20px;
+      --max:960px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#fffafd 0%,#fff7fb 100%);
+      line-height:1.8;
+    }
+
+    a{
+      color:var(--lav-deep);
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 16px 64px;
+    }
+
+    .top-nav{
+      margin-bottom:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      text-decoration:none;
+      opacity:.92;
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#fff3f8 0%,#f8f3ff 100%);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px 24px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      opacity:.18;
+      pointer-events:none;
+    }
+
+    .hero::before{
+      width:180px;
+      height:180px;
+      background:var(--pink);
+      top:-50px;
+      right:-20px;
+      filter:blur(6px);
+    }
+
+    .hero::after{
+      width:140px;
+      height:140px;
+      background:var(--lav);
+      bottom:-40px;
+      left:-20px;
+      filter:blur(8px);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #efd9e5;
+      color:#9a78b7;
+      font-size:13px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4.5vw,40px);
+      line-height:1.25;
+      color:#4a3d52;
+      font-weight:700;
+      position:relative;
+      z-index:1;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:15px;
+      position:relative;
+      z-index:1;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .chip{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#765f86;
+      font-size:13px;
+    }
+
+    .section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:22px 20px;
+      margin-bottom:16px;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#584b62;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .sub-title{
+      margin:18px 0 8px;
+      font-size:17px;
+      color:#8a6bb2;
+    }
+
+    .soft-box{
+      background:linear-gradient(180deg,#fff9fc 0%,#fff 100%);
+      border:1px solid #f3dce7;
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:10px;
+    }
+
+    .highlight-box{
+      background:linear-gradient(135deg,#fff3f8 0%,#f6f0ff 100%);
+      border:1px solid #eedbea;
+      border-radius:18px;
+      padding:16px;
+      margin-top:12px;
+    }
+
+    .topic-box{
+      background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);
+      border:1px solid var(--line);
+      border-left:5px solid var(--lav);
+      border-radius:18px;
+      padding:14px 16px;
+      margin-top:12px;
+    }
+
+    .topic-box h4{
+      margin:0 0 8px;
+      color:#6a4f92;
+      font-size:18px;
+    }
+
+    .question{
+      background:linear-gradient(180deg,#fff7fb,#ffffff);
+      border:1px solid #f2dced;
+      border-radius:18px;
+      padding:16px;
+      margin:14px 0;
+    }
+
+    .answer-line{
+      display:block;
+      margin-top:8px;
+      border-bottom:2px dashed #eacdf3;
+      height:24px;
+    }
+
+    .answer-lines .answer-line{
+      margin-top:10px;
+    }
+
+    details{
+      border:1px solid #eadbf7;
+      border-radius:18px;
+      background:#fff;
+      margin:12px 0;
+      overflow:hidden;
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px 18px;
+      font-weight:700;
+      color:#6a4f92;
+      background:linear-gradient(180deg,#fff4fb,#fcf8ff);
+      border-bottom:1px solid #f0e2fb;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .details-body{
+      padding:16px 18px;
+      color:#584b60;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .age-card{
+      border:1px solid #efdff7;
+      border-radius:20px;
+      padding:16px;
+      background:linear-gradient(180deg,#fff,#fff8fd);
+      box-shadow:0 8px 20px rgba(190,150,220,.08);
+    }
+
+    .age-card h4{
+      margin:0 0 8px;
+      color:#d4569f;
+      font-size:18px;
+    }
+
+    .age-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#978d99;
+      font-size:13px;
+      margin-top:18px;
+      padding:10px 0 0;
+    }
+
+    ul{
+      margin:8px 0 0 1.1em;
+      padding:0;
+    }
+
+    li{
+      margin:6px 0;
+    }
+
+    @media (max-width: 768px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+      .wrap{
+        padding:20px 12px 48px;
+      }
+      .hero{
+        padding:24px 18px;
+      }
+      .section{
+        padding:18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top-nav">
+      <a href="index.html" class="btn">← 回到單元總覽</a>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">經典推理影視 × 國文素養探究</div>
+      <h1>東方快車謀殺案</h1>
+      <div class="subtitle">
+        適用對象：國一、國二、國三、高一、高二、高三｜主題聚焦：道德兩難、私刑復仇、程序正義、群體創傷、真相與謊言。<br>
+        藉由一樁密閉空間的謀殺案，深刻叩問「法律無法制裁的罪惡，是否能以私刑實現正義？」。這是引導學生打破非黑即白的二元思維，進行深度批判思考與價值觀辯證的絕佳素材。
+      </div>
+      <div class="meta">
+        <span class="chip">懸疑推理</span>
+        <span class="chip">道德思辨</span>
+        <span class="chip">人性幽微</span>
+        <span class="chip">經典改編</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">一、作品基本資料</h2>
+      <div class="grid-2">
+        <div class="soft-box">
+          <strong>基本資訊</strong>
+          <ul>
+            <li>作品名稱：《東方快車謀殺案》</li>
+            <li>原文名稱：Murder on the Orient Express</li>
+            <li>英文名稱：Murder on the Orient Express</li>
+            <li>戲劇類型：懸疑／犯罪／推理</li>
+            <li>集數/片長：114 分鐘 (2017電影版) / 小說一冊</li>
+          </ul>
+        </div>
+        <div class="soft-box">
+          <strong>教學關鍵字</strong>
+          <ul>
+            <li>道德兩難</li>
+            <li>程序正義</li>
+            <li>私刑復仇</li>
+            <li>罪與罰</li>
+            <li>敘事視角</li>
+            <li>密室推理</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>教學切入點</strong><br>
+        這部電影最適合課堂討論的地方，在於結局完全打破了傳統推理小說「將兇手繩之以法」的勝利公式。神探白羅面臨了「真相」與「正義」的激烈衝突，完美體現了當現行法律體制無法懲治純粹的邪惡時，被害者家屬的私刑復仇是否具備正當性。這能極大程度地刺激學生的道德神經。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">二、故事概要</h2>
+      <p>享譽國際的神探赫丘勒·白羅搭乘豪華的「東方快車」準備返回倫敦，卻在暴風雪中遇上列車停駛。與此同時，車上一名富商雷契特在密閉的車廂內遭人狂刺多刀斃命。白羅受託展開調查，卻發現車上的十二名乘客背景各異，且每個人的證詞都互相矛盾，似乎都隱藏著不可告人的秘密。</p>
+      <p>隨著調查深入，白羅發現死者真實身分是多年前一樁冷血綁架撕票案的真兇。車上乘客竟都與當年受害的阿姆斯壯家族有著千絲萬縷的聯繫。當所有證據指向這是一場精心策劃的集體復仇時，白羅陷入了職業生涯中最大的道德危機：他該將真相公諸於世，還是讓這群「傷心人」逃脫法律的制裁？</p>
+      <div class="highlight-box">
+        <strong>核心提問：</strong><br>
+        當法律的秤砣失靈，私人行使的「正義」是救贖還是另一種犯罪？我們該如何在理性的法治與感性的情理之間，找到平衡點？
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">三、核心主題分析</h2>
+      <div class="topic-box">
+        <h4>1. 法律與正義的界線</h4>
+        <p>探討當體制內的法律無法懲處罪惡時，體制外的私刑是否能被定義為正義，並挑戰學生對「合法」與「合理」的認知邊界。</p>
+        <ul>
+          <li>雷契特利用漏洞逃過法律制裁，是否意味著他失去了受法律保護的權利？</li>
+          <li>白羅最終的選擇，是對正義的妥協，還是對人性的寬容？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>2. 集體創傷與復仇心理</h4>
+        <p>分析阿姆斯壯命案對十二位乘客造成的深遠影響，探討復仇行為對他們心靈的意義，以及復仇後的空虛與救贖。</p>
+        <ul>
+          <li>為什麼這十二個人願意為了復仇，甘冒成為殺人犯的風險？</li>
+          <li>手刃仇人之後，他們真的能從創傷中走出來並得到內心的平靜嗎？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>3. 絕對理性與情感的衝突</h4>
+        <p>白羅一向堅信「世上只有對與錯，沒有灰色地帶」，此案卻打破了他的二元信念，展現了法理之外的人性溫度與掙扎。</p>
+        <ul>
+          <li>故事開頭與結尾的白羅，在看待「真相」與「正義」的態度上有何轉變？</li>
+          <li>人類的社會規範與道德準則，是否能永遠適用於這種極端的情境？</li>
+        </ul>
+      </div>
+
+      <div class="topic-box">
+        <h4>4. 密閉空間與敘事張力</h4>
+        <p>「東方快車」作為一個與世隔絕的舞台，不僅放大角色的心理狀態，多重視角的證詞更成功干擾偵探與觀眾的判斷。</p>
+        <ul>
+          <li>「暴風雪導致列車停駛」這個設定，在劇情推展與角色心理壓力上有何重要作用？</li>
+          <li>每個人刻意拼湊的「證詞」，如何反映出「敘事視角」不可靠的文學特質？</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">四、可與學生討論的議題</h2>
+      <div class="topic-box">
+        <h4>議題一：程序正義 vs. 實質正義</h4>
+        <p>引導學生思考國家刑罰權的界線。如果我們允許以暴制暴的實質正義，社會的法治基礎是否會瓦解？現代司法強調程序正義的意義為何？</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題二：網路公審與現代私刑</h4>
+        <p>對比現今網路時代，鄉民在網路上進行的「肉搜」、「公審」與「抵制」，是否也是另一種不受程序正義約束的「東方快車集體刺殺」？</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題三：道德兩難與電車難題的變體</h4>
+        <p>如果殺死一個十惡不赦的惡人，可以拯救十二個心碎且無法走出陰霾的靈魂，這樣的行為在道德上站得住腳嗎？這是一個經典的效益主義辯論。</p>
+      </div>
+
+      <div class="topic-box">
+        <h4>議題四：謊言的善與惡</h4>
+        <p>劇中角色為了隱瞞身份而說謊，白羅最終也為他們對警方說了謊。引導學生討論：是否所有的謊言都是惡意？「白色的謊言」在何種情境下具備道德價值？</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">五、學生版學習單</h2>
+      <div class="question">
+        <strong>1. 基礎事實題：請簡述死者雷契特的真實身分，以及他為何會成為車上這十二名乘客的共同目標？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>2. 劇情分析題：十二名乘客每人都刺了死者一刀，這樣的設計有何象徵意義？他們為什麼不乾脆交由一個人動手就好？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>3. 延伸思考題：如果你是偵探白羅，在洞悉一切真相後，你會選擇將他們交給南斯拉夫警察，還是採用「第二個版本」的說詞放走這十二人？為什麼？</strong>
+        <div class="answer-lines">
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">六、分級教學側重點建議（國一至高三）</h2>
+      <div class="grid-2">
+        <div class="age-card">
+          <h4>【國一】故事理解與人物動機</h4>
+          <p>著重引導學生釐清錯綜複雜的人物關係，了解每個角色背後隱藏的心碎故事，培養基礎的閱讀／觀影理解力與人物同理心。</p>
+        </div>
+        <div class="age-card">
+          <h4>【國二】懸疑推理與邏輯思考</h4>
+          <p>帶領學生跟隨白羅的視角，梳理車廂內的線索（如手帕、懷錶、紅袍）與證詞矛盾，訓練邏輯推演與細節觀察的能力。</p>
+        </div>
+        <div class="age-card">
+          <h4>【國三】情感同理與道德初探</h4>
+          <p>從十二人集體行動的背後，引導學生思考「失去摯愛」的創傷，並初步探討「以暴制暴」是否能真正解決內心的痛苦與空虛。</p>
+        </div>
+        <div class="age-card">
+          <h4>【高一】法治觀念與私刑正義</h4>
+          <p>結合公民科核心素養，深究「程序正義」與「實質正義」的衝突。探討若放任私刑正義，民主社會將面臨何種危機與挑戰。</p>
+        </div>
+        <div class="age-card">
+          <h4>【高二】文學手法與敘事視角</h4>
+          <p>分析經典推理小說的「暴風雪山莊」模式（密閉空間），以及「不可靠的敘事視角」如何形塑真相的模糊性，作為文學賞析範本。</p>
+        </div>
+        <div class="age-card">
+          <h4>【高三】哲學思辨與論述寫作</h4>
+          <p>針對「道德兩難」進行深度辯論，並結合國寫（知性題）訓練，要求學生寫下一篇支持或反對白羅決定的論述短文，展現高階思維。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+    
+    </div>
+
+  </div>
+</body>
+</html>
