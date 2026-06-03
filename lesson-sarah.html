@@ -6,869 +6,442 @@
   <title>《莎拉的真偽人生》國文教學資源包</title>
   <style>
     :root{
-      --bg:#fff8fc;
-      --bg2:#f8f2ff;
-      --card:#ffffff;
-      --ink:#4b4154;
-      --muted:#7d7188;
-      --pink:#ff86b7;
-      --pink-deep:#ff5ea1;
-      --lav:#b78dff;
-      --lav-deep:#8e69e8;
-      --soft:#ffeaf4;
-      --soft2:#f3edff;
-      --line:#ecdaf6;
-      --gold:#c79a56;
-      --shadow:0 12px 30px rgba(155, 112, 185, .14);
-      --radius:24px;
-      --radius-sm:16px;
-      --maxw:1180px;
+      --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
+      --pink:#ff86b7;--pink-deep:#ff5ea1;--lav:#b78dff;--lav-deep:#8e69e8;
+      --soft:#ffeaf4;--soft2:#f3edff;--line:#ecdaf6;--gold:#c79a56;
+      --shadow:0 12px 30px rgba(155, 112, 185, .14);--radius:24px;--radius-sm:16px;--maxw:1180px;
     }
-
     *{box-sizing:border-box}
     html,body{
-      margin:0;
-      padding:0;
-      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-      background:
-        radial-gradient(circle at top left, #fff0f7 0%, transparent 28%),
-        radial-gradient(circle at top right, #f3ecff 0%, transparent 28%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      color:var(--ink);
-      line-height:1.8;
+      margin:0;padding:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      background:radial-gradient(circle at top left, #fff0f7 0%, transparent 28%), radial-gradient(circle at top right, #f3ecff 0%, transparent 28%), linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--ink);line-height:1.8;
     }
-
-    a{color:#8f5fe8;text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:28px 18px 80px;
-    }
-
-    .topbar{
-      margin-bottom:18px;
-    }
-
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      color:var(--lav-deep);
-      font-weight:700;
-      font-size:14px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));
-      border:1px solid #f0dcec;
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      padding:34px 28px 30px;
-      margin-bottom:24px;
-    }
-
-    .hero::before,
-    .hero::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      filter:blur(8px);
-      opacity:.45;
-    }
-    .hero::before{
-      width:180px;height:180px;
-      background:#ffd9e9;
-      right:-40px;top:-50px;
-    }
-    .hero::after{
-      width:180px;height:180px;
-      background:#e7dcff;
-      left:-40px;bottom:-60px;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      margin-bottom:12px;
-      padding:7px 12px;
-      border-radius:999px;
-      background:linear-gradient(90deg, #ffe8f2, #f2ebff);
-      color:var(--pink-deep);
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.5px;
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size:clamp(30px,4vw,42px);
-      line-height:1.22;
-      color:#5d436b;
-    }
-
-    .hero-desc{
-      margin:0;
-      font-size:16px;
-      color:var(--muted);
-      max-width:900px;
-    }
-
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .badge{
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--line);
-      color:#7a5b9b;
-      font-weight:700;
-      font-size:13px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .card{
-      grid-column:span 12;
-      background:rgba(255,255,255,.94);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:24px 22px;
-    }
-
-    @media (min-width:860px){
-      .span-4{grid-column:span 4}
-      .span-6{grid-column:span 6}
-      .span-8{grid-column:span 8}
-    }
-
-    h2{
-      margin:0 0 14px;
-      font-size:24px;
-      color:#654874;
-    }
-
-    h3{
-      margin:0 0 10px;
-      font-size:18px;
-      color:#75548a;
-    }
-
-    .subtle{
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .kv{
-      display:grid;
-      grid-template-columns:110px 1fr;
-      gap:8px 14px;
-      margin-top:14px;
-      font-size:15px;
-    }
-    .kv b{color:#6b4e79}
-
-    .mini-list,
-    .clean-list{
-      margin:8px 0 0;
-      padding-left:20px;
-    }
-
-    .mini-list li,
-    .clean-list li{
-      margin:8px 0;
-    }
-
-    .symbol-wrap{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:12px;
-      margin-top:14px;
-    }
-
-    .symbol{
-      background:linear-gradient(180deg,#fff7fb,#f7f2ff);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px;
-    }
-
-    .symbol strong{
-      display:block;
-      color:#7f58a7;
-      margin-bottom:6px;
-      font-size:15px;
-    }
-
-    .tabs{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:12px 0 18px;
-    }
-
-    .tab-btn{
-      appearance:none;
-      border:none;
-      cursor:pointer;
-      padding:11px 18px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid var(--line);
-      color:#7a628e;
-      font-weight:800;
-      box-shadow:0 6px 16px rgba(168,132,195,.08);
-      transition:.22s ease;
-    }
-
-    .tab-btn:hover{
-      transform:translateY(-1px);
-      background:#fff8fc;
-    }
-
-    .tab-btn.active{
-      background:linear-gradient(90deg,var(--pink),var(--lav));
-      color:#fff;
-      border-color:transparent;
-      box-shadow:0 12px 22px rgba(183,141,255,.24);
-    }
-
-    .tab-panel{display:none}
-    .tab-panel.active{display:block}
-
-    .level-head{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:12px;
-      margin-bottom:10px;
-    }
-
-    .level-tag{
-      padding:6px 12px;
-      border-radius:999px;
-      background:linear-gradient(90deg,#ffe6f1,#ede4ff);
-      color:#905aa8;
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .lesson-grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:14px;
-      margin-top:10px;
-    }
-
-    .lesson-box{
-      grid-column:span 12;
-      background:linear-gradient(180deg,#fff,#fff8fc);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px 16px;
-    }
-
-    @media (min-width:860px){
-      .lesson-box.half{grid-column:span 6}
-      .lesson-box.third{grid-column:span 4}
-    }
-
-    .lesson-box h4{
-      margin:0 0 8px;
-      font-size:17px;
-      color:#6f4b82;
-    }
-
-    .quote{
-      margin:0;
-      padding:18px 18px 18px 20px;
-      border-left:5px solid #e7c7db;
-      background:linear-gradient(90deg,#fff7fb,#fcfbff);
-      border-radius:0 18px 18px 0;
-      color:#6f6678;
-    }
-
-    .resource-list{
-      display:grid;
-      gap:12px;
-      margin-top:14px;
-    }
-
-    .resource-item{
-      background:linear-gradient(180deg,#fff,#fff8fd);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px 16px;
-    }
-
-    .resource-item strong{
-      color:#6d4d7d;
-      display:block;
-      margin-bottom:6px;
-    }
-
-    .video-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-
-    .video-card{
-      background:linear-gradient(180deg,#fff,#fdf8ff);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:16px;
-    }
-
-    .video-card h4{
-      margin:0 0 6px;
-      color:#714f86;
-      font-size:16px;
-    }
-
-    .callout{
-      background:linear-gradient(135deg,#fff4fa,#f2ebff);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px 18px;
-      margin-top:16px;
-    }
-
-    .footer-note{
-      margin-top:28px;
-      color:#8a7d95;
-      font-size:13px;
-      text-align:center;
-    }
-
-    .pill{
-      display:inline-block;
-      margin:4px 8px 0 0;
-      padding:6px 10px;
-      font-size:12px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid var(--line);
-      color:#7b6692;
-      font-weight:700;
-    }
-
-    .writing-box{
-      background:linear-gradient(180deg,#fff,#fff7fc);
-      border:1px dashed #e7cfe7;
-      border-radius:18px;
-      padding:16px;
-      margin-top:10px;
+    a{color:var(--lav-deep);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 80px;}
+    .topbar{margin-bottom:18px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--lav-deep);font-weight:700;font-size:14px;transition:0.2s;}
+    .back-link:hover{background:var(--soft2);text-decoration:none;}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));border:1px solid #f0dcec;border-radius:32px;box-shadow:var(--shadow);padding:34px 28px 30px;margin-bottom:24px;}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;}
+    .hero::before{width:180px;height:180px;background:#ffd9e9;right:-40px;top:-50px;}
+    .hero::after{width:180px;height:180px;background:#e7dcff;left:-40px;bottom:-60px;}
+    .eyebrow{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:linear-gradient(90deg, #ffe8f2, #f2ebff);color:var(--pink-deep);font-size:13px;font-weight:800;letter-spacing:.5px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,42px);line-height:1.22;color:#5d436b;position:relative;z-index:1;}
+    .hero-desc{margin:0;font-size:16px;color:var(--muted);max-width:900px;position:relative;z-index:1;}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1;}
+    .badge{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--pink-deep);border:1px solid #ffd4e5;}
+    
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .span-4{grid-column:span 4;}
+    .span-6{grid-column:span 6;}
+    .span-8{grid-column:span 8;}
+    .span-12{grid-column:span 12;}
+    
+    h2{font-size:20px;color:#5d436b;margin:0 0 20px;display:flex;align-items:center;gap:8px;}
+    h2::before{content:"";display:block;width:6px;height:20px;background:var(--pink);border-radius:4px;}
+    h3{font-size:18px;color:var(--ink);margin:16px 0 8px;}
+    
+    .kv{display:flex;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+    .kv b{min-width:100px;color:var(--lav-deep);}
+    .mini-list{list-style:none;padding:0;margin:0 0 16px;}
+    .mini-list li{position:relative;padding-left:20px;margin-bottom:8px;}
+    .mini-list li::before{content:"•";position:absolute;left:0;color:var(--pink);font-weight:bold;}
+    .callout{background:var(--soft2);padding:16px;border-radius:var(--radius-sm);border-left:4px solid var(--lav);font-weight:bold;color:var(--lav-deep);}
+    
+    .symbol-wrap{display:flex;flex-wrap:wrap;gap:16px;}
+    .symbol{background:var(--bg);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--line);flex:1 1 30%;}
+    .symbol strong{display:block;color:var(--pink-deep);margin-bottom:4px;font-size:16px;}
+    
+    .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+    .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
+    
+    .tabs-nav{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;}
+    .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:10px 20px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;}
+    .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    
+    .clean-list{padding-left:20px;margin:0;}
+    .clean-list li{margin-bottom:12px;}
+    .writing-box{background:var(--soft);border:1px dashed var(--pink);padding:16px;border-radius:var(--radius-sm);margin-top:16px;}
+    
+    .quote{margin:0;padding:20px;background:var(--bg2);border-left:4px solid var(--lav);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#6b5d77;}
+    
+    .resource-list{display:flex;flex-direction:column;gap:12px;}
+    .resource-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .resource-item::before{content:"📄";font-size:20px;}
+    
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
+    .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
+    .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
+    
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
+    
+    @media(max-width:768px){
+      .span-4, .span-6, .span-8{grid-column:span 12;}
+      .tabs-nav{padding-bottom:10px;}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-
     <div class="topbar">
-      <a class="back-link" href="index.html">← 回到單元總覽</a>
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
+    <div class="hero">
+      <span class="eyebrow">跨媒介文本主題</span>
+      <h1>《莎拉的真偽人生》國文教學資源包</h1>
+      <p class="hero-desc">探討真實與虛假、社會階級與身分認同的國寫思辨議題。透過主角莎拉建構與拆解「虛假人設」的過程，反思現代社會中「形象包裝」與「真實自我」的拉扯。</p>
+      <div class="badge-row">
+        <span class="badge"># 國寫思辨</span>
+        <span class="badge"># 身分認同</span>
+        <span class="badge"># 虛榮與真實</span>
+      </div>
     </div>
 
-    <section class="hero">
-      <span class="eyebrow">課堂講義頁｜跨媒介文本 × 自我認同 × 媒體批判</span>
-      <h1>《莎拉的真偽人生》國文教學資源包</h1>
-      <p class="hero-desc">
-        當名字可以被借用，身分可以被包裝，生活也能被精心修剪成他人羨慕的模樣，
-        我們究竟該如何辨認「真正的自己」？本單元結合影集文本、社群文化、心理學延伸閱讀與國寫訓練，
-        引導學生思考：表象是社會的通行證，還是靈魂的枷鎖？
-      </p>
-      <div class="badge-row">
-        <span class="badge">適用：國一・國二・國三・高一・高二・高三</span>
-        <span class="badge">主題：身分認同／階級焦慮／表象社會／自我揭露</span>
-        <span class="badge">媒材：戲劇文本＋評論文章＋影片＋寫作活動</span>
-      </div>
-    </section>
-
     <div class="grid">
-      <section class="card span-8">
-        <h2>一、課程定位與核心理念</h2>
-        <p class="subtle">
-          本課以《莎拉的真偽人生》為核心文本，結合你原本教學頁中的三大主軸：
-          <strong>認同焦慮</strong>、<strong>符號消費</strong>、<strong>媒體批判</strong>，
-          進一步引導學生理解：人在現代社會中，往往不是單純「說謊」，而是在壓力、期待與階級想像之下，
-          不斷修補一個「可以被接受的自己」。
-        </p>
+      
+      <!-- 一、課程定位 -->
+      <div class="card span-8">
+        <h2>課程定位與核心理念</h2>
         <div class="kv">
-          <b>課程名稱</b><div>真假之間：從《莎拉的真偽人生》看身分認同</div>
-          <b>科目</b><div>國文</div>
-          <b>建議時數</b><div>100 分鐘（兩節課）／亦可拆成 2～3 週短單元</div>
-          <b>核心能力</b><div>批判思考、文本分析、同理理解、表達溝通、媒體識讀、寫作統整</div>
-          <b>課程目標</b><div>分析角色心理動機、辨識表象社會中的符號運作、討論真實與偽裝的界線、完成國寫／短評／創作任務。</div>
+          <b>課程名稱</b>
+          <span>【國寫思辨】虛實之間：從《莎拉的真偽人生》探討身分建構與真實自我</span>
         </div>
-      </section>
+        <div class="kv">
+          <b>建議時數</b>
+          <span>100 分鐘（兩節課）</span>
+        </div>
+        <div class="kv">
+          <b>核心能力</b>
+          <span>敘事文本分析、人物心理剖析、社會議題批判、情意與知性寫作能力</span>
+        </div>
+        <div class="kv" style="border-bottom:none;">
+          <b>課程目標</b>
+          <span>引導學生透過主角莎拉建構與拆解「虛假人設」的過程，反思現代社會（尤指社群媒體時代）中「形象包裝」與「真實自我」的拉扯，最終能以文字精準表達對「真實」的體悟與論述。</span>
+        </div>
+      </div>
 
-      <section class="card span-4">
-        <h2>二、官方劇情可用重點</h2>
+      <!-- 二、官方劇情 -->
+      <div class="card span-4">
+        <h2>官方劇情可用重點</h2>
         <ul class="mini-list">
-          <li>主角 Sarah Kim 與「奢華品牌」「高級社會」緊密相連。</li>
-          <li>她的身分與人生敘事建立在層層謊言之上。</li>
-          <li>刑警追查她的背景與案件真相，形成懸疑推進。</li>
-          <li>很適合延伸到：表象、階級、慾望、被看見、被相信、真相與審判。</li>
+          <li>渴望被看見的起點：因自卑與底層無力感而編織謊言。</li>
+          <li>謊言的雪球效應：為了圓謊製造更多謊言，展現贗品人生的脆弱。</li>
+          <li>虛假關係的崩解：身分面臨曝光危機，利益建立的關係瓦解。</li>
+          <li>尋回真實的代價：褪去華服，直面最殘破卻真實的自己。</li>
         </ul>
         <div class="callout">
-          <strong>課堂導入句：</strong><br>
-          如果誠實會讓你被忽視，而包裝能讓你被看見，你會不會也想成為另一個人？
+          「如果你能透過一個謊言獲得全世界的愛與尊重，你願意說謊嗎？但如果代價是失去自己呢？」
         </div>
-      </section>
+      </div>
 
-      <section class="card">
-        <h2>三、主題關鍵字與象徵物</h2>
+      <!-- 三、主題與象徵物 -->
+      <div class="card span-12">
+        <h2>🎭 主題關鍵字與象徵物</h2>
         <div class="symbol-wrap">
           <div class="symbol">
-            <strong>真（Authenticity）</strong>
-            指未經修飾的自我、帶著缺陷卻真實存在的生命狀態。
+            <strong>🖼️ 贗品人生 (Artifice)</strong>
+            結合「偽」的概念，為了被羨慕、被接納而打造的光鮮亮麗，卻毫無真實底蘊的虛假狀態。
           </div>
           <div class="symbol">
-            <strong>偽（Artifice）</strong>
-            為了被認可、被羨慕、被接納，而建構出的人工形象。
+            <strong>💔 鏡子的凝視 (Mirror)</strong>
+            象徵自我審視。當外在形象太過成功時，內在反而更焦慮，難以直視那個帶著缺陷的真實自我。
           </div>
           <div class="symbol">
-            <strong>面具</strong>
-            象徵社群平台上的人設、濾鏡、自我修飾與可被觀看的版本。
+            <strong>🏷️ 階級符號 (名牌/住所/學歷)</strong>
+            象徵現代社會的「符號消費」與階級判讀機制，如同劇中不合腳的高跟鞋，強求不屬於自己的事物。
           </div>
           <div class="symbol">
-            <strong>鏡子</strong>
-            象徵自我審視；當外在形象太成功時，內在反而更難直視自己。
+            <strong>🎭 面具與人設 (Persona)</strong>
+            象徵社群平台上的濾鏡、自我修飾與可被觀看的版本；為了符合社會期待而建構出的人工形象。
           </div>
           <div class="symbol">
-            <strong>名牌／住所／學歷</strong>
-            象徵現代社會中的「符號消費」與階級判讀機制。
+            <strong>🕳️ 凝視深淵 (The Abyss)</strong>
+            一旦真實的自我被長期壓抑，在無盡的謊言雪球中，空虛、焦慮與認同崩解所帶來的心理黑洞。
           </div>
           <div class="symbol">
-            <strong>深淵</strong>
-            一旦真實自我被長期壓抑，焦慮、空虛與認同崩解就可能出現。
+            <strong>🌱 殘破的真實 (Authenticity)</strong>
+            象徵褪去華服與謊言後，那未經修飾、帶著缺陷卻真實存在，如同微弱燭光般亟待找回的生命狀態。
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="card">
-        <h2>四、課堂流程建議（100 分鐘）</h2>
+      <!-- 四、課堂流程 -->
+      <div class="card span-12">
+        <h2>課堂流程建議（100 分鐘）</h2>
         <div class="lesson-grid">
-          <div class="lesson-box third">
-            <h4>00–15 分｜暖身</h4>
-            <p>提問：「你曾經在社群上修飾過自己嗎？」可用匿名便利貼蒐集答案，再分類為外貌、成績、心情、家庭、朋友圈。</p>
+          <div class="lesson-box">
+            <h4>0-15分：暖身</h4>
+            【面具檢視】請學生寫下「別人眼中的我」與「真實的我」三個形容詞，探討落差。
           </div>
-          <div class="lesson-box third">
-            <h4>15–40 分｜劇情與文本分析</h4>
-            <p>整理主角身分包裝的契機、謊言擴張的過程、他人為何相信她、她真正想守住的是什麼。</p>
+          <div class="lesson-box">
+            <h4>15-40分：文本分析</h4>
+            【莎拉的選擇】播放關鍵片段，分析主角說謊的動機（社會結構 vs 個人虛榮）。
           </div>
-          <div class="lesson-box third">
-            <h4>40–60 分｜小組討論</h4>
-            <p>辯論：「白謊言是否可能是一種自我保護？」、「沒有造成傷害的偽裝，是否仍該受譴責？」</p>
+          <div class="lesson-box">
+            <h4>40-60分：小組討論</h4>
+            【真偽法庭】「莎拉的悲劇，是她個人的錯，還是社會價值觀的錯？」進行正反辯論。
           </div>
-          <div class="lesson-box half">
-            <h4>60–80 分｜跨文本閱讀</h4>
-            <p>結合社群媒體自我呈現、社會比較、青少年認同發展的延伸資料，讓學生從戲劇走向現代生活問題。</p>
+          <div class="lesson-box">
+            <h4>60-80分：跨文本</h4>
+            【文學對話】引入《大亨小傳》或莫泊桑《項鍊》，比較不同時代對「虛榮」的刻畫。
           </div>
-          <div class="lesson-box half">
-            <h4>80–100 分｜國寫／創作</h4>
-            <p>題目可用〈面具之後〉、〈我最不想被看見的那一面〉、〈表象是否決定價值〉，最後請學生做一頁式統整。</p>
+          <div class="lesson-box">
+            <h4>80-100分：寫作引導</h4>
+            【國寫練兵】發放學習單，根據年段進行知性或情意的寫作大綱規劃。
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="card">
-        <h2>五、各年段按鈕切換教學設計</h2>
-        <div class="tabs" id="tabs">
-          <button class="tab-btn active" data-tab="g7">國一</button>
-          <button class="tab-btn" data-tab="g8">國二</button>
-          <button class="tab-btn" data-tab="g9">國三</button>
-          <button class="tab-btn" data-tab="g10">高一</button>
-          <button class="tab-btn" data-tab="g11">高二</button>
-          <button class="tab-btn" data-tab="g12">高三</button>
+      <!-- 五、各年段切換 -->
+      <div class="card span-12">
+        <h2>各年段按鈕切換教學設計</h2>
+        <div class="tabs-nav" id="tabs">
+          <button class="tab-btn active" onclick="switchTab(0, this)">國一</button>
+          <button class="tab-btn" onclick="switchTab(1, this)">國二</button>
+          <button class="tab-btn" onclick="switchTab(2, this)">國三</button>
+          <button class="tab-btn" onclick="switchTab(3, this)">高一</button>
+          <button class="tab-btn" onclick="switchTab(4, this)">高二</button>
+          <button class="tab-btn" onclick="switchTab(5, this)">高三</button>
         </div>
-
-        <div class="tab-panel active" id="g7">
-          <div class="level-head">
-            <h3>國一教學設計｜辨認「真話」與「假話」</h3>
-            <span class="level-tag">重點：情節理解 × 自我表達 × 基礎價值判斷</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>理解主角為何開始隱瞞真相。</li>
-                <li>辨認故事中的外在行為與內在感受。</li>
-                <li>認識「說謊」可能來自害怕、羞愧與想被喜歡。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>適合提問</h4>
-              <ul class="clean-list">
-                <li>莎拉最怕失去的是什麼？</li>
-                <li>她為什麼不敢讓別人看見真正的自己？</li>
-                <li>你有沒有曾經怕別人誤會，所以不敢說真話？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>真假便利貼：</strong>每人寫一件真事、一件假事，讓同學猜。活動後討論：為什麼有些假話聽起來很像真的？</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>題目：〈我曾經不想讓別人知道的一件事〉，練習描述心情與原因，篇幅 250～300 字。</p>
-            </div>
+        
+        <div class="tab-panel active">
+          <h3>【國一】情緒覺察與誠實</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 引導學生覺察說謊背後的心理機制（恐懼、逃避或討好）。</li>
+            <li><b>討論議題：</b> 為什麼我們會害怕說真話？</li>
+            <li><b>活動設計：</b> 「真話與假話」小遊戲，體驗辨識情緒的過程。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：《一個我不小心說出的謊》</b><br>
+            【大綱】起（背景）-承（說謊的動機）-轉（謊言帶來的心理壓力）-合（最終的坦白或反省）。<br>
+            【佳句】「謊言就像一朵華麗的塑膠花，永遠不用擔心凋謝，卻也永遠不會有花香。」
           </div>
         </div>
 
-        <div class="tab-panel" id="g8">
-          <div class="level-head">
-            <h3>國二教學設計｜面具與同儕認同</h3>
-            <span class="level-tag">重點：角色動機 × 同儕壓力 × 情意寫作</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>分析莎拉的謊言與他人期待之間的關係。</li>
-                <li>探討「想被喜歡」是否會讓人改變自己。</li>
-                <li>連結青春期的自我形象焦慮。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>討論議題</h4>
-              <ul class="clean-list">
-                <li>如果你發現朋友一直在假裝，會拆穿他嗎？</li>
-                <li>在班上、社群上、家裡，我們是不是都像不同的人？</li>
-                <li>別人的眼光，為什麼會影響一個人的選擇？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>角色心聲卡：</strong>請學生分別代寫「莎拉對自己說的話」與「莎拉不敢對別人說的話」，比較兩者差異。</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>題目：〈我扮演過的另一個自己〉，引導學生寫出不同場合中的自我變化與原因。</p>
-            </div>
+        <div class="tab-panel">
+          <h3>【國二】同儕壓力與社群現象</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 探討同儕壓力下產生的虛榮心與「從眾」面具。</li>
+            <li><b>討論議題：</b> IG上的「完美生活」是真的嗎？</li>
+            <li><b>活動設計：</b> 「社群面具」檢視，分析網路上濾鏡前後的心理狀態。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：《濾鏡背後的真實》</b><br>
+            【大綱】起（社群上的完美形象）-承（追求點讚的焦慮）-轉（關掉螢幕後的真實感受）-合（接受不完美的勇氣）。<br>
+            【佳句】「我們花太多時間去修飾照片的瑕疵，卻忘了修補內心的空洞。」
           </div>
         </div>
 
-        <div class="tab-panel" id="g9">
-          <div class="level-head">
-            <h3>國三教學設計｜真假、代價與選擇</h3>
-            <span class="level-tag">重點：推論判斷 × 會考混合題 × 價值思辨</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>分析主角選擇隱瞞真相的成本與風險。</li>
-                <li>訓練從細節推論角色心理。</li>
-                <li>銜接會考式閱讀理解與開放問答。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>混合題方向</h4>
-              <ul class="clean-list">
-                <li>主角最恐懼的是什麼？請從情節證據判斷。</li>
-                <li>鏡子、名牌、住處分別象徵什麼？</li>
-                <li>請用 80～100 字說明：為什麼一個小謊言會愈來愈大？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>法庭辯論：</strong>一組扮演支持者、一組扮演反對者，辯論「身分造假」究竟是道德問題，還是生存策略。</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>題目：〈如果誠實會讓你被忽視，你還願意誠實嗎？〉可作短文訓練或口頭表達練習。</p>
-            </div>
+        <div class="tab-panel">
+          <h3>【國三】自我價值與社會期待</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 釐清外在標籤與內在核心價值的差異。</li>
+            <li><b>討論議題：</b> 標籤能定義一個人嗎？</li>
+            <li><b>活動設計：</b> 「撕下標籤」工作坊，寫下並撕毀別人強加的負面或虛假標籤。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：《給未來的自己：請保持真實》</b><br>
+            【大綱】起（對未來的期許與恐懼）-承（舉例社會對成功的定義）-轉（拒絕被虛榮綁架的決心）-合（約定活出真實的自我）。<br>
+            【佳句】「真正的強大，不是穿上無堅不摧的鎧甲，而是敢於坦露自己的脆弱。」
           </div>
         </div>
 
-        <div class="tab-panel" id="g10">
-          <div class="level-head">
-            <h3>高一教學設計｜表象社會與符號消費</h3>
-            <span class="level-tag">重點：文本分析 × 社會觀察 × 概念建構</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>理解名牌、住所、學歷、談吐等社會符號如何形塑身分。</li>
-                <li>分析社會如何快速相信「看起來像真的東西」。</li>
-                <li>建立「符號消費」與「被觀看的自己」概念。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>討論議題</h4>
-              <ul class="clean-list">
-                <li>一個人的價值，為什麼經常被外在符號替代？</li>
-                <li>我們是否也在用穿著、成績、手機、社群版面定義他人？</li>
-                <li>「高級感」為什麼容易讓人誤判真實性？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>符號拆解工作坊：</strong>列出劇中可代表階級與認同的物件，分析它們如何影響他人判斷。</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>題目：〈表象是否決定價值〉，採論說短文格式，要求提出立場、舉例、反思。</p>
-            </div>
+        <div class="tab-panel">
+          <h3>【高一】敘事視角與人物心理建構</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 練習從不同敘事視角切入，深描人物內心的矛盾與掙扎。</li>
+            <li><b>討論議題：</b> 階級焦慮如何扭曲人性？</li>
+            <li><b>活動設計：</b> 「莎拉的獨白」角色扮演，以第一人稱視角自白。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：（情意）《面具的重量》</b><br>
+            【大綱】起（描繪戴上面具的場景與原因）-承（面具帶來的甜頭與特權）-轉（面具逐漸與肉體縫合的窒息感）-合（摘下面具的痛楚與救贖）。<br>
+            【佳句】「最深沉的孤獨，是當你站在萬人中央，卻沒有人認識真正的你。」
           </div>
         </div>
 
-        <div class="tab-panel" id="g11">
-          <div class="level-head">
-            <h3>高二教學設計｜社群展演與自我認同</h3>
-            <span class="level-tag">重點：跨文本閱讀 × 心理學連結 × 國寫情意題</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>結合戲劇與評論文章，討論社群媒體上的自我展演。</li>
-                <li>理解「向上比較」「被按讚期待」「人設經營」如何影響自我價值。</li>
-                <li>練習從文本出發，連結現代生活現象。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>適合高二的討論</h4>
-              <ul class="clean-list">
-                <li>真實的自己，是否會因為無法被喜歡而被隱藏？</li>
-                <li>社群平台讓我們更自由，還是更焦慮？</li>
-                <li>「被看見」與「做自己」真的能同時成立嗎？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>雙文本統整：</strong>一篇看劇情、一篇看心理學或社群評論，要求學生統整兩文本共同指出的問題。</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>題目：〈我最不想被看見的那一面〉，以情意題方式書寫自我與他人眼光的拉扯。</p>
-            </div>
+        <div class="tab-panel">
+          <h3>【高二】跨文本比較與批判性思考</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 連結不同文學作品，針對社會現象提出具邏輯性的論述。</li>
+            <li><b>討論議題：</b> 「偽造的成功」是否有價值？</li>
+            <li><b>活動設計：</b> 「真偽藝術」法庭辯論，討論莎拉行為的社會結構因素。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：（知性）《論「人設」在現代社會的必要性與危機》</b><br>
+            【大綱】起（定義人設並點出普遍性）-承（論述人設的社交防衛與利益功能）-轉（剖析過度依賴人設造成的自我異化）-合（提出在真偽間取得平衡的見解）。<br>
+            【佳句】「當『看起來過得好』比『真正過得好』更重要時，我們都成了精緻的櫥窗展示品。」
           </div>
         </div>
 
-        <div class="tab-panel" id="g12">
-          <div class="level-head">
-            <h3>高三教學設計｜真相、審判與國寫深化</h3>
-            <span class="level-tag">重點：學測國寫 × 評論整合 × 高層次思辨</span>
-          </div>
-          <div class="lesson-grid">
-            <div class="lesson-box half">
-              <h4>教學重點</h4>
-              <ul class="clean-list">
-                <li>從劇情衝突切入「道德責任、社會結構、身分焦慮」的複雜性。</li>
-                <li>進行知性題與情意題雙軌練習。</li>
-                <li>練習建構論點、引用情節、連結社會現象、提出反思。</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>高三進階討論</h4>
-              <ul class="clean-list">
-                <li>若謊言的起點是生存需求，責任究竟應由個人還是社會承擔？</li>
-                <li>當社會獎勵包裝、懲罰脆弱時，「真誠」是否反而成了奢侈品？</li>
-                <li>真相的揭露，究竟是正義的完成，還是另一場觀看與消費？</li>
-              </ul>
-            </div>
-            <div class="lesson-box half">
-              <h4>活動設計</h4>
-              <p><strong>評論寫作工作坊：</strong>以「表象是否決定價值」或「社群時代，真實是否仍重要」為題，完成 500～700 字評論。</p>
-            </div>
-            <div class="lesson-box half">
-              <h4>寫作任務</h4>
-              <p>國寫題目：〈面具之後〉。要求包含偽裝經驗、影響、反思與對真實的領悟，可搭配高分範文賞析。</p>
-            </div>
+        <div class="tab-panel">
+          <h3>【高三】國寫實戰與深度思想建構</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b> 針對大考題型進行統整，強化知性與情意雙軌寫作的深度。</li>
+            <li><b>討論議題：</b> 真實的痛苦與虛假的幸福，如何抉擇？</li>
+            <li><b>活動設計：</b> 歷屆大考題型對讀與破題演練。</li>
+          </ul>
+          <div class="writing-box">
+            <b>📝 寫作任務：（雙題型）《真實之痛與虛假之美》</b><br>
+            【大綱】起（破題：以莎拉為例，點出哲學命題）-承（論述虛假之美的誘惑力與社會結構）-轉（闡述真實之痛的本質，為何必須經歷它）-合（昇華：在殘破的真實中重建自我尊嚴）。<br>
+            【佳句】「寧可在真實的泥淖中掙扎出堅實的腳印，也不要在虛假的雲端上建立幻滅的城堡。」
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="card span-6">
-        <h2>六、學生版學習單題型建議</h2>
-        <h3>（一）選擇題</h3>
+      <!-- 六、學習單 -->
+      <div class="card span-6">
+        <h2>學生版學習單題型建議</h2>
         <ul class="clean-list">
-          <li>劇中莎拉最恐懼的是什麼？（可引導到「失去他人的認同」）</li>
-          <li>「Art」一詞除了藝術，還可聯想到什麼？（人工、造作、精心設計）</li>
+          <li><b>（一）選擇題：</b><br>1. 劇中莎拉決定偽造身分的導火線為何？<br>2. 「不合腳的高跟鞋」最核心的象徵意義是？<br>3. 關於本劇主旨，下列敘述何者最適切？</li>
+          <li><b>（二）填充與推理：</b><br>1. 莎拉的謊言軌跡：自卑 → 偽造 → 獲得特權 → ( ______ ) → 崩潰。<br>2. 如果莎拉當初沒有說謊，她的困境能如何解決？</li>
+          <li><b>（三）簡答題：</b><br>1. 劇中的「贗品畫作」與莎拉人生有何呼應？<br>2. 謊言被揭穿時身邊人的反應說明了什麼現實？</li>
+          <li><b>（四）開放思辨題：</b><br>1. 若你是莎拉，面臨曝光危機你會繼續圓謊還是坦白？<br>2. 現代社群媒體中，我們是否也扮演著莎拉？請舉例。</li>
         </ul>
+      </div>
 
-        <h3>（二）填充與推理</h3>
+      <!-- 七、教師講義 -->
+      <div class="card span-6">
+        <h2>教師講義引導重點</h2>
         <ul class="clean-list">
-          <li>請寫出莎拉在劇中的兩種性格反差：外在展現＿＿＿＿，內心卻感到＿＿＿＿。</li>
-          <li>鏡子、名牌、住處各象徵什麼意義？</li>
-        </ul>
-
-        <h3>（三）簡答題</h3>
-        <ul class="clean-list">
-          <li>請說明「一個謊言需要更多謊言來維持」在劇中是如何呈現的。</li>
-          <li>為什麼社會容易被表象說服？請結合劇情作答。</li>
-        </ul>
-
-        <h3>（四）開放題</h3>
-        <div class="writing-box">
-          如果你可以擁有一個「完美但虛假」的人生，你願意交換現在「平凡但真實」的生活嗎？請說明理由。
-        </div>
-      </section>
-
-      <section class="card span-6">
-        <h2>七、教師講義引導重點</h2>
-        <ul class="clean-list">
-          <li><strong>背景與主題：</strong>本劇可視為「現代身分神話」的故事，反映階級、標籤與觀看文化。</li>
-          <li><strong>第一部分：面具的誕生</strong>——主角開始撒謊，多半不是出於惡，而是來自偏見、羞恥與失敗恐懼。</li>
-          <li><strong>第二部分：崩潰的邊緣</strong>——謊言像滾雪球，主角享有假身分帶來的紅利，卻愈來愈空虛。</li>
-          <li><strong>第三部分：真相與救贖</strong>——真正的救贖，未必來自他人的原諒，而可能來自接納不完美的自己。</li>
-          <li><strong>板書概念：</strong>自我認同、階級焦慮、表象、謊言、生存策略、社群展演、符號消費、真實與偽裝。</li>
+          <li><b>背景主題：</b> 高壓競爭與階級固化，促使底層人物鋌而走險。</li>
+          <li><b>面具誕生：</b> 「惡」源於微小的虛榮與環境的冷漠。</li>
+          <li><b>崩潰邊緣：</b> 謊言的最大懲罰不是被揭穿，而是永遠活在恐懼中。</li>
+          <li><b>真相救贖：</b> 失去一切，卻找回了真實的自己。</li>
+          <li><b>板書關鍵字：</b> #階級焦慮 #身分建構 #鏡像自我 #虛榮的代價 #異化</li>
         </ul>
         <blockquote class="quote">
-          教師可提醒學生：不要急著把角色分成「好人／壞人」，
-          更重要的是追問——她為什麼會走到這一步？而社會又為什麼讓這樣的偽裝變得有利可圖？
+          「我們窮盡一生想成為別人羨慕的樣子，卻在過程中，把那個原本會哭會笑的自己給弄丟了。」
         </blockquote>
-      </section>
+      </div>
 
-      <section class="card">
-        <h2>八、延伸閱讀與跨文本資料</h2>
+      <!-- 八、延伸閱讀 -->
+      <div class="card span-12">
+        <h2>延伸閱讀與跨文本資料</h2>
         <div class="resource-list">
           <div class="resource-item">
-            <strong>1. 青少年社群使用與認同發展</strong>
-            可搭配閱讀摘要：社群媒體使用不只影響時間分配，也與身分探索、自我概念清晰度、認同焦慮等面向有關。
+            <div>
+              <strong>小說：費茲傑羅《大亨小傳》</strong>
+              <p style="margin:0;font-size:14px;color:var(--muted)">探討繁華背後的虛無與幻滅，與莎拉追求上流社會的動機對讀。</p>
+            </div>
           </div>
           <div class="resource-item">
-            <strong>2. 自我呈現與向上比較</strong>
-            可延伸討論：當一個人愈在意按讚、回應、照片修飾與被認可程度，是否更容易陷入焦慮與自我懷疑？
+            <div>
+              <strong>短篇小說：莫泊桑《項鍊》</strong>
+              <p style="margin:0;font-size:14px;color:var(--muted)">為了一夜的虛榮，付出一生的代價，最經典的虛榮代價文本。</p>
+            </div>
           </div>
           <div class="resource-item">
-            <strong>3. 社會比較與情緒壓力</strong>
-            可讓學生思考：我們羨慕的，是真實生活，還是被挑選過的片段？
+            <div>
+              <strong>散文：白先勇《臺北人》</strong>
+              <p style="margin:0;font-size:14px;color:var(--muted)">分析沉溺於過去虛假繁華、無法面對真實現在的心理狀態。</p>
+            </div>
           </div>
           <div class="resource-item">
-            <strong>4. 媒體識讀任務</strong>
-            請學生挑選一則看似完美的社群貼文，分析其中哪些元素屬於「被設計的真實」。
+            <div>
+              <strong>心理學選文：「冒牌者症候群」</strong>
+              <p style="margin:0;font-size:14px;color:var(--muted)">探討即使擁有成就，依然覺得自己是個「騙子」的心理現象。</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="card">
-        <h2>九、相關影片連結</h2>
+      <!-- 九、相關影片 -->
+      <div class="card span-12">
+        <h2>相關影片連結</h2>
         <div class="video-grid">
           <div class="video-card">
-            <h4>官方英文預告｜Netflix</h4>
-            <p>適合上課開場使用，讓學生先掌握影集氛圍與身分懸疑感。</p>
-            <a href="https://www.youtube.com/watch?v=D6gwMcL9OVM" target="_blank" rel="noopener noreferrer">▶ 前往觀看</a>
+            <h4>【TED演講】</h4>
+            <p style="font-size:14px;color:var(--muted)">展現脆弱的力量 (The power of vulnerability)</p>
+            <a href="https://www.youtube.com/watch?v=iCvmsMzlF7o" target="_blank">點擊觀看</a>
           </div>
           <div class="video-card">
-            <h4>官方韓文預告｜넷플릭스 코리아</h4>
-            <p>可作為語感與視覺導入，讓學生注意劇中的奢華符號與角色張力。</p>
-            <a href="https://www.youtube.com/watch?v=aPNZNcBIWNw" target="_blank" rel="noopener noreferrer">▶ 前往觀看</a>
+            <h4>【心理學解析】</h4>
+            <p style="font-size:14px;color:var(--muted)">我們為什麼要在社群媒體上假裝完美？</p>
+            <a href="https://www.youtube.com/" target="_blank">點擊觀看</a>
           </div>
           <div class="video-card">
-            <h4>官方英文 Teaser｜Netflix</h4>
-            <p>適合做短版暖身，讓學生預測人物背景與情節發展。</p>
-            <a href="https://www.youtube.com/watch?v=D0kt6A8ZaKI" target="_blank" rel="noopener noreferrer">▶ 前往觀看</a>
+            <h4>【電影解說】</h4>
+            <p style="font-size:14px;color:var(--muted)">《大亨小傳》：了不起的蓋茨比與他的幻夢</p>
+            <a href="https://www.youtube.com/" target="_blank">點擊觀看</a>
           </div>
           <div class="video-card">
-            <h4>社群與青少年身分 TEDx 影片</h4>
-            <p>可作延伸討論，搭配劇情談「社群自我」與「真實自我」的距離。</p>
-            <a href="https://www.youtube.com/watch?v=44Wbt5gM0-k" target="_blank" rel="noopener noreferrer">▶ 前往觀看</a>
+            <h4>【哲學探討】</h4>
+            <p style="font-size:14px;color:var(--muted)">莊周夢蝶：什麼是真實？什麼是虛假？</p>
+            <a href="https://www.youtube.com/" target="_blank">點擊觀看</a>
           </div>
         </div>
-      </section>
-
-      <section class="card">
-        <h2>十、國寫與課堂討論題庫</h2>
-        <div class="lesson-grid">
-          <div class="lesson-box half">
-            <h4>情意題方向</h4>
-            <ul class="clean-list">
-              <li>〈面具之後〉</li>
-              <li>〈我最不想被看見的那一面〉</li>
-              <li>〈當我試著成為別人眼中的理想樣子〉</li>
-            </ul>
-          </div>
-          <div class="lesson-box half">
-            <h4>知性題方向</h4>
-            <ul class="clean-list">
-              <li>表象是否決定價值？</li>
-              <li>社群時代，真實是否仍然重要？</li>
-              <li>當包裝成為通行證，誠實是否反而吃虧？</li>
-            </ul>
-          </div>
-          <div class="lesson-box half">
-            <h4>討論題</h4>
-            <ul class="clean-list">
-              <li>為了保護家人而說的謊，是否仍然是「偽」？</li>
-              <li>如果一個謊言沒有直接傷害人，還需要被處罰嗎？</li>
-              <li>Instagram／Threads 上的生活，有多少比例是真實的？</li>
-            </ul>
-          </div>
-          <div class="lesson-box half">
-            <h4>範文賞析提醒</h4>
-            <p>
-              可引導學生觀察高分文章的四段結構：<br>
-              起——虛假完美　承——內心空虛　轉——真相／反思　合——接納真實。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>十一、一頁式課堂結語</h2>
-        <blockquote class="quote">
-          《莎拉的真偽人生》最動人的地方，不只在於它揭露了一個人的謊言，
-          更在於它逼迫我們直視：當世界過度迷信包裝與光鮮時，
-          我們是否也曾在不知不覺之中，把真正的自己藏了起來？
-        </blockquote>
-        <div style="margin-top:14px;">
-          <span class="pill">自我認同</span>
-          <span class="pill">階級焦慮</span>
-          <span class="pill">社群展演</span>
-          <span class="pill">符號消費</span>
-          <span class="pill">真實與偽裝</span>
-          <span class="pill">媒體批判</span>
-          <span class="pill">國寫延伸</span>
-        </div>
-      </section>
-
-      <div class="footer-note">
-        莎拉的真偽人生｜粉色＋粉紫色簡約版 Google Sites 教學頁風格
       </div>
+
+      <!-- 十、國寫題庫 -->
+      <div class="card span-12">
+        <h2>國寫與課堂討論題庫</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>【情意題方向】</h4>
+            1. 寫下一次你為了迎合他人而隱藏真實自我的經驗。<br>
+            2. 凝視鏡中的自己。<br>
+            3. 華麗的枷鎖。
+          </div>
+          <div class="lesson-box">
+            <h4>【知性題方向】</h4>
+            1. 論「社群人設」對青少年人際關係的影響。<br>
+            2. 社會階級固化是否為造就「莎拉」們的推手？<br>
+            3. 「善意的謊言」是否存在道德正當性？
+          </div>
+          <div class="lesson-box">
+            <h4>【討論題】</h4>
+            1. 莎拉是可惡的罪人，還是可悲的社會犧牲品？<br>
+            2. 如果沒有人發現謊言，她會得到真正的幸福嗎？<br>
+            3. 成功的定義只能由社會地位和金錢衡量嗎？
+          </div>
+          <div class="lesson-box">
+            <h4>【範文賞析提醒】</h4>
+            提醒學生在寫作時，避免淪為純粹的道德說教，應展現對人性脆弱面的「同理心」，並從社會結構層面進行「批判思考」。
+          </div>
+        </div>
+      </div>
+
+      <!-- 十一、結語 -->
+      <div class="card span-12">
+        <h2>一頁式課堂結語</h2>
+        <blockquote class="quote">
+          這是一場關於「真實」的殘酷巡禮。莎拉用華麗的謊言為自己編織了一件名貴的袍子，卻掩蓋不住裡面爬滿的蝨子。我們在她的故事裡看見了貪婪，卻也看見了那個在現代社會中，拼命想證明自己有價值的、焦慮的靈魂。願我們都能擁有摘下面具的勇氣，明白自己不需成為博物館裡的昂貴贗品，只需做原野上一朵真實呼吸的小花。
+        </blockquote>
+        <div class="pill-wrap">
+          <span class="pill">#找回真實</span>
+          <span class="pill">#撕下標籤</span>
+          <span class="pill">#拒絕虛榮</span>
+          <span class="pill">#勇敢脆弱</span>
+          <span class="pill">#直面自我</span>
+          <span class="pill">#階級反思</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <script>
-    (function(){
-      const btns = document.querySelectorAll('.tab-btn');
-      const panels = document.querySelectorAll('.tab-panel');
-
-      btns.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const target = btn.dataset.tab;
-
-          btns.forEach(b=>b.classList.remove('active'));
-          panels.forEach(p=>p.classList.remove('active'));
-
-          btn.classList.add('active');
-          document.getElementById(target).classList.add('active');
-        });
-      });
-    })();
+    // 年段切換腳本
+    function switchTab(index, btnElement) {
+      const card = btnElement.closest('.card');
+      const btns = card.querySelectorAll('.tab-btn');
+      const panels = card.querySelectorAll('.tab-panel');
+      
+      btns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btnElement.classList.add('active');
+      panels[index].classList.add('active');
+    }
   </script>
 </body>
 </html>
