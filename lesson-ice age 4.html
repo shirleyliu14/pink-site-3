@@ -3,648 +3,447 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>《冰原歷險記4：板塊漂移》國文教學講義</title>
+  <title>《冰原歷險記4：板塊漂移》國文教學資源包</title>
   <style>
     :root{
-      --bg:#fff8fc;
-      --bg2:#f9f3ff;
-      --card:#ffffff;
-      --ink:#4a4052;
-      --muted:#7b6f86;
-      --pink:#ff7eb6;
-      --pink-deep:#ff5ca3;
-      --lav:#b78cff;
-      --lav-deep:#8f66ea;
-      --line:#efd8f6;
-      --soft:#ffeaf4;
-      --soft2:#f3ecff;
-      --shadow:0 10px 30px rgba(138, 104, 178, .14);
-      --radius:22px;
-      --max:1100px;
+      --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
+      --pink:#ff86b7;--pink-deep:#ff5ea1;--lav:#b78dff;--lav-deep:#8e69e8;
+      --soft:#ffeaf4;--soft2:#f3edff;--line:#ecdaf6;--gold:#c79a56;
+      --shadow:0 12px 30px rgba(155, 112, 185, .14);--radius:24px;--radius-sm:16px;--maxw:1180px;
     }
-
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at top left, #fff0f7 0%, transparent 28%),
-        radial-gradient(circle at top right, #f3eaff 0%, transparent 30%),
-        linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
-      line-height:1.8;
+    html,body{
+      margin:0;padding:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      background:radial-gradient(circle at top left, #fff0f7 0%, transparent 28%), radial-gradient(circle at top right, #f3ecff 0%, transparent 28%), linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--ink);line-height:1.8;
     }
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:28px 18px 60px;
-    }
-
-    .top-nav{
-      margin-bottom:16px;
-    }
-
-    .back-btn{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--pink-deep),var(--lav-deep));
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 8px 20px rgba(183,140,255,.24);
-      transition:.2s ease;
-    }
-
-    .back-btn:hover{
-      transform:translateY(-2px);
-      opacity:.95;
-    }
-
-    .hero{
-      background:linear-gradient(135deg,#fff6fb 0%, #f6efff 100%);
-      border:1.5px solid var(--line);
-      border-radius:30px;
-      box-shadow:var(--shadow);
-      padding:28px 24px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      right:-50px;
-      top:-50px;
-      width:180px;
-      height:180px;
-      background:radial-gradient(circle, rgba(255,126,182,.18) 0%, rgba(255,126,182,0) 70%);
-      border-radius:50%;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:6px 14px;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--pink),var(--lav));
-      color:#fff;
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.5px;
-      margin-bottom:12px;
-      box-shadow:0 8px 18px rgba(183,140,255,.25);
-    }
-
-    h1{
-      margin:0 0 8px;
-      font-size:clamp(28px,4vw,42px);
-      line-height:1.25;
-      color:#4a355f;
-    }
-
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-    }
-
-    .grid{
-      display:grid;
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .grid-2{
-      grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .card{
-      background:var(--card);
-      border:1.5px solid var(--line);
-      border-radius:var(--radius);
-      padding:20px 18px;
-      box-shadow:var(--shadow);
-    }
-
-    h2{
-      margin:0 0 12px;
-      font-size:22px;
-      color:#5d3f79;
-    }
-
-    h3{
-      margin:0 0 10px;
-      font-size:18px;
-      color:#6a48a0;
-    }
-
-    p{margin:8px 0}
-    ul{margin:8px 0 0 1.2em;padding:0}
-    li{margin:6px 0}
-    .muted{color:var(--muted)}
-
-    .pill-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:12px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:linear-gradient(180deg,#fff4fa 0%, #f7efff 100%);
-      border:1px solid var(--line);
-      font-size:14px;
-    }
-
-    .video-list a,
-    .link-btn{
-      display:block;
-      text-decoration:none;
-      color:#5a3c7f;
-      background:linear-gradient(180deg,#fff6fb 0%, #f7efff 100%);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:12px 14px;
-      margin-top:10px;
-      transition:.2s ease;
-      font-weight:600;
-    }
-
-    .video-list a:hover,
-    .link-btn:hover{
-      transform:translateY(-2px);
-      border-color:#ddb8ee;
-      box-shadow:0 8px 18px rgba(183,140,255,.16);
-    }
-
-    .tabs{
-      margin-top:26px;
-    }
-
-    .tab-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:16px;
-    }
-
-    .tab-btn{
-      border:none;
-      cursor:pointer;
-      padding:11px 18px;
-      border-radius:999px;
-      font-weight:700;
-      color:#6a4a86;
-      background:linear-gradient(180deg,#fff7fb 0%, #f3ebff 100%);
-      border:1.5px solid var(--line);
-      box-shadow:0 6px 14px rgba(183,140,255,.10);
-      transition:.2s ease;
-    }
-
-    .tab-btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .tab-btn.active{
-      color:#fff;
-      background:linear-gradient(90deg,var(--pink-deep),var(--lav-deep));
-      border-color:transparent;
-    }
-
-    .tab-panel{
-      display:none;
-      animation:fade .25s ease;
-    }
-
-    .tab-panel.active{
-      display:block;
-    }
-
-    @keyframes fade{
-      from{opacity:0; transform:translateY(4px)}
-      to{opacity:1; transform:translateY(0)}
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-    }
-
-    .tag{
-      display:inline-block;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#fff1f7;
-      border:1px solid #ffd5e8;
-      color:#c04b85;
-      font-size:12px;
-      font-weight:700;
-      margin-right:8px;
-      margin-bottom:8px;
-    }
-
-    .quote{
-      background:linear-gradient(180deg,#fff6fb 0%,#f8f1ff 100%);
-      border-left:5px solid var(--pink);
-      padding:14px 16px;
-      border-radius:16px;
-      color:#5a4d63;
-      margin-top:12px;
-    }
-
-    .footer-note{
-      margin-top:22px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    @media (max-width: 900px){
-      .grid-2,.two-col{
-        grid-template-columns:1fr;
-      }
+    a{color:var(--lav-deep);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 80px;}
+    .topbar{margin-bottom:18px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--lav-deep);font-weight:700;font-size:14px;transition:0.2s;}
+    .back-link:hover{background:var(--soft2);text-decoration:none;}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));border:1px solid #f0dcec;border-radius:32px;box-shadow:var(--shadow);padding:34px 28px 30px;margin-bottom:24px;}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;}
+    .hero::before{width:180px;height:180px;background:#ffd9e9;right:-40px;top:-50px;}
+    .hero::after{width:180px;height:180px;background:#e7dcff;left:-40px;bottom:-60px;}
+    .eyebrow{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:linear-gradient(90deg, #ffe8f2, #f2ebff);color:var(--pink-deep);font-size:13px;font-weight:800;letter-spacing:.5px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,42px);line-height:1.22;color:#5d436b;position:relative;z-index:1;}
+    .hero-desc{margin:0;font-size:16px;color:var(--muted);max-width:900px;position:relative;z-index:1;}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1;}
+    .badge{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--pink-deep);border:1px solid #ffd4e5;}
+    
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .span-4{grid-column:span 4;}
+    .span-6{grid-column:span 6;}
+    .span-8{grid-column:span 8;}
+    .span-12{grid-column:span 12;}
+    
+    h2{font-size:20px;color:#5d436b;margin:0 0 20px;display:flex;align-items:center;gap:8px;}
+    h2::before{content:"";display:block;width:6px;height:20px;background:var(--pink);border-radius:4px;}
+    h3{font-size:18px;color:var(--ink);margin:16px 0 8px;}
+    
+    .kv{display:flex;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+    .kv b{min-width:100px;color:var(--lav-deep);}
+    .mini-list{list-style:none;padding:0;margin:0 0 16px;}
+    .mini-list li{position:relative;padding-left:20px;margin-bottom:8px;}
+    .mini-list li::before{content:"•";position:absolute;left:0;color:var(--pink);font-weight:bold;}
+    .callout{background:var(--soft2);padding:16px;border-radius:var(--radius-sm);border-left:4px solid var(--lav);font-weight:bold;color:var(--lav-deep);}
+    
+    .symbol-wrap{display:flex;flex-wrap:wrap;gap:16px;}
+    .symbol{background:var(--bg);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--line);flex:1 1 30%;}
+    .symbol strong{display:block;color:var(--pink-deep);margin-bottom:4px;font-size:16px;}
+    
+    .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+    .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
+    
+    .tabs-nav{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;}
+    .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:10px 20px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;}
+    .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    
+    .clean-list{padding-left:20px;margin:0;}
+    .clean-list li{margin-bottom:12px;}
+    .writing-box{background:var(--soft);border:1px dashed var(--pink);padding:16px;border-radius:var(--radius-sm);margin-top:16px;}
+    
+    .quote{margin:0;padding:20px;background:var(--bg2);border-left:4px solid var(--lav);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#6b5d77;}
+    
+    .resource-list{display:flex;flex-direction:column;gap:12px;}
+    .resource-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .resource-item::before{content:"📄";font-size:20px;}
+    
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
+    .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
+    .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
+    
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
+    
+    @media(max-width:768px){
+      .span-4, .span-6, .span-8{grid-column:span 12;}
+      .tabs-nav{padding-bottom:10px;}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-
-    <div class="top-nav">
-      <a href="index.html" class="back-btn">← 回到單元總覽</a>
+    <div class="topbar">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
+    <div class="hero">
+      <span class="eyebrow">跨媒介文本主題</span>
+      <h1>《冰原歷險記4：板塊漂移》國文教學資源包</h1>
+      <p class="hero-desc">當地殼龜裂，板塊將摯愛分離，我們看見的不僅是史前動物的逃生記，更是現代社會中關於「家庭定義」、「同儕認同」與「生命執念」的深刻隱喻。這堂課，我們將在漂流的冰山上，尋找心靈的定錨之處。</p>
+      <div class="badge-row">
+        <span class="badge">親情羈絆</span>
+        <span class="badge">同儕認同</span>
+        <span class="badge">環境巨變</span>
+        <span class="badge">多元成家</span>
+      </div>
     </div>
 
-    <section class="hero">
-      <div class="badge">國文｜電影素養教學｜按鈕切換版</div>
-      <h1>《冰原歷險記4：板塊漂移》教學講義</h1>
-      <p class="subtitle">
-        主題：漂移的家園——從變局、家庭與歸屬感，思考成長中的情感韌性
-      </p>
-
-      <div class="pill-list">
-        <span class="pill">適用：國一、國二、國三、高一、高二、高三</span>
-        <span class="pill">核心能力：閱讀理解、跨文本分析、議題思辨、情意書寫</span>
-        <span class="pill">關鍵概念：家、漂移、變局、責任、歸屬、定錨</span>
+    <div class="grid">
+      
+      <!-- 一、課程定位與核心理念 -->
+      <div class="card span-8">
+        <h2>一、課程定位與核心理念</h2>
+        <div class="kv"><b>課程名稱</b><span>「板塊撕裂下的牽絆」—《冰原歷險記4》中的變動與歸屬</span></div>
+        <div class="kv"><b>建議時數</b><span>100 分鐘（兩節課：含片段觀賞、議題討論與寫作引導）</span></div>
+        <div class="kv"><b>核心能力</b><span>變動因應能力、情感連結詮釋、自我價值思辨</span></div>
+        <div class="kv"><b>課程目標</b><span>引導學生從「物理板塊的斷裂」延伸思考「心理防線的崩解」，探討外在環境劇變時的內在安定力量，並重新定義「家」的多元形式（非血緣的羈絆）。</span></div>
       </div>
-    </section>
 
-    <div class="grid grid-2">
-      <section class="card">
-        <h2>一、電影資料整理</h2>
-        <p><strong>英文片名：</strong>Ice Age: Continental Drift</p>
-        <p><strong>系列定位：</strong>《冰原歷險記》系列第 4 部</p>
-        <p><strong>故事主軸：</strong>鼠奎特追逐橡實，引發大陸分裂；蠻尼、喜德、狄亞哥在災變中與家人失散，漂流海上，並與海盜勢力對抗，最後重新尋回家人與歸屬。</p>
-        <p><strong>教學切入：</strong>這部片表面是災難冒險喜劇，實際很適合討論「親子衝突」「被遺棄與被接住」「災變中的領導」「變動時代中的安定力量」。</p>
-
-        <div class="quote">
-          <strong>教學提醒：</strong><br>
-          電影中的「板塊漂移」是誇飾表現；真實地球科學中的板塊運動非常緩慢。課堂上可引導學生分辨：
-          <br>① 科學事實　② 電影誇張　③ 文學象徵。
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>二、可帶入的象徵分析</h2>
-        <div>
-          <span class="tag">橡實</span>
-          <span class="tag">板塊裂縫</span>
-          <span class="tag">浮冰</span>
-          <span class="tag">海盜船</span>
-          <span class="tag">回家</span>
-        </div>
-        <ul>
-          <li><strong>橡實：</strong>欲望、執念、追逐目標的荒謬與推力。</li>
-          <li><strong>板塊裂縫：</strong>家庭裂痕、成長代溝、人生突變。</li>
-          <li><strong>浮冰：</strong>不穩定的處境、被迫漂流的人生階段。</li>
-          <li><strong>海盜船：</strong>權力統治、服從、恐懼管理。</li>
-          <li><strong>回家：</strong>家的真正定義，不只是血緣，更是彼此不離不棄。</li>
+      <!-- 二、官方劇情可用重點 -->
+      <div class="card span-4">
+        <h2>二、官方劇情重點</h2>
+        <ul class="mini-list">
+          <li><b>板塊撕裂的瞬間：</b>象徵生命中無常的突發變故。</li>
+          <li><b>青少年的認同衝突：</b>水蜜桃為了迎合猛獁象群，忽視了好友與父親。</li>
+          <li><b>遭遺棄的邊緣人：</b>喜德與阿嬤的互動，看見弱勢長者的隱藏價值。</li>
+          <li><b>威權 vs 互助：</b>黑心肝船長的恐怖統治對比蠻尼團隊的民主包容。</li>
         </ul>
-      </section>
-    </div>
-
-    <section class="card">
-      <h2>三、建議影片連結</h2>
-      <p class="muted">可放在課前導入、片段欣賞或跨科補充使用。</p>
-      <div class="video-list">
-        <a href="https://www.youtube.com/watch?v=xz-KgMtU_BM" target="_blank" rel="noopener">▶ 電影預告 1｜Ice Age Continental Drift Official Trailer #1</a>
-        <a href="https://www.youtube.com/watch?v=hzixp8s4pyg" target="_blank" rel="noopener">▶ 電影官方預告｜Ice Age 4: Continental Drift Official Trailer</a>
-        <a href="https://www.youtube.com/watch?v=c-tBM8ifBWI" target="_blank" rel="noopener">▶ 劇情片段｜Family Reunion</a>
-        <a href="https://www.youtube.com/watch?v=7jbwX1Uvd18" target="_blank" rel="noopener">▶ 科學補充｜Introduction to Plate Tectonics（中學生可用）</a>
-        <a href="https://education.nationalgeographic.org/resource/plate-tectonics/" target="_blank" rel="noopener">▶ 延伸閱讀｜National Geographic Education：Plate Tectonics</a>
-        <a href="https://www.usgs.gov/educational-resources/plate-tectonics" target="_blank" rel="noopener">▶ 教師備課｜USGS：Plate Tectonics</a>
-      </div>
-    </section>
-
-    <section class="tabs">
-      <div class="tab-buttons">
-        <button class="tab-btn active" data-tab="g7">國一</button>
-        <button class="tab-btn" data-tab="g8">國二</button>
-        <button class="tab-btn" data-tab="g9">國三</button>
-        <button class="tab-btn" data-tab="g10">高一</button>
-        <button class="tab-btn" data-tab="g11">高二</button>
-        <button class="tab-btn" data-tab="g12">高三</button>
+        <div class="callout">
+          課堂導入句：「當世界四分五裂時，是什麼力量讓你我緊緊相連？」
+        </div>
       </div>
 
-      <section id="g7" class="tab-panel active">
-        <div class="two-col">
-          <div class="card">
-            <h2>國一教學設計｜看懂故事，認識「家」與陪伴</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>能說出主要角色與故事發展。</li>
-              <li>理解「家」不只是住在一起，也包含照顧與陪伴。</li>
-              <li>能從角色行為中辨認關心、衝突與和解。</li>
-            </ul>
-
-            <h3>教學重點</h3>
-            <ul>
-              <li>蠻尼與蜜桃：爸爸的保護與女兒想長大。</li>
-              <li>喜德與奶奶：被忽略的人，也需要被接住。</li>
-              <li>大家一起回家：困難中互相幫助的重要。</li>
-            </ul>
-
-            <h3>建議活動</h3>
-            <ul>
-              <li>角色配對卡：人物—個性—行動—感受。</li>
-              <li>畫出「我的家人關係圈」：用顏色表示親近程度。</li>
-              <li>一句話寫作：什麼樣的人，會讓你覺得安心？</li>
-            </ul>
+      <!-- 三、主題關鍵字與象徵物 -->
+      <div class="card span-12">
+        <h2>三、主題關鍵字與象徵物</h2>
+        <div class="symbol-wrap">
+          <div class="symbol">
+            <strong>🚢 冰山海盜船 (漂流)</strong>
+            漂流與危機的載體。在汪洋中失去方向，象徵青少年在成長過程中面對未知未來的不確定感與焦慮。
           </div>
-
-          <div class="card">
-            <h2>國一學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>選擇題：</strong>鼠奎特在劇中的功能是什麼？</li>
-              <li><strong>填充題：</strong>蠻尼很在乎女兒，所以表現得十分 ______。</li>
-              <li><strong>簡答題：</strong>你覺得奶奶雖然古怪，為什麼仍然重要？</li>
-              <li><strong>開放題：</strong>當家裡出現爭吵時，你希望大家怎麼做？</li>
-            </ul>
-
-            <h3>寫作任務</h3>
-            <p>題目：<strong>我心中的家</strong></p>
-            <p>請寫一段 150～250 字短文，說明什麼樣的相處，會讓你覺得「這裡像家」。</p>
+          <div class="symbol">
+            <strong>🐿️ 鼠奎特的橡實 (執念)</strong>
+            無盡的執念與隨之而來的災難。過度追求單一目標（如成績、物質），往往會引發自己甚至周遭環境的崩盤。
+          </div>
+          <div class="symbol">
+            <strong>🦣 青春期長毛象 (從眾)</strong>
+            水蜜桃為了獲取同儕認同，不惜隱藏真實自我並傷害摯友。象徵青春期尋求歸屬感時的迷失與掙扎。
+          </div>
+          <div class="symbol">
+            <strong>👵 喜德的阿嬤 (價值)</strong>
+            被原生家庭遺棄、被社會邊緣化，卻在關鍵時刻召喚出巨大鯨魚。隱喻高齡化社會中常被忽視的長者智慧與潛能。
+          </div>
+          <div class="symbol">
+            <strong>🏴‍☠️ 猴子黑心肝 (威權)</strong>
+            自私、用恐懼控制下屬的極端領導者。象徵社會中以利益為導向的病態關係，對比出真正「家人」的無私。
+          </div>
+          <div class="symbol">
+            <strong>🌊 歸鄉的洋流 (信念)</strong>
+            信念與親情的指引。在逆境中支撐我們不被風浪吞噬的，往往是心中對「家」與「愛」的堅定方向。
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="g8" class="tab-panel">
-        <div class="two-col">
-          <div class="card">
-            <h2>國二教學設計｜代溝、友情與被理解的需要</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>分析角色衝突背後的原因，不只停留在表面對錯。</li>
-              <li>辨認青少年在同儕關係中的焦慮與期待。</li>
-              <li>練習以角色觀點說明情緒與選擇。</li>
-            </ul>
-
-            <h3>教學重點</h3>
-            <ul>
-              <li>蜜桃想被同儕接納，蠻尼卻只看見危險。</li>
-              <li>路易斯看似膽小，卻展現真誠與忠誠。</li>
-              <li>表面的「不聽話」，可能其實是在呼喊理解。</li>
-            </ul>
-
-            <h3>討論議題</h3>
-            <ul>
-              <li>父母的保護，何時會變成壓力？</li>
-              <li>真正的朋友，是讓你變得更像自己，還是更像別人？</li>
-              <li>被嘲笑的人，是否一定弱小？</li>
-            </ul>
+      <!-- 四、課堂流程建議 -->
+      <div class="card span-12">
+        <h2>四、課堂流程建議（100 分鐘）</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>0-15分：暖身導入</h4>
+            <p>【生命震盪】請學生分享一次「與重要他人分離」或「生活發生突變」的經驗，引導出板塊漂移的心理隱喻。</p>
           </div>
-
-          <div class="card">
-            <h2>國二學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>文句理解：</strong>「只要我還活著，妳就要聽我的。」反映何種親子互動？</li>
-              <li><strong>情節推理：</strong>蜜桃為何在乎別人的眼光？</li>
-              <li><strong>比較題：</strong>路易斯與猛獁象少年組，價值觀有何不同？</li>
-              <li><strong>開放題：</strong>你是否曾誤解家人的關心？後來怎麼理解？</li>
-            </ul>
-
-            <h3>寫作任務</h3>
-            <p>題目：<strong>那些我以為你不懂的事</strong></p>
-            <p>請以第一人稱書寫一段與家人或朋友的誤會，並說明你後來如何理解對方。</p>
+          <div class="lesson-box">
+            <h4>15-40分：文本分析</h4>
+            <p>【三重視角】觀看影片片段，分別從「蠻尼的尋家」、「水蜜桃的交友」、「喜德的親情」三條支線進行角色行為剖析。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>40-60分：小組討論</h4>
+            <p>【家的定義】對比蠻尼團隊（無血緣）與黑心肝海盜團。提問：血緣是構成家人的唯一條件嗎？歸屬感從何而來？</p>
+          </div>
+          <div class="lesson-box">
+            <h4>60-80分：跨文本連結</h4>
+            <p>【離散與重聚】結合龍應台《目送》或琦君《髻》，探討文學作品中面對分離、成長與放下執念的共同母題。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>80-100分：寫作引導</h4>
+            <p>【國寫實戰】解析該年段專屬國寫題目，引導學生擬定寫作大綱，並進行開頭段落（Hook）的試寫與分享。</p>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="g9" class="tab-panel">
-        <div class="two-col">
-          <div class="card">
-            <h2>國三教學設計｜變動中的適應力與情意書寫</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>連結電影中的漂移經驗與自身生活壓力。</li>
-              <li>理解「板塊漂移」的象徵意義：變遷、失去、重組。</li>
-              <li>為會考作文累積「變局中的成長」素材。</li>
-            </ul>
-
-            <h3>教學重點</h3>
-            <ul>
-              <li>陸地裂開，不只是災難，也象徵人生熟悉秩序的崩解。</li>
-              <li>喜德、蠻尼、狄亞哥在漂流中學會互補合作。</li>
-              <li>從「失去土地」走向「找到方向」，是成長的重要歷程。</li>
-            </ul>
-
-            <h3>建議活動</h3>
-            <ul>
-              <li>我的人生板塊圖：列出最近一年最明顯的變動。</li>
-              <li>情境討論：若友情、家庭、課業同時失衡，該怎麼定錨？</li>
-              <li>金句改寫：把電影意象改寫成自己的生命語言。</li>
-            </ul>
+      <!-- 五、各年段按鈕切換教學設計 -->
+      <div class="card span-12">
+        <h2>五、各年段差異化教學設計</h2>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
+          <div class="tabs-nav" style="margin-bottom:0; padding-bottom:4px;">
+            <button class="tab-btn active" onclick="switchTab(0, this)">國一：親情和解</button>
+            <button class="tab-btn" onclick="switchTab(1, this)">國二：同儕認同</button>
+            <button class="tab-btn" onclick="switchTab(2, this)">國三：團隊領導</button>
           </div>
-
-          <div class="card">
-            <h2>國三學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>選擇題：</strong>鼠奎特的行為在劇情中扮演何種功能？</li>
-              <li><strong>填充題：</strong>黑心肝隊長以恐懼統治部屬，呈現 ______ 式領導。</li>
-              <li><strong>簡答題：</strong>為什麼說「漂流」也可能讓人長大？</li>
-              <li><strong>開放題：</strong>若你的生活板塊突然崩裂，你最需要什麼支持？</li>
-            </ul>
-
-            <h3>寫作任務</h3>
-            <p>題目：<strong>漂移之後</strong></p>
-            <p>請書寫一段你曾面對的變化，並說明那次經歷如何改變你看待自己與世界的方式。</p>
+          <div class="tabs-nav" style="margin-bottom:0; padding-bottom:4px;">
+            <button class="tab-btn" onclick="switchTab(3, this)">高一：多元成家</button>
+            <button class="tab-btn" onclick="switchTab(4, this)">高二：執念斷捨離</button>
+            <button class="tab-btn" onclick="switchTab(5, this)">高三：變局定錨</button>
           </div>
         </div>
-      </section>
 
-      <section id="g10" class="tab-panel">
-        <div class="two-col">
-          <div class="card">
-            <h2>高一教學設計｜象徵、對比與角色關係閱讀</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>掌握電影中的象徵物與對比結構。</li>
-              <li>分析不同角色所代表的價值立場。</li>
-              <li>將影像情節轉化為文字分析能力。</li>
-            </ul>
-
-            <h3>角色對比</h3>
-            <ul>
-              <li><strong>蠻尼：</strong>守護、責任、關愛，但有控制傾向。</li>
-              <li><strong>Captain Gutt：</strong>擴張、剝削、恐懼治理。</li>
-              <li><strong>Shira：</strong>體制中的孤獨者，最終轉向信任與歸屬。</li>
-              <li><strong>Louis：</strong>外表弱小，內在忠誠勇敢。</li>
-            </ul>
-
-            <h3>文學技巧</h3>
-            <ul>
-              <li>對比：家庭式領導 vs 恐懼統治。</li>
-              <li>幽默諷刺：災難題材被喜劇化，降低沉重感。</li>
-              <li>象徵：裂縫、海洋、浮冰、回家路。</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h2>高一學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>分析題：</strong>電影如何以「海盜船」象徵不公義的社會秩序？</li>
-              <li><strong>比較題：</strong>蠻尼與 Captain Gutt 的領導模式差異。</li>
-              <li><strong>象徵題：</strong>板塊裂縫除災難外，還可象徵什麼？</li>
-              <li><strong>表達題：</strong>何謂「真正的強大」？</li>
-            </ul>
-
-            <h3>寫作任務</h3>
-            <p>題目：<strong>裂縫之中</strong></p>
-            <p>請運用象徵手法，描寫一段你在變動中重新理解關係的經驗。</p>
+        <div class="tab-panel active">
+          <h3>【國一】越愛越衝突：家庭溝通與和解</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>理解青春期想要獨立與父母過度保護之間的矛盾。</li>
+            <li><b>討論議題：</b>水蜜桃為何不敢在酷象群面前承認路易是她的朋友？</li>
+            <li><b>活動設計：</b>「我的避風港」繪畫：畫出當你覺得委屈時，最想逃去的地方或尋找的人。</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：那一刻，我懂了父母的用心</strong>
+            <p><b>大綱引導：</b>【起】描述一次與父母的激烈衝突。【承】寫出自己當時的不解與委屈。【轉】透過某個事件或觀察，發現父母隱藏的愛。【合】放下對立，學習理解與感恩。</p>
+            <p><b>美文佳句：</b>「愛有時像堅硬的冰層，表面冰冷刺骨，底下卻流淌著溫柔守護的暖流。」</p>
           </div>
         </div>
-      </section>
 
-      <section id="g11" class="tab-panel">
-        <div class="two-col">
-          <div class="card">
-            <h2>高二教學設計｜議題思辨：權力、照護與歸屬</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>能從社會議題角度閱讀電影文本。</li>
-              <li>思辨高齡照護、家人責任與團體治理等問題。</li>
-              <li>訓練知性統整與論點表達能力。</li>
-            </ul>
-
-            <h3>議題主軸</h3>
-            <ul>
-              <li><strong>棄養與照護：</strong>Sid 家人把奶奶丟下，如何映照現代高齡社會？</li>
-              <li><strong>權力統治：</strong>Captain Gutt 以恐懼控制群體，是否有效但不可長久？</li>
-              <li><strong>歸屬感：</strong>Shira 為何選擇離開強權、靠近互信？</li>
-            </ul>
-
-            <h3>課堂活動</h3>
-            <ul>
-              <li>海盜船辯論：災難中，資源應共享還是由強者分配？</li>
-              <li>立場寫作：保護是不是另一種控制？</li>
-              <li>小組統整：從角色命運看「歸屬感如何形成」。</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h2>高二學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>簡答題：</strong>電影中黑心肝隊長的統治與真正的合作有何差異？</li>
-              <li><strong>申論題：</strong>席拉轉向蠻尼團隊，關鍵不是利益，而是什麼？</li>
-              <li><strong>議題題：</strong>喜德奶奶的情節可以引出哪些社會問題？</li>
-              <li><strong>開放題：</strong>你認為災難中最重要的是力量、規則，還是信任？</li>
-            </ul>
-
-            <h3>寫作任務</h3>
-            <p>題目：<strong>在失序世界裡，什麼能讓人留下來？</strong></p>
-            <p>請結合電影情節與生活觀察，論述「歸屬感」如何形成。</p>
+        <div class="tab-panel">
+          <h3>【國二】面具之下：同儕認同與真實自我</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>探討從眾效應，學習在群體中保持獨立思考與自我價值。</li>
+            <li><b>討論議題：</b>為了融入群體，你曾經隱藏過自己的哪些真實想法？</li>
+            <li><b>活動設計：</b>「真實面具」製作：在紙面具外側寫上別人希望你成為的樣子，內側寫上真正的自己。</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：迎合別人，不如成就自己</strong>
+            <p><b>大綱引導：</b>【起】點出青少年渴望被群體接納的普遍現象。【承】以水蜜桃或自身經驗為例，描述戴上面具的痛苦。【轉】頓悟真實朋友的定義（如路易的無條件支持）。【合】宣告做自己的決心。</p>
+            <p><b>美文佳句：</b>「削足適履換來的皇冠，終究比不上赤腳奔跑時的自由。」</p>
           </div>
         </div>
-      </section>
 
-      <section id="g12" class="tab-panel">
-        <div class="two-col">
-          <div class="card">
-            <h2>高三教學設計｜學測國寫導向：漂移與定錨</h2>
-            <h3>教學目標</h3>
-            <ul>
-              <li>將電影素材轉化為國寫情意題與知性題素材。</li>
-              <li>掌握「變遷—失衡—尋找支點—重新站穩」的文章結構。</li>
-              <li>練習把影像意象轉化為具深度的書寫表達。</li>
-            </ul>
+        <div class="tab-panel">
+          <h3>【國三】風暴中的舵手：團隊與領導</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>比較不同領導風格（威權與民主）在危機時產生的不同結果。</li>
+            <li><b>討論議題：</b>蠻尼與黑心肝船長的領導方式有何本質上的差異？</li>
+            <li><b>活動設計：</b>「無人島生存決策」：小組扮演漂流者，面對物資短缺，模擬如何分配與決策。</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：真正的領袖</strong>
+            <p><b>大綱引導：</b>【起】定義什麼是領袖（不是頭銜，而是影響力）。【承】對比恐懼統治與愛心感召的差異。【轉】舉出現實生活中（如班級幹部、歷史人物）的僕人領導實例。【合】期許自己成為帶來安定的力量。</p>
+            <p><b>美文佳句：</b>「最堅固的船不是用恐懼釘成的，而是用信任與包容打造的方舟。」</p>
+          </div>
+        </div>
 
-            <h3>教學重點</h3>
-            <ul>
-              <li><strong>情意面：</strong>家庭裂縫、漂流感、被理解與重新靠岸。</li>
-              <li><strong>知性面：</strong>變局中的領導模式、關係重組、適應力與支持系統。</li>
-              <li><strong>立意面：</strong>真正的家不一定是固定的土地，而是能彼此承接的情感關係。</li>
-            </ul>
+        <div class="tab-panel">
+          <h3>【高一】超越血緣的牽絆：重新定義家</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>打破傳統家庭框架，探討「非典型家庭」中的深層羈絆與情感支持。</li>
+            <li><b>討論議題：</b>喜德被原生家庭丟下，卻在蠻尼、狄亞哥與阿嬤身上找到歸屬，這給你什麼啟示？</li>
+            <li><b>活動設計：</b>辯論會：血緣關係是構成「家庭」唯一且最重要的牽絆嗎？</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：無血緣的羈絆</strong>
+            <p><b>大綱引導：</b>【起】破題指出傳統家庭定義的侷限。【承】論述情感連結、共同經歷如何超越基因序列。【轉】以電影角色或社會新聞中的多元成家、寄養家庭為證。【合】總結「家」的核心在於愛與接納。</p>
+            <p><b>美文佳句：</b>「家不是一個具體的座標，而是當你靈魂流浪時，能安然拋下錨的地方。」</p>
+          </div>
+        </div>
 
-            <h3>國寫題目示例</h3>
-            <div class="quote">
-              <strong>題目：</strong>漂移與定錨<br>
-              <strong>題幹方向：</strong>
-              生活中常有無法預測的變局，使人像在浮冰上漂流。請結合自身經驗或觀察，書寫你如何在變動中找到支點，重新站穩腳步。
+        <div class="tab-panel">
+          <h3>【高二】追逐橡實的代價：執念與放手</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>探討過度執著帶來的毀滅性，學習在人生選擇中進行斷捨離。</li>
+            <li><b>討論議題：</b>鼠奎特對橡實的追逐引發了板塊分裂，這在現實生活中隱喻了什麼樣的追求？</li>
+            <li><b>活動設計：</b>「執念斷捨離清單」：寫下三個目前讓你感到焦慮的目標，思考若放手會失去什麼？得到什麼？</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：放下的勇氣</strong>
+            <p><b>大綱引導：</b>【起】描繪現代人汲汲營營追逐「橡實」（名利、成績）的群像。【承】分析過度執著造成的盲目與人際撕裂。【轉】分享一次自己學會妥協或放棄的經驗，以及隨之而來的海闊天空。【合】說明真正的勇敢包含懂得放手。</p>
+            <p><b>美文佳句：</b>「有時候，雙手必須先空出來，才能擁抱更廣闊的宇宙。」</p>
+          </div>
+        </div>
+
+        <div class="tab-panel">
+          <h3>【高三】亂世定錨：巨變下的生命座標</h3>
+          <ul class="clean-list">
+            <li><b>教學重點：</b>面對未來（升學、離家、社會變遷）的不確定性，建立強大的心理韌性。</li>
+            <li><b>討論議題：</b>當外在世界（如板塊）瞬間分崩離析，我們如何尋找內在的安定力量？</li>
+            <li><b>活動設計：</b>「寫給未來的漂流瓶」：寫一封信給進入大學後，可能面對挫折與迷惘的自己。</li>
+          </ul>
+          <div class="writing-box">
+            <strong>📝 寫作任務：變動時代下的內在錨點</strong>
+            <p><b>大綱引導：</b>【起】綜觀當今社會的快速變遷與不確定性（AI崛起、環境危機）。【承】闡述在巨浪中隨波逐流的危險。【轉】論述如何透過核心價值觀、閱讀或深厚的人際連結建立「內在錨點」。【合】期許自己成為能在風暴中航行的水手。</p>
+            <p><b>美文佳句：</b>「外界的地動山搖，剝奪不了我們內心建構的一方寧靜之海。」</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 六、學生版學習單題型建議 -->
+      <div class="card span-6">
+        <h2>六、學生版學習單題型建議</h2>
+        <ul class="clean-list">
+          <li><b>（一）選擇題：</b><br>1. 劇中水蜜桃為融入猛獁象群而改變自己，這符合心理學的何種概念？(A)破窗效應 (B)從眾效應 (C)旁觀者效應 (D)月暈效應<br>
+          2. 黑心肝船長的失敗，最主要是因為他缺乏領導者的哪一項特質？(A)武力 (B)野心 (C)同理與信任 (D)航海技術</li>
+          <li><b>（二）填充與推理題：</b><br>1. 喜德的阿嬤雖然看似瘋癲，最後卻用________拯救了大家，這暗示我們不應以________貌相。<br>2. 鼠奎特的「橡實」在文本中是________的象徵。</li>
+          <li><b>（三）簡答題：</b><br>1. 蠻尼、狄亞哥、喜德這個毫無血緣關係的群體，為何能發揮比黑心肝海盜團更強大的力量？<br>2. 試說明「板塊漂移」在青少年成長過程中，可以比喻為何種心理狀態或現實遭遇？</li>
+          <li><b>（四）開放思辨題：</b><br>1. 如果你是水蜜桃，在面對「同儕壓力」與「忠於真實自我」的拉扯時，你會如何做出抉擇？<br>2. 請以《冰原歷險記4》為例，論述「家」的定義是否必須建立在血緣關係上。</li>
+        </ul>
+      </div>
+
+      <!-- 七、教師講義引導重點 -->
+      <div class="card span-6">
+        <h2>七、教師講義引導重點</h2>
+        <ul class="clean-list">
+          <li><b>背景主題：</b>從地球科學的板塊運動切入，轉化為人際關係的斷裂與重組。提醒學生留意「危機即轉機」的敘事結構。</li>
+          <li><b>面具誕生：</b>聚焦水蜜桃的角色弧線。引導探討青少年為了「合群」所付出的自我閹割代價。</li>
+          <li><b>崩潰邊緣：</b>分析海盜船上的權力結構。威權建立在恐懼上，一旦恐懼被打破（如席拉被狄亞哥感化），體系瞬間瓦解。</li>
+          <li><b>真相救贖：</b>喜德一家對阿嬤的嫌棄 vs 蠻尼團隊對阿嬤的包容。救贖往往來自被邊緣化的力量。</li>
+          <li><b>板書關鍵字：</b>物理斷裂 / 心理重構 / 從眾壓力 / 非血緣羈絆 / 威權與民主 / 執念的反噬</li>
+        </ul>
+        <blockquote class="quote">
+          教師結語金句：「家不是一個地方，也不是一張族譜，而是那些在你墜落時，拼命接住你的人。」
+        </blockquote>
+      </div>
+
+      <!-- 八、延伸閱讀與跨文本資料 -->
+      <div class="card span-12">
+        <h2>八、延伸閱讀與跨文本資料</h2>
+        <div class="resource-list">
+          <div class="resource-item">
+            <div>
+              <strong>龍應台《目送》</strong>
+              <br><span style="font-size:14px;color:var(--muted);">探討面對分離的必然，以及如何用背影默默祝福。與蠻尼面對水蜜桃成長、離家的焦慮相呼應。</span>
             </div>
           </div>
-
-          <div class="card">
-            <h2>高三學習單方向</h2>
-            <h3>題型建議</h3>
-            <ul>
-              <li><strong>統整題：</strong>如何由「板塊漂移」聯想到人生中的重大變化？</li>
-              <li><strong>比較題：</strong>蠻尼與 Captain Gutt 各自象徵何種價值體系？</li>
-              <li><strong>分析題：</strong>電影如何把災難敘事轉化為成長敘事？</li>
-              <li><strong>國寫題：</strong>請以「漂移與定錨」為題，完成一篇完整作文。</li>
-            </ul>
-
-            <h3>寫作架構建議</h3>
-            <ul>
-              <li>第一段：以裂縫、漂流、浮冰等意象開場。</li>
-              <li>第二段：具體描寫生活中曾遭遇的變局。</li>
-              <li>第三段：寫出支持自己的「錨點」。</li>
-              <li>第四段：收束成長體悟，深化「家 / 支持 / 韌性」的定義。</li>
-            </ul>
+          <div class="resource-item">
+            <div>
+              <strong>簡媜《水問》</strong>
+              <br><span style="font-size:14px;color:var(--muted);">從水的流動與變幻，思索生命中的聚散離合，對應劇中汪洋漂流的變動心境。</span>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div>
+              <strong>赫塞《流浪者之歌》</strong>
+              <br><span style="font-size:14px;color:var(--muted);">關於追尋自我與真理的過程。對比水蜜桃在迷失後找回本心的成長歷程。</span>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div>
+              <strong>社會學文章：現代多元家庭結構解析</strong>
+              <br><span style="font-size:14px;color:var(--muted);">探討寄養家庭、同志家庭、重組家庭等非傳統血緣關係中的撫育功能與情感支持。</span>
+            </div>
           </div>
         </div>
-      </section>
-    </section>
+      </div>
 
-    <section class="card">
-      <h2>四、教師快速備課重點</h2>
-      <ul>
-        <li><strong>最適合的跨科連結：</strong>國文 × 地科 × 公民。</li>
-        <li><strong>最適合的寫作主題：</strong>變遷、家、歸屬感、代溝、韌性、支持系統。</li>
-        <li><strong>最可操作的課堂活動：</strong>家庭版塊圖、海盜船辯論、漂移與定錨短寫作。</li>
-        <li><strong>最能打動學生的切入：</strong>「家不是永遠不變，而是即使漂流仍有人願意陪你。」</li>
-      </ul>
+      <!-- 九、相關影片連結 -->
+      <div class="card span-12">
+        <h2>九、相關影片連結</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4>板塊構造與大陸漂移假說</h4>
+            <p style="font-size:13px;color:var(--muted);">以科普角度真實了解電影背景中的地質運動真相。</p>
+            <a href="https://www.youtube.com/results?search_query=板塊構造與大陸漂移假說+科普" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>TED演講：青少年為什麼會有同儕壓力？</h4>
+            <p style="font-size:13px;color:var(--muted);">從大腦神經科學探討青少年渴望群體認同的原因。</p>
+            <a href="https://www.youtube.com/results?search_query=TED+青少年+同儕壓力" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>紀錄片：無血緣的家人</h4>
+            <p style="font-size:13px;color:var(--muted);">真實社會中，寄養家庭與非血緣親屬如何建構溫暖的避風港。</p>
+            <a href="https://www.youtube.com/results?search_query=無血緣的家人+紀錄片" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>動畫心理學：執念的反噬</h4>
+            <p style="font-size:13px;color:var(--muted);">透過鼠奎特的原型，探討心理學中的強迫性重複與放下的課題。</p>
+            <a href="https://www.youtube.com/results?search_query=心理學+執念+放下" target="_blank">觀看影片</a>
+          </div>
+        </div>
+      </div>
 
-      <p class="footer-note">
-        備註：若教學現場需播放完整影片，請使用學校合法授權平台或正式片源；本頁提供的連結以預告、片段與科學補充資源為主。
-      </p>
-    </section>
+      <!-- 十、國寫與課堂討論題庫 -->
+      <div class="card span-12">
+        <h2>十、國寫與課堂討論題庫</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>【情意題方向】</h4>
+            <ol style="padding-left:18px;margin:5px 0;font-size:15px;">
+              <li>以「變動中的安頓」為題，寫一次生活巨變的心路歷程。</li>
+              <li>以「最溫暖的依靠」為題，刻寫一位沒有血緣卻情同家人的長輩或朋友。</li>
+              <li>以「摘下面具之後」為題，敘述自己面對同儕壓力到勇敢做自己的故事。</li>
+            </ol>
+          </div>
+          <div class="lesson-box">
+            <h4>【知性題方向】</h4>
+            <ol style="padding-left:18px;margin:5px 0;font-size:15px;">
+              <li>分析「威權恐嚇」與「民主包容」兩種領導風格在危機處理時的優劣，並提出你的觀點。</li>
+              <li>針對「高齡化社會中的長者價值」，以劇中阿嬤為例，論述現代社會應如何重新看待老年人。</li>
+              <li>評論「從眾效應」對青少年校園生活的正反面影響。</li>
+            </ol>
+          </div>
+          <div class="lesson-box">
+            <h4>【課堂討論題】</h4>
+            <ol style="padding-left:18px;margin:5px 0;font-size:15px;">
+              <li>如果你是路易（鼴鼠），被水蜜桃公開否認是朋友時，你會怎麼做？為什麼？</li>
+              <li>父母的過度保護（如蠻尼）與放任不管，哪一種對青少年的傷害更大？</li>
+              <li>鼠奎特最後到達了充滿橡實的「松鼠鼠蘭提斯」，卻因為貪婪再次毀滅一切。這給我們什麼啟示？</li>
+            </ol>
+          </div>
+          <div class="lesson-box">
+            <h4>【範文賞析提醒】</h4>
+            <p style="font-size:14px;">教師在評閱時，應注意學生是否能將「物理的漂流」昇華為「心理的尋根」。佳作應能跳脫單純的電影劇情複述，精準捕捉「無常」與「歸屬」的對立統一關係。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十一、一頁式課堂結語 -->
+      <div class="card span-12">
+        <h2>十一、一頁式課堂結語</h2>
+        <blockquote class="quote" style="border-left-color:var(--pink);">
+          生命的板塊總有撕裂之時，青春的航道也難免遭遇冰山與海盜。但《冰原歷險記4》告訴我們，即使大地分崩離析，只要心中有愛，洋流終會將我們推向彼此。真正的家，不在堅固的地殼上，而在一群願意在風暴中與你牽手不放的人心裡。願你們在未來的漂流中，都能擁有不被執念綁架的自由，以及擁抱真實自我的勇氣。
+        </blockquote>
+        <div class="pill-wrap">
+          <span class="pill">#變動與安頓</span>
+          <span class="pill">#歸屬感</span>
+          <span class="pill">#同儕認同</span>
+          <span class="pill">#執念與放下</span>
+          <span class="pill">#跨物種羈絆</span>
+          <span class="pill">#自我價值</span>
+          <span class="pill">#非血緣親情</span>
+          <span class="pill">#危機領導</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <script>
-    const buttons = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.tab-panel');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.tab;
-
-        buttons.forEach(b => b.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
-
-        btn.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
+    // 年段切換腳本
+    function switchTab(index, btnElement) {
+      const card = btnElement.closest('.card');
+      const btns = card.querySelectorAll('.tab-btn');
+      const panels = card.querySelectorAll('.tab-panel');
+      
+      btns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btnElement.classList.add('active');
+      panels[index].classList.add('active');
+    }
   </script>
 </body>
 </html>
