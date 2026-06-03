@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>《百萬人推理》國文教學資源包</title>
+  <style>
+    :root{
+      --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
+      --pink:#ff86b7;--pink-deep:#ff5ea1;--lav:#b78dff;--lav-deep:#8e69e8;
+      --soft:#ffeaf4;--soft2:#f3edff;--line:#ecdaf6;--gold:#c79a56;
+      --shadow:0 12px 30px rgba(155, 112, 185, .14);--radius:24px;--radius-sm:16px;--maxw:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      background:radial-gradient(circle at top left, #fff0f7 0%, transparent 28%), radial-gradient(circle at top right, #f3ecff 0%, transparent 28%), linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--ink);line-height:1.8;
+    }
+    a{color:var(--lav-deep);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 80px;}
+    .topbar{margin-bottom:18px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--lav-deep);font-weight:700;font-size:14px;transition:0.2s;}
+    .back-link:hover{background:var(--soft2);text-decoration:none;}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));border:1px solid #f0dcec;border-radius:32px;box-shadow:var(--shadow);padding:34px 28px 30px;margin-bottom:24px;}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;}
+    .hero::before{width:180px;height:180px;background:#ffd9e9;right:-40px;top:-50px;}
+    .hero::after{width:180px;height:180px;background:#e7dcff;left:-40px;bottom:-60px;}
+    .eyebrow{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:linear-gradient(90deg, #ffe8f2, #f2ebff);color:var(--pink-deep);font-size:13px;font-weight:800;letter-spacing:.5px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,42px);line-height:1.22;color:#5d436b;position:relative;z-index:1;}
+    .hero-desc{margin:0;font-size:16px;color:var(--muted);max-width:900px;position:relative;z-index:1;}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1;}
+    .badge{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--pink-deep);border:1px solid #ffd4e5;}
+    
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .span-4{grid-column:span 4;}
+    .span-6{grid-column:span 6;}
+    .span-8{grid-column:span 8;}
+    .span-12{grid-column:span 12;}
+    
+    h2{font-size:20px;color:#5d436b;margin:0 0 20px;display:flex;align-items:center;gap:8px;}
+    h2::before{content:"";display:block;width:6px;height:20px;background:var(--pink);border-radius:4px;}
+    h3{font-size:18px;color:var(--ink);margin:16px 0 8px;}
+    
+    .kv{display:flex;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+    .kv b{min-width:100px;color:var(--lav-deep);}
+    .mini-list{list-style:none;padding:0;margin:0 0 16px;}
+    .mini-list li{position:relative;padding-left:20px;margin-bottom:8px;}
+    .mini-list li::before{content:"•";position:absolute;left:0;color:var(--pink);font-weight:bold;}
+    .callout{background:var(--soft2);padding:16px;border-radius:var(--radius-sm);border-left:4px solid var(--lav);font-weight:bold;color:var(--lav-deep);}
+    
+    .symbol-wrap{display:flex;flex-wrap:wrap;gap:16px;}
+    .symbol{background:var(--bg);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--line);flex:1 1 30%;}
+    .symbol strong{display:block;color:var(--pink-deep);margin-bottom:4px;font-size:16px;}
+    
+    .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+    .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
+    
+    .tabs-nav{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;}
+    .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:10px 20px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;}
+    .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    
+    .clean-list{padding-left:20px;margin:0;}
+    .clean-list li{margin-bottom:12px;}
+    .writing-box{background:var(--soft);border:1px dashed var(--pink);padding:16px;border-radius:var(--radius-sm);margin-top:16px;}
+    
+    .quote{margin:0;padding:20px;background:var(--bg2);border-left:4px solid var(--lav);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#6b5d77;}
+    
+    .resource-list{display:flex;flex-direction:column;gap:12px;}
+    .resource-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .resource-item::before{content:"📄";font-size:20px;}
+    
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
+    .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
+    .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
+    
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
+    
+    @media(max-width:768px){
+      .span-4, .span-6, .span-8{grid-column:span 12;}
+      .tabs-nav{padding-bottom:10px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
+    <div class="hero">
+      <span class="eyebrow">跨媒介文本主題：社會寫實與媒體批判</span>
+      <h1>《百萬人推理》國文教學資源包</h1>
+      <p class="hero-desc">在一個網紅遇害引發全網「鍵盤辦案」的懸疑故事中，沒有人是局外人。當螢幕成為法庭，鍵盤化作利刃，百萬名「鄉民」共同參與的輿論狂歡，究竟是為了追求正義，還是為了滿足窺探與制裁的慾望？本課程引導學生直面「後真相時代」的冷酷，培養媒體識讀與思辨能力。</p>
+      <div class="badge-row">
+        <span class="badge">鍵盤正義</span>
+        <span class="badge">看客心理</span>
+        <span class="badge">媒體識讀</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      
+      <!-- 一、課程定位與核心理念 -->
+      <div class="card span-8">
+        <h2>一、課程定位與核心理念</h2>
+        <div class="kv"><b>課程名稱</b> <span>鍵盤後的真相——《百萬人推理》與現代媒體識讀</span></div>
+        <div class="kv"><b>建議時數</b> <span>4-6 節課（含影片片段賞析、小組討論與寫作產出）</span></div>
+        <div class="kv"><b>核心能力</b> <span>批判性思考、資訊判讀能力、同理心建立、國寫知性論述與情意抒發</span></div>
+        <div class="kv" style="border:none;"><b>課程目標</b> <span>從影視文本出發，探討「輿論審判」與「網路霸凌」現象。引導學生反思網路時代的「看客心理」，跳脫二元對立的思維，培養在破碎資訊中尋找真相的獨立思考與批判性閱讀能力。</span></div>
+      </div>
+
+      <!-- 二、官方劇情可用重點 -->
+      <div class="card span-4">
+        <h2>二、劇情切入重點</h2>
+        <ul class="mini-list">
+          <li><b>網紅之死的網路狂歡：</b> 將悲劇化為娛樂消費的病態社會現象。</li>
+          <li><b>百萬網友的匿名審判：</b> 探討失去真實身份後的道德解離。</li>
+          <li><b>反轉的真相與風向：</b> 揭示證據被剪輯、拼湊後的危險性。</li>
+          <li><b>無形之刃的殺傷力：</b> 鍵盤留下的隻字片語，如何成為壓垮他人的巨石。</li>
+        </ul>
+        <div class="callout">「當一百萬個人指著你說你是兇手，你還有辦法證明自己的清白嗎？」</div>
+      </div>
+
+      <!-- 三、主題關鍵字與象徵物 -->
+      <div class="card span-12">
+        <h2>三、主題關鍵字與象徵物</h2>
+        <div class="symbol-wrap">
+          <div class="symbol">
+            <strong>螢幕與鍵盤</strong>
+            現代社會最隱蔽也最鋒利的武器。象徵著物理距離帶來的心理安全感，讓人輕易卸下道德防線。
+          </div>
+          <div class="symbol">
+            <strong>面具 / 匿名頭像</strong>
+            象徵身分的隱匿與責任的免除。戴上面具後，群體的惡意得以肆無忌憚地釋放。
+          </div>
+          <div class="symbol">
+            <strong>點閱率 / 愛心</strong>
+            網路時代的虛榮貨幣。象徵著為了博取關注，人們願意扭曲事實、甚至犧牲他人的嗜血本性。
+          </div>
+          <div class="symbol">
+            <strong>彈幕 / 留言瀑布</strong>
+            象徵盲從的群眾聲音，宛如洪流般淹沒理智與真相，呈現出「喧嘩卻空洞」的集體心理狀態。
+          </div>
+          <div class="symbol">
+            <strong>剪輯片段</strong>
+            象徵「去脈絡化」的資訊。斷章取義的畫面被當作鐵證，隱喻人們只願相信自己想相信的「後真相」。
+          </div>
+          <div class="symbol">
+            <strong>放大鏡</strong>
+            代表著網路社會對他人瑕疵的過度檢視，同時卻對自身的盲點視而不見的扭曲焦點。
+          </div>
+        </div>
+      </div>
+
+      <!-- 四、課堂流程建議 -->
+      <div class="card span-12">
+        <h2>四、課堂流程建議（100 分鐘）</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>0-15分：暖身與共鳴</h4>
+            <p><b>【我們都是鄉民嗎？】</b><br>調查班上同學是否有在網路上留言批評他人或跟風按讚的經驗。展示一則真實的網路公審事件，請學生直覺判斷對錯。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>15-40分：文本分析</h4>
+            <p><b>【拆解帶風向的技術】</b><br>播放《百萬人推理》中網友被煽動的片段。分析劇中人物如何透過情緒性字眼、部分事實，操縱百萬人的輿論走向。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>40-60分：小組討論</h4>
+            <p><b>【誰是真正的兇手？】</b><br>分組辯論：在網路霸凌致死事件中，是發起者罪氣深重，還是點讚跟風的百萬網友同樣背負著殺人的罪名？</p>
+          </div>
+          <div class="lesson-box">
+            <h4>60-80分：跨文本對讀</h4>
+            <p><b>【從清末到現代的看客】</b><br>發下魯迅《藥》中群眾圍觀斬首的段落，對比現代人在螢幕前「吃瓜」的心理，分析人性中不變的冷漠與獵奇。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>80-100分：寫作引導</h4>
+            <p><b>【國寫任務收束】</b><br>統整黑板討論關鍵字。根據選擇的年段給予寫作題目，提示如何從「知性」分析現象，或從「情意」寫出同理與痛感。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 五、各年段按鈕切換教學設計 -->
+      <div class="card span-12">
+        <h2>五、各年段差異化教學設計</h2>
+        <div class="tabs-nav">
+          <button class="tab-btn active" onclick="switchTab(0, this)">國一</button>
+          <button class="tab-btn" onclick="switchTab(1, this)">國二</button>
+          <button class="tab-btn" onclick="switchTab(2, this)">國三</button>
+          <button class="tab-btn" onclick="switchTab(3, this)">高一</button>
+          <button class="tab-btn" onclick="switchTab(4, this)">高二</button>
+          <button class="tab-btn" onclick="switchTab(5, this)">高三</button>
+        </div>
+
+        <!-- 國一 -->
+        <div class="tab-panel active">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 認識網路發言的責任與同理心。</li>
+            <li><b>【適合討論】</b> 為什麼在網路上罵人比較容易？你曾被文字傷害過嗎？</li>
+            <li><b>【活動設計】</b> 「言語的重量」：寫下一句曾在網路上看過最傷人的話，並討論它造成的影響。</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《一句話的力量》（情意題）<br>
+            <b>【寫作大綱】</b> 第一段敘述一次被言語（網路或現實）誤解或中傷的經驗；第二段描寫當時的心理感受與痛苦；第三段反思文字的力量，期許自己成為溫暖的使用者。<br>
+            <b>【美文佳句】</b> 「良言一句三冬暖，惡語傷人六月寒。」 / 「鍵盤上的每一個注音符號，組合起來都可能是一把銳利的匕首。」
+          </div>
+        </div>
+        <!-- 國二 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 區辨「事實」與「觀點」。</li>
+            <li><b>【適合討論】</b> 影片有畫面就一定是真相嗎？什麼是斷章取義？</li>
+            <li><b>【活動設計】</b> 「換個角度看世界」：播放同一個事件，但透過剪輯呈現兩種截然不同結論的影片，訓練資訊識讀。</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《眼見不一定為憑》（知性題）<br>
+            <b>【寫作大綱】</b> 破題點出在資訊爆炸時代「眼見」的盲點；舉出劇中或生活中的例子，說明片面的事實如何誤導群眾；結語提出查證與保持懷疑態度的重要性。<br>
+            <b>【美文佳句】</b> 「真相往往穿上鞋子出門了，謊言才剛開始綁鞋帶。」 / 「我們看到的往往不是世界的全貌，而是別人精心裁切過的視角。」
+          </div>
+        </div>
+        <!-- 國三 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 群體盲從現象與獨立思考的建立。</li>
+            <li><b>【適合討論】</b> 為什麼我們會跟著大家一起罵人？「炎上」事件中，沉默是不是最好的選擇？</li>
+            <li><b>【活動設計】</b> 「異見者的勇氣」：模擬情境題，當全班都討厭一個人，你該如何保持中立甚至替他發聲？</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《在群眾中保持清醒》（知性/情意）<br>
+            <b>【寫作大綱】</b> 描述現代社會中「跟風」、「炎上」的集體狂熱現象；分析人們害怕被孤立而選擇盲從的心理；最終抒發在喧囂中堅持獨立思考的困難與價值。<br>
+            <b>【美文佳句】</b> 「狂歡是一群人的孤單，孤單是一個人狂歡。」 / 「在隨波逐流的時代裡，保持清醒本身就是一場無聲的革命。」
+          </div>
+        </div>
+        <!-- 高一 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 媒體識讀與演算法的框架。</li>
+            <li><b>【適合討論】</b> 資訊同溫層與極化現象。社群平台是如何餵養我們想看的資訊？</li>
+            <li><b>【活動設計】</b> 「打破同溫層」：交換不同立場同學的手機，觀察首頁推薦內容的差異，體會演算法的侷限。</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《打破演算法的牆》（知性題）<br>
+            <b>【寫作大綱】</b> 定義何謂演算法與資訊泡泡；論述演算法如何限縮視野、加劇對立（帶入劇中百萬人的單一風向）；提出具體的「破壁」策略（如主動搜尋反面意見）。<br>
+            <b>【美文佳句】</b> 「我們以為自己正在探索廣袤的世界，其實只是在螢幕上凝視著自己的倒影。」 / 「別讓程式碼決定你的世界觀。」
+          </div>
+        </div>
+        <!-- 高二 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 「看客心理」的古典與現代對話。</li>
+            <li><b>【適合討論】</b> 魯迅筆下吃人血饅頭的看客，與現在網路上喊打喊殺的酸民，有何異同？</li>
+            <li><b>【活動設計】</b> 「跨時空對話」：閱讀魯迅《藥》，對照《百萬人推理》中的留言截圖，分析看客的心理機制（如：看戲、幸災樂禍、無責任感）。</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《現代看客》（情意/知性雙效）<br>
+            <b>【寫作大綱】</b> 從魯迅的《藥》破題，過渡到現代網路上的「吃瓜群眾」；探討距離感（實體與虛擬）如何稀釋了人的同理心；呼籲在數位時代找回對他人痛苦的感知能力。<br>
+            <b>【美文佳句】</b> 「最可怕的往往不是那把揮下的利刃，而是周遭那一雙雙冷漠看戲的眼睛。」 / 「圍觀者的沉默與喧嘩，都是對受害者最殘忍的處刑。」
+          </div>
+        </div>
+        <!-- 高三 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>【教學重點】</b> 正義的邊界與輿論審判（大考導向）。</li>
+            <li><b>【適合討論】</b> 「鄉民正義」是真正的正義嗎？為何法治社會需要程序正義？</li>
+            <li><b>【活動設計】</b> 「無罪推定原則」辯論會：針對劇中未審先判的橋段，討論即使對方「看起來」像壞人，為何仍需經過法定程序？</li>
+          </ul>
+          <div class="writing-box">
+            <b>【寫作任務】</b> 《輿論法庭的法槌》（知性大考題）<br>
+            <b>【寫作大綱】</b> 引述近年來的網路公審事件或劇中情節；深入論述「實質正義」與「程序正義」的拉扯，以及群眾情緒凌駕司法理性的危險；總結法治社會的底線與個人素養的必要性。<br>
+            <b>【美文佳句】</b> 「未經正當審判的定罪，是以正義之名對正義進行的最大褻瀆。」 / 「當多數暴力披上道德的外衣，往往比純粹的邪惡更加難以防範。」
+          </div>
+        </div>
+      </div>
+
+      <!-- 六、學生版學習單題型建議 -->
+      <div class="card span-6">
+        <h2>六、學生版學習單題型</h2>
+        <ul class="clean-list">
+          <li><b>（一）選擇題（3題）：</b> 關於「網路霸凌定義」、「假新聞辨識技巧」、「資訊同溫層」的情境判斷題。</li>
+          <li><b>（二）填充與推理（2題）：</b> 給定一段充滿情緒的網路發言，請學生推理出隱含的「邏輯謬誤」（如：滑坡謬誤、人身攻擊）並填空。</li>
+          <li><b>（三）簡答題（2題）：</b> 1. 請用自己的話解釋「帶風向」的意思。2. 列出三個在轉傳訊息前，應該先確認的步驟。</li>
+          <li><b>（四）開放思辨題（2題）：</b> 如果你是劇中被百萬網友冤枉的嫌疑人，面對排山倒海的惡意，你會有什麼感受？你會如何證明自己的清白？</li>
+        </ul>
+      </div>
+
+      <!-- 七、教師講義引導重點 -->
+      <div class="card span-6">
+        <h2>七、教師講義引導重點</h2>
+        <ul class="clean-list">
+          <li><b>背景主題：</b> 解析「後真相時代」（Post-truth era）中，情緒與個人信仰比客觀事實更能影響民意的現象。</li>
+          <li><b>面具誕生：</b> 探討「匿名制」帶來的道德免責權（路西法效應在網路上的體現）。</li>
+          <li><b>崩潰邊緣：</b> 引導學生看見虛擬暴力如何溢出螢幕，造成真實生命的消逝。</li>
+          <li><b>真相救贖：</b> 課程不應只停留在悲觀批判，需提供找回同理心與批判性思考的解方。</li>
+          <li><b>板書關鍵字：</b> 後真相、看客心理、輿論審判、媒體識讀、資訊同溫層。</li>
+        </ul>
+        <div class="quote">「在網路的世界裡，每個人都以為自己在替天行道，卻沒發現自己已經成為了劊子手。」</div>
+      </div>
+
+      <!-- 八、延伸閱讀與跨文本資料 -->
+      <div class="card span-12">
+        <h2>八、延伸閱讀與跨文本</h2>
+        <div class="resource-list">
+          <div class="resource-item"><b>文學作品：</b> 魯迅《藥》、《阿Q正傳》 —— 探討中國傳統社會中冷酷的「看客心理」。</div>
+          <div class="resource-item"><b>劇本選讀：</b> 呂蒔媛《我們與惡的距離》劇本 —— 探討媒體嗜血、標籤化效應與無差別殺人的社會共業。</div>
+          <div class="resource-item"><b>外國文學：</b> 卡繆《異鄉人》 —— 探討社會群體如何以「道德」之名對不符合規範的個體進行荒謬的審判。</div>
+          <div class="resource-item"><b>議題書籍：</b> 黃震南/等著《鄉民的鄉民正義》或相關探討網路文化的社會學科普讀物。</div>
+        </div>
+      </div>
+
+      <!-- 九、相關影片連結 -->
+      <div class="card span-12">
+        <h2>九、相關影片與素材</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4>《我們與惡的距離》片段</h4>
+            <p>媒體如何製造恐慌與未審先判</p>
+            <a href="https://www.youtube.com/results?search_query=%E6%88%91%E5%80%91%E8%88%87%E6%83%A1%E7%9A%84%E8%B7%9D%E9%9B%A2+%E5%AA%92%E9%AB%94" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>TED：小心同溫層效應</h4>
+            <p>Eli Pariser 談演算法如何限制視野</p>
+            <a href="https://www.youtube.com/results?search_query=TED+filter+bubbles" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>社會實驗影片</h4>
+            <p>當網路霸凌發生在現實生活中</p>
+            <a href="https://www.youtube.com/results?search_query=%E7%B6%B2%E8%B7%AF%E9%9C%B8%E5%87%8C+%E7%A4%BE%E6%9C%83%E5%AF%A6%E9%A9%97" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h4>《BBS鄉民的正義》預告</h4>
+            <p>台灣早年探討網路暴力的經典國片</p>
+            <a href="https://www.youtube.com/results?search_query=BBS%E9%84%89%E6%B0%91%E7%9A%84%E6%AD%A3%E7%BE%A9+%E9%A0%90%E5%91%8A" target="_blank">觀看影片</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十、國寫與課堂討論題庫 -->
+      <div class="card span-12">
+        <h2>十、國寫與討論題庫</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>【情意題方向】</h4>
+            <ul class="clean-list">
+              <li>1. 螢幕背後的傷痕</li>
+              <li>2. 鍵盤上的重量</li>
+              <li>3. 當沉默成為幫兇</li>
+            </ul>
+          </div>
+          <div class="lesson-box">
+            <h4>【知性題方向】</h4>
+            <ul class="clean-list">
+              <li>1. 論「鄉民正義」與法律正義的衝突</li>
+              <li>2. 網路匿名發言權的存廢之爭</li>
+              <li>3. 演算法、資訊偏食與民主危機</li>
+            </ul>
+          </div>
+          <div class="lesson-box">
+            <h4>【課堂討論題】</h4>
+            <ul class="clean-list">
+              <li>1. 為什麼在網路上造謠的成本這麼低？</li>
+              <li>2. 看到炎上事件，你的第一反應是什麼？</li>
+              <li>3. 真的有絕對客觀中立的媒體嗎？</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:16px;">
+          <b>【範文賞析提醒】</b> 批改與引導學生寫作時，應提醒學生避免淪為枯燥的「道德說教」。情意題要求寫出「痛感」與同理心；知性題則要求邏輯推演，並能舉出現實社會中的具體時事作為佐證，深化論述。
+        </div>
+      </div>
+
+      <!-- 十一、一頁式課堂結語 -->
+      <div class="card span-12">
+        <h2>十一、課堂結語</h2>
+        <div class="quote">
+          在虛擬的網路海嘯中，真相往往是最先溺水的。我們每一次的按讚、每一次的分享與留言，都是投向這個世界的一顆石子。也許我們無法立刻阻擋輿論的狂風暴雨，但至少我們可以選擇，不要成為推波助瀾的那一滴水。在按下發送鍵之前，給自己三秒鐘的停頓——那三秒，就是我們生而為人，最珍貴的理性與溫柔。
+        </div>
+        <div class="pill-wrap">
+          <span class="pill">#鍵盤正義</span>
+          <span class="pill">#媒體識讀</span>
+          <span class="pill">#獨立思考</span>
+          <span class="pill">#看客心理</span>
+          <span class="pill">#後真相時代</span>
+          <span class="pill">#輿論殺人</span>
+          <span class="pill">#匿名性</span>
+          <span class="pill">#無罪推定</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // 年段切換腳本
+    function switchTab(index, btnElement) {
+      const card = btnElement.closest('.card');
+      const btns = card.querySelectorAll('.tab-btn');
+      const panels = card.querySelectorAll('.tab-panel');
+      
+      btns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btnElement.classList.add('active');
+      panels[index].classList.add('active');
+    }
+  </script>
+</body>
+</html>
