@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>《元素方城市》國文教學資源包</title>
+  <title>《元素方程式》國文教學資源包</title>
   <style>
     :root{
       --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
@@ -58,7 +58,9 @@
     .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
     .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
     
-    .tabs-nav{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;}
+    /* 調整年段按鈕的排列方式 */
+    .tabs-nav-group{display:flex;gap:10px;margin-bottom:10px;overflow-x:auto;padding-bottom:5px;}
+    .tabs-nav-group:last-of-type{margin-bottom:20px;}
     .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:10px 20px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;}
     .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
     .tab-panel{display:none;}
@@ -75,21 +77,18 @@
     .resource-item::before{content:"📄";font-size:20px;}
     
     .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
-    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;display:flex;flex-direction:column;justify-content:space-between;}
-    .video-card h4{margin:0 0 10px;font-size:15px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
     .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
     .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
     
     .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
-    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
     
-    /* Custom list for MCQs to save space */
-    .mcq-list { padding-left: 20px; font-size: 14.5px; }
-    .mcq-list li { margin-bottom: 8px; }
+    .bottom-action{display:flex;justify-content:flex-end;margin-top:40px;}
     
     @media(max-width:768px){
       .span-4, .span-6, .span-8{grid-column:span 12;}
-      .tabs-nav{padding-bottom:10px;}
+      .tabs-nav-group{padding-bottom:10px;}
     }
   </style>
 </head>
@@ -100,327 +99,286 @@
     </div>
     
     <div class="hero">
-      <span class="eyebrow">跨媒介文本主題：社會框架與自我認同</span>
-      <h1>《元素方城市》國文教學資源包</h1>
-      <p class="hero-desc">這不僅是一部關於水火相容的浪漫喜劇，更是一封獻給移民父母的情書。在「雜火店」的傳承壓力與「玻璃工藝」的個人天賦之間，本講義將帶領學生看見社會系統的微歧視、階級差異，並在愛與理解中尋找突破框架的藍色火焰。</p>
+      <span class="eyebrow">跨媒介文本主題</span>
+      <h1>《元素方程式》國文教學資源包</h1>
+      <p class="hero-desc">在水火不容的城市裡，尋找交融的奇蹟。這部作品不僅是元素的碰撞，更是文化、階級與世代期望的深刻對話。帶領學生透過火花與水滴的相遇，反思刻板印象，探索自我認同與包容的真正力量，是一場絕佳的思辨與情意寫作旅程。</p>
       <div class="badge-row">
-        <span class="badge">🔥 家族期盼 vs 自我實現</span>
-        <span class="badge">💧 階級與微歧視</span>
-        <span class="badge">✨ 文化融合與同理心</span>
+        <span class="badge">跨文化理解</span>
+        <span class="badge">自我認同</span>
+        <span class="badge">情意寫作</span>
+        <span class="badge">知性思辨</span>
       </div>
     </div>
 
     <div class="grid">
-      <!-- 一、課程定位與核心理念 -->
+      
+      <!-- 第一部分：課程定位與核心理念 -->
       <div class="card span-8">
         <h2>一、課程定位與核心理念</h2>
-        <div class="kv"><b>課程名稱</b> <span>跨越邊界的理解與自我探索——《元素方城市》文本思辨</span></div>
+        <div class="kv"><b>課程名稱</b> <span>水火相容的思辨練習——《元素方程式》跨媒介閱讀與寫作</span></div>
         <div class="kv"><b>建議時數</b> <span>100 分鐘（兩節課）</span></div>
-        <div class="kv"><b>核心能力</b> <span>象徵符號解析、社會議題批判（偏見/階級）、國寫知性與情意表達</span></div>
-        <div class="kv" style="border-bottom:none; margin-bottom:0; padding-bottom:0;"><b>課程目標</b> <span>透過水族與火族的對比，反思日常中的「微歧視」，引導學生理解父母世代的「犧牲」，並勇敢面對真實的「自我渴望」。</span></div>
-      </div>
-
-      <!-- 二、官方劇情可用重點 -->
-      <div class="card span-4">
-        <h2>二、劇情切入點</h2>
-        <ul class="mini-list">
-          <li><b>火鎮的隔離：</b>新移民邊緣化與文化固守。</li>
-          <li><b>情緒的引爆：</b>小炎易怒背後的真實渴望被壓抑。</li>
-          <li><b>水與火的觸碰：</b>跨越恐懼，真正理解與接納他者。</li>
-          <li><b>父愛的放手：</b>傳承的不是店面，而是家人的愛。</li>
-        </ul>
-        <div class="callout">
-          「當水與火相遇，是必然的毀滅，還是激盪出全新的可能？」
+        <div class="kv"><b>核心能力</b> <span>議題思辨、文本解讀、情意共鳴、國寫表達</span></div>
+        <div class="kv" style="border:none;"><b>課程目標</b> 
+          <span>
+            1. 辨析刻板印象的形成，探討如何打破社會藩籬。<br>
+            2. 探討家族期待與個人夢想的衝突與和解。<br>
+            3. 結合自身經驗，完成具深度的情意與知性寫作。
+          </span>
         </div>
       </div>
 
-      <!-- 三、主題關鍵字與象徵物 -->
+      <!-- 第二部分：官方劇情可用重點 -->
+      <div class="card span-4">
+        <h2>二、官方劇情可用重點</h2>
+        <ul class="mini-list">
+          <li>元素市的隔離與偏見藩籬</li>
+          <li>家族雜貨店的繼承壓力與責任</li>
+          <li>水與火「不可能的跨界相愛」</li>
+          <li>災難中的彼此救贖與父女和解</li>
+        </ul>
+        <div class="callout">
+          「你無法決定自己的出身，但你能決定自己燃燒的樣貌。」—— 課堂導入句
+        </div>
+      </div>
+
+      <!-- 第三部分：主題關鍵字與象徵物 -->
       <div class="card span-12">
         <h2>三、主題關鍵字與象徵物</h2>
         <div class="symbol-wrap">
           <div class="symbol">
-            <strong>🔥 藍色火焰</strong>
-            <p>象徵家族的根源、傳統的重擔與父母的期盼，是信仰也是枷鎖。</p>
+            <strong>🔥 火族雜貨店（藍焰）</strong>
+            象徵傳統、家族使命、移民第一代的辛勞與文化傳承的重擔。
           </div>
           <div class="symbol">
-            <strong>🔮 玻璃工藝</strong>
-            <p>象徵小炎真正的天賦，將火的「破壞力」轉化為「創造力」的藝術。</p>
+            <strong>💧 玻璃罩 / 防護衣</strong>
+            象徵自我保護機制、社會無形的階級藩籬，以及不敢跨越的心理界線。
           </div>
           <div class="symbol">
-            <strong>🚉 元素市交通網</strong>
-            <p>象徵社會的「系統性偏見」，城市設計完全未考量火族的生存需求。</p>
+            <strong>🌈 元素市（Element City）</strong>
+            象徵多元社會、都市規劃中的階級分化與移民邊緣化困境。
           </div>
           <div class="symbol">
-            <strong>🌸 薇薇安之花</strong>
-            <p>象徵打破藩籬、遙不可及的夢想，以及多元元素共存的美好願景。</p>
+            <strong>🎇 變色的火焰</strong>
+            象徵小炎真正的個人天賦、隱藏的情緒以及長期被壓抑的夢想。
           </div>
           <div class="symbol">
-            <strong>🏪 雜火店</strong>
-            <p>象徵移民第一代為了在異鄉生存，胼手胝足建立的避風港與社群。</p>
+            <strong>🔍 放大鏡與聚光燈</strong>
+            象徵偏見（只放大別人的危險與缺點）以及看見真實自我的勇氣。
           </div>
           <div class="symbol">
-            <strong>🙇 鞠躬大禮</strong>
-            <p>象徵文化傳統中最深刻的敬意、認同，以及兩代之間最終的和解。</p>
+            <strong>🤝 蒸氣（水火交融）</strong>
+            象徵同理心、包容、化解衝突，以及打破世俗「不可能」的奇蹟。
           </div>
         </div>
       </div>
 
-      <!-- 四、課堂流程建議 -->
+      <!-- 第四部分：課堂流程建議 -->
       <div class="card span-12">
-        <h2>四、課堂流程建議 (100分鐘)</h2>
+        <h2>四、課堂流程建議（100 分鐘）</h2>
         <div class="lesson-grid">
           <div class="lesson-box">
-            <h4>0-15分：暖身導入</h4>
-            <p>【元素測驗】請學生寫下對四元素的直覺形容詞，對比劇中設定，點出「刻板印象」。</p>
+            <h4>0-15分（暖身）</h4>
+            <p>【元素測驗】你是哪種元素？透過趣味心理測驗帶入「特質標籤」，初步探討刻板印象對人際關係的影響。</p>
           </div>
           <div class="lesson-box">
-            <h4>15-40分：文本分析</h4>
-            <p>【表象與真實】探討小炎為何發怒？水弟為何愛哭？分析階級差異對兩人的性格影響。</p>
+            <h4>15-40分（文本分析）</h4>
+            <p>【拆解偏見與期待】分析電影中的「偏見台詞」（如：火總是帶來毀滅）與「家族期待」橋段，探討主角內心衝突。</p>
           </div>
           <div class="lesson-box">
-            <h4>40-60分：小組討論</h4>
-            <p>【城市規劃師】如果重劃元素市，該如何加入火族需求？引導思考系統性不公。</p>
+            <h4>40-60分（小組討論）</h4>
+            <p>【水火不容是誰定義的？】發放學習單，分組討論社會中無形的界線在哪裡？我們是否也在不知不覺中排擠了他人？</p>
           </div>
           <div class="lesson-box">
-            <h4>60-80分：跨文本閱讀</h4>
-            <p>【愛的枷鎖】補充閱讀龍應台或新移民文學，探討「父母的犧牲」與「孩子的獨立」。</p>
+            <h4>60-80分（跨文本）</h4>
+            <p>【親情與放手】結合龍應台《目送》或相關文章，探討父母的愛如何從「期望綁架」轉化為「真正放手與祝福」。</p>
           </div>
           <div class="lesson-box">
-            <h4>80-100分：寫作引導</h4>
-            <p>【國寫輸出】根據年段分發學習單，進行情意題（自我探索）或知性題（社會結構）大綱撰寫。</p>
+            <h4>80-100分（寫作引導）</h4>
+            <p>【國寫實戰】透過心智圖引導，建構知性（都市與偏見）或情意（夢想與親情）的寫作框架，並實際下筆練寫。</p>
           </div>
         </div>
       </div>
 
-      <!-- 五、各年段按鈕切換教學設計 -->
+      <!-- 第五部分：各年段按鈕切換教學設計 -->
       <div class="card span-12">
         <h2>五、各年段差異化教學設計</h2>
-        <div class="tabs-nav">
-          <button class="tab-btn active" onclick="switchTab(0, this)">國一</button>
-          <button class="tab-btn" onclick="switchTab(1, this)">國二</button>
-          <button class="tab-btn" onclick="switchTab(2, this)">國三</button>
-          <button class="tab-btn" onclick="switchTab(3, this)">高一</button>
-          <button class="tab-btn" onclick="switchTab(4, this)">高二</button>
-          <button class="tab-btn" onclick="switchTab(5, this)">高三</button>
-        </div>
         
+        <!-- 國中按鈕排 -->
+        <div class="tabs-nav-group">
+          <button class="tab-btn active" onclick="switchTab(0, this)">國一：自我特質與情緒</button>
+          <button class="tab-btn" onclick="switchTab(1, this)">國二：家庭期待與溝通</button>
+          <button class="tab-btn" onclick="switchTab(2, this)">國三：打破刻板印象</button>
+        </div>
+        <!-- 高中按鈕排 -->
+        <div class="tabs-nav-group">
+          <button class="tab-btn" onclick="switchTab(3, this)">高一：自我認同與跨界</button>
+          <button class="tab-btn" onclick="switchTab(4, this)">高二：社會階級與現象</button>
+          <button class="tab-btn" onclick="switchTab(5, this)">高三：國寫深度實戰</button>
+        </div>
+
         <!-- 國一 -->
         <div class="tab-panel active">
-          <h3>【教學重點】情緒覺察與自我認識</h3>
+          <h3>國一教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>小炎為什麼總是會發脾氣？她的生氣背後隱藏了什麼不敢說的話？</li>
-            <li><b>活動設計：</b>「情緒溫度計」——回想自己最近一次生氣，底下藏著的是委屈、害怕還是無奈？</li>
-            <li><b>寫作任務：</b>記敘文《那一次，我沒有發脾氣》</li>
+            <li><b>教學重點：</b>認識個人情緒與特質，學習欣賞差異。</li>
+            <li><b>討論議題：</b>如何面對班上性格截然不同（水與火）的同學？</li>
+            <li><b>活動設計：</b>【畫出我的元素光譜】讓學生用顏色和形狀畫出自己的情緒，分享容易「爆發」的地雷。</li>
+            <li><b>寫作任務：</b>《如果我是一種元素》</li>
+            <li><b>寫作大綱：</b>第一段描寫個人獨特屬性；第二段敘述曾遭遇的誤解；第三段寫下對自我接納與他人理解的渴望。</li>
+            <li><b>美文佳句：</b>「不是所有的火都會傷人，有時我們只是渴望溫暖。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：描述一個差點讓你情緒失控的具體事件。<br>
-            承：當時內心有哪兩種聲音在拉扯？（像水與火的交戰）。<br>
-            轉：你做了什麼不同的選擇？為什麼決定改變表達方式？<br>
-            合：這次經驗讓你對自己有什麼新的認識。<br>
-            <i>💡 佳句支援：「憤怒往往是脆弱的偽裝，當我們卸下火焰的刺，才能看見內心最真實的渴望。」</i>
-          </div>
         </div>
-
+        
         <!-- 國二 -->
         <div class="tab-panel">
-          <h3>【教學重點】家庭期待與代溝溝通</h3>
+          <h3>國二教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>柏尼（爸爸）為什麼那麼在意雜火店？這家店對他有什麼意義？</li>
-            <li><b>活動設計：</b>「兩代對話框」——寫下一句父母常說的話，並試著翻譯這句話背後的「愛」與「擔憂」。</li>
-            <li><b>寫作任務：</b>書信體《給_______的一封信（關於我的夢想）》</li>
+            <li><b>教學重點：</b>同理父母辛勞，學會表達自己的真實夢想。</li>
+            <li><b>討論議題：</b>父母的夢想，一定得是我的夢想嗎？</li>
+            <li><b>活動設計：</b>【給父母的一封信】角色扮演，試著用小炎的角度對父親說出內心的掙扎，再換位思考父親的心情。</li>
+            <li><b>寫作任務：</b>《那一次，我選擇了不同的路》</li>
+            <li><b>寫作大綱：</b>起因（面臨期待的壓力）；衝突（內心的掙扎與不敢言說）；轉折（嘗試溝通的歷程）；結語（成長體會）。</li>
+            <li><b>美文佳句：</b>「真正的孝順，不是複製你們的人生，而是活出讓我驕傲的自己。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：親切的問候，並點出你們之間長期存在的一個小摩擦。<br>
-            承：同理對方的立場（我知道你是為了我好、我懂你的辛苦）。<br>
-            轉：勇敢說出自己真正的想法（但我其實更喜歡...、我不想要...）。<br>
-            合：提出雙贏的期盼，表達愛意與和解。<br>
-            <i>💡 佳句支援：「父母的期盼是溫暖的燈塔，但我不一定要成為守塔人，我可以是那艘乘風破浪的船。」</i>
-          </div>
         </div>
-
+        
         <!-- 國三 -->
         <div class="tab-panel">
-          <h3>【教學重點】撕下標籤與同理心建構</h3>
+          <h3>國三教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>為什麼火族在城市裡總是被認為是危險的？標籤如何影響一個人？</li>
-            <li><b>活動設計：</b>「偏見審查員」——找出劇中水族對火族的微歧視，對應到校園生活中的霸凌或偏見。</li>
-            <li><b>寫作任務：</b>論說文《我不是你想的那樣》</li>
+            <li><b>教學重點：</b>打破社會與校園中的刻板印象，學會尊重多元。</li>
+            <li><b>討論議題：</b>校園中是否存在「水火不容」的無形小團體界線？</li>
+            <li><b>活動設計：</b>【撕標籤大會】寫下別人常給自己貼的負面標籤，全班一起探討標籤背後的盲點，並動手將紙條撕毀。</li>
+            <li><b>寫作任務：</b>《標籤背後的我》</li>
+            <li><b>寫作大綱：</b>敘述被貼標籤的具體經驗；澄清標籤下真實的自我面貌；表達對建立多元包容環境的期許。</li>
+            <li><b>美文佳句：</b>「偏見是一道看不見的牆，唯有理解能化為穿透的風。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：描述自己曾被貼上的一個「標籤」（外表、成績、個性）。<br>
-            承：這個標籤帶來的困擾，以及別人對你的誤解。<br>
-            轉：舉出一個具體事件，證明標籤背後真實的自己。<br>
-            合：呼籲打破刻板印象，看見每個人的獨特性。<br>
-            <i>💡 佳句支援：「標籤是別人給的，但生命的形狀，必須由我們自己親手捏造。」</i>
-          </div>
         </div>
 
         <!-- 高一 -->
         <div class="tab-panel">
-          <h3>【教學重點】文化適應與身分認同</h3>
+          <h3>高一教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>元素市的設計是「大熔爐」還是「沙拉碗」？它對火族公平嗎？</li>
-            <li><b>活動設計：</b>「文化翻譯機」——探討劇中小炎吃熱木柴、水弟吃辣等情節，討論文化交融的陣痛與美好。</li>
-            <li><b>寫作任務：</b>國寫情意題《邊緣與核心》</li>
+            <li><b>教學重點：</b>自我認同的建立，以及面對未知領域的突破勇氣。</li>
+            <li><b>討論議題：</b>面對未知的環境與人，我們為何會感到恐懼？</li>
+            <li><b>活動設計：</b>【「玻璃罩」隱喻分析】分析劇中小炎與水弟觸碰時的恐懼與奇蹟，探討保護色與打開心房的兩難。</li>
+            <li><b>寫作任務：</b>《跨越那道無形的界線》</li>
+            <li><b>寫作大綱：</b>界定生活中的具體與抽象界線；描述跨越界線前的恐懼與契機；寫下突破舒適圈後看見的風景與自我成長。</li>
+            <li><b>美文佳句：</b>「水與火的相遇不是毀滅，而是誕生更自由的雲霧。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：由《元素方城市》火鎮被隔離的景象，引導出「空間與心理的邊緣感」。<br>
-            承：敘述自身或觀察到的一種「格格不入」的經驗（如轉學生、興趣小眾）。<br>
-            轉：在邊緣位置上，獲得了什麼核心群體看不見的獨特視野？<br>
-            合：重新定義邊緣，它是另一種核心的起點。<br>
-            <i>💡 佳句支援：「不是每個人都必須走在陽光普照的大道上，在陰影交界處，往往能開出最獨特的花。」</i>
-          </div>
         </div>
 
         <!-- 高二 -->
         <div class="tab-panel">
-          <h3>【教學重點】系統性不平等與階級差異</h3>
+          <h3>高二教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>水弟一家為何能輕易鼓勵小炎「追尋夢想」？這背後反映了什麼階級資源差異？</li>
-            <li><b>活動設計：</b>「資源盤點表」——對比小炎（生存導向）與水弟（自我實現導向）的家庭資本，探討社會起跑點。</li>
-            <li><b>寫作任務：</b>國寫知性題《論「追夢」的階級門檻》</li>
+            <li><b>教學重點：</b>探討社會階級、移民困境與都市空間政治。</li>
+            <li><b>討論議題：</b>都市空間設計如何隱性地影響了族群融合與階級劃分？</li>
+            <li><b>活動設計：</b>【元素市空間規劃檢討會】以知性觀點檢視元素市對火族的不友善設計，對應現實社會的無障礙或新住民政策。</li>
+            <li><b>寫作任務：</b>《從隔離到共融：我看社會偏見》（知性題）</li>
+            <li><b>寫作大綱：</b>現象觀察（舉例社會中的空間或制度隔離）；原因分析（恐懼、利益或傳統）；提出具體解方或人文呼籲。</li>
+            <li><b>美文佳句：</b>「一座偉大的城市，不在於建築多宏偉，而在於能容納多少截然不同的靈魂。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：破題點出「追夢」看似平等，實則需要資本支撐。<br>
-            承：引用電影中水族與火族的對比，分析生存壓力如何剝奪弱勢者的選擇權。<br>
-            轉：提出反思——社會該如何提供安全網，讓「犯錯」不再是富人的特權？<br>
-            合：總結結構性問題的解方，期許一個更公平的元素市（社會）。<br>
-            <i>💡 佳句支援：「對某些人來說，夢想是展翅高飛的羽翼；但對另一群人而言，生存本身就已經耗盡了所有力氣。」</i>
-          </div>
         </div>
 
         <!-- 高三 -->
         <div class="tab-panel">
-          <h3>【教學重點】存在主義與人生抉擇</h3>
+          <h3>高三教學設計</h3>
           <ul class="clean-list">
-            <li><b>適合提問：</b>當父親說「店不是夢想，妳才是我的夢想」時，小炎獲得了什麼樣的救贖？</li>
-            <li><b>活動設計：</b>「生命價值拍賣會」——在「繼承家業報恩」與「追求未知天賦」中，你會用多少籌碼買下哪一個？</li>
-            <li><b>寫作任務：</b>國寫情意綜合題《那一刻，我決定轉身》</li>
+            <li><b>教學重點：</b>大考國寫綜合實戰，強化知性與情意的深度整合。</li>
+            <li><b>討論議題：</b>愛與犧牲的辯證——成全別人與成就自己是否必然衝突？</li>
+            <li><b>活動設計：</b>【雙文本對讀與論述】將《元素方程式》與近代探討移民或階級的散文並列，進行大考模擬論述訓練。</li>
+            <li><b>寫作任務：</b>《相容的代價與價值》（綜合型）</li>
+            <li><b>寫作大綱：</b>破題點出「相容」本質上帶有妥協的痛楚；進行正反辯證（堅守自我的孤獨 vs. 迎合社會的失落）；提出個人層次躍升的價值觀總結。</li>
+            <li><b>美文佳句：</b>「最深刻的愛，是願意為了對方，重新定義自己的生存方式。」</li>
           </ul>
-          <div class="writing-box">
-            <b>📝 寫作大綱引導：</b><br>
-            起：描寫一個長期背負的期盼（藍色火焰），那曾是你前進的唯一方向。<br>
-            承：一個契機（如接觸玻璃工藝/某個人事物），讓你窺見內心真實的渴望，產生強烈衝突。<br>
-            轉：描述「轉身」那一刻的掙扎、恐懼，以及放下包袱後的釋然。<br>
-            合：感悟生命的意義在於為自己燃燒，而非僅為照亮別人的期待。<br>
-            <i>💡 佳句支援：「孝順不該是犧牲自我的獻祭，真正的傳承，是帶著家族的愛，活出自己最燦爛的模樣。」</i>
-          </div>
         </div>
       </div>
 
-      <!-- 六、學生版學習單題型建議 -->
+      <!-- 第六部分：學生版學習單題型建議 -->
       <div class="card span-6">
-        <h2>六、學生版學習單題庫</h2>
-        <h3>(一) 劇情與象徵選擇題 (23題)</h3>
-        <div style="max-height: 400px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--bg);">
-          <ol class="mcq-list">
-            <li>小炎父親經營的店名是？(A)火之爐 (B)雜火店 (C)元素超市 (D)烈焰商城</li>
-            <li>水弟在市政府的職業是？(A)警察 (B)城市督察員 (C)消防員 (D)藝術家</li>
-            <li>元素市的基礎建設對哪種元素最不友善？(A)水 (B)風 (C)土 (D)火</li>
-            <li>小炎發脾氣的真正深層原因是？(A)天生脾氣差 (B)顧客太奧客 (C)壓抑不想接手家業的心聲 (D)討厭水族</li>
-            <li>小炎生氣時會導致什麼後果？(A)下雨 (B)引發地震 (C)燒壞管線導致漏水 (D)長出花朵</li>
-            <li>水弟的個性特質是？(A)冷酷無情 (B)容易共情流淚 (C)脾氣暴躁 (D)行動遲緩</li>
-            <li>火族最怕的物質是？(A)風 (B)木頭 (C)水 (D)金屬</li>
-            <li>風族最喜歡的運動是？(A)打籃球 (B)雲朵球競賽 (C)游泳 (D)賽車</li>
-            <li>藍色火焰的起源代表什麼？(A)魔法 (B)火鎮的建立與家族傳承 (C)財富 (D)毀滅力量</li>
-            <li>小炎用什麼材質展現了她的藝術天份？(A)木頭 (B)金屬 (C)玻璃 (D)陶瓷</li>
-            <li>「火鎮」在電影中隱喻了現實社會的什麼現象？(A)富人區 (B)新移民隔離區 (C)政府機關 (D)學校</li>
-            <li>電影中造成元素市危機的災難是？(A)火災 (B)龍捲風 (C)大洪水 (D)地震</li>
-            <li>小炎的母親職業是？(A)廚師 (B)裁縫 (C)算命/愛情媒人 (D)醫生</li>
-            <li>水弟的家庭背景屬於？(A)底層勞工 (B)中產/富裕階級 (C)無業遊民 (D)犯罪組織</li>
-            <li>小炎為了修補防洪牆，利用沙包製作了什麼？(A)鐵門 (B)玻璃擋水牆 (C)木牆 (D)冰牆</li>
-            <li>父親柏尼為何極度討厭水族？(A)水族曾經歧視並拒絕他租房 (B)水族很窮 (C)水族不懂禮貌 (D)天生相剋</li>
-            <li>水弟教導小炎的最重要一課是？(A)如何游泳 (B)如何接管雜火店 (C)如何面對自己真實的情感 (D)如何賺錢</li>
-            <li>薇薇安之花對小炎的意義是？(A)能治百病 (B)童年未竟的夢想與遺憾 (C)昂貴的裝飾 (D)毒藥</li>
-            <li>是誰說出「這家店不是我的夢想，妳才是」？(A)水弟 (B)小炎母親 (C)柏尼(小炎父) (D)風老闆</li>
-            <li>電影結局小炎選擇了什麼職業？(A)繼承家業 (B)城市督察 (C)玻璃工藝師 (D)市長</li>
-            <li>元素市的「列車」進站時，水族會發生什麼事？(A)會結冰 (B)會被濺出車廂形成波浪 (C)會蒸發 (D)會變色</li>
-            <li>小炎與水弟最終如何證明他們可以共存？(A)透過法術 (B)改變自身化學結構 (C)跨越恐懼真心觸碰 (D)穿上防護衣</li>
-            <li>這部電影的核心主旨最接近下列何者？(A)環保重要性 (B)打破偏見與追求自我 (C)如何經營企業 (D)水火無情</li>
-          </ol>
+        <h2>六、學生版學習單題型建議</h2>
+        <ul class="clean-list">
+          <li><b>（一）選擇題（3題）</b>
+            <br>1. 女主角小炎的名字(Ember)暗示了什麼特質？
+            <br>2. 元素市的初始基礎建設，對哪一種元素最不友善？
+            <br>3. 劇中「藍色火焰」最主要的象徵意涵為何？
+          </li>
+          <li><b>（二）填充與推理（2題）</b>
+            <br>1. 小炎發脾氣時會爆發，這在心理學上暗示了她長期壓抑了_____________。
+            <br>2. 水弟的「流動性」性格，正好補足了小炎性格中的_____________。
+          </li>
+          <li><b>（三）簡答題（2題）</b>
+            <br>1. 請簡述小炎的父親為何起初對水族抱有極大的敵意。
+            <br>2. 請說出一個你在現實生活中曾遇到或聽過的「刻板印象」例子。
+          </li>
+          <li><b>（四）開放思辨題（2題）</b>
+            <br>1. 如果你是小炎，你會選擇接手父親的店面，還是追逐燒玻璃的夢想？為什麼？
+            <br>2. 練筆：請寫下 300 字關於「放下偽裝，展現真實自我」的情意抒發。
+          </li>
+        </ul>
+        <div class="writing-box">
+          ✎ 提示：作答開放思辨題時，請先點出立場，再加入個人生命經驗作為佐證，切勿只複述電影劇情。
         </div>
-        
-        <h3>(二) 填充與推理題</h3>
-        <ol class="clean-list" style="font-size:14.5px;">
-          <li>元素市的設計是典型的「________中心主義」，完全忽略了________族的生活需求，這反映了現實中的________不平等。</li>
-          <li>小炎的「怒火」等同於心理學上的「________機制」，用來掩飾她不敢對父親說出口的________。</li>
-        </ol>
       </div>
 
-      <!-- 七、教師講義引導重點 -->
+      <!-- 第七部分：教師講義引導重點 -->
       <div class="card span-6">
         <h2>七、教師講義引導重點</h2>
         <ul class="clean-list">
-          <li><b>背景主題：</b>導演彼得孫（Peter Sohn）將自身亞裔移民背景融入。火鎮即為紐約的布朗克斯或唐人街，探討第一代移民的生存掙扎與第二代的認同撕裂。</li>
-          <li><b>面具誕生：</b>小炎是標準的「亞裔好女兒」，她的面具是「繼承家業報答父母」，壓抑了自我實現的渴望。</li>
-          <li><b>崩潰邊緣：</b>當水弟一家人讚賞她的玻璃天賦時，她感受到的不是喜悅而是「背叛家族」的恐懼，這是東方孝道特有的情感勒索。</li>
-          <li><b>真相救贖：</b>高潮戲中，父親的鞠躬（最高敬意）解開了小炎的枷鎖。愛不是犧牲，而是成全。</li>
-          <li><b>板書關鍵字：</b>微歧視 (Microaggressions)、玻璃天花板、情緒置換、文化同化 vs 多元並存。</li>
+          <li><b>背景主題：</b>本片為移民社會的縮影，深刻刻畫了第一代移民的辛勞與第二代的文化認同衝突。</li>
+          <li><b>面具誕生：</b>為迎合父親「犧牲一切換來店面」的期待，小炎戴上了「完美繼承人」的面具，忽視了自己的天賦。</li>
+          <li><b>崩潰邊緣：</b>天賦（喜歡燒玻璃）與責任（必須顧店）的巨大拉扯，導致小炎經常情緒失控，這正是「壓抑」的反彈。</li>
+          <li><b>真相救贖：</b>水弟的柔軟與包容，讓小炎體會到「水」不是威脅，而是一面讓她看清真實自我的鏡子。</li>
+          <li><b>板書關鍵字：</b>#代際衝突 #文化熔爐 #情緒釋放 #互補共生 #跨越界線</li>
         </ul>
-        <blockquote class="quote">
-          「最難跨越的從來不是水與火的物理界線，而是社會貼上的標籤，以及我們為了滿足期待所戴上的沉重面具。」
-        </blockquote>
+        <div class="quote">
+          「在愛與理解面前，即便是水火，也能溫柔相擁，昇華為自由的雲煙。」——教師總結金句
+        </div>
       </div>
 
-      <!-- 八、延伸閱讀與跨文本資料 -->
+      <!-- 第八部分：延伸閱讀與跨文本資料 -->
       <div class="card span-12">
         <h2>八、延伸閱讀與跨文本資料</h2>
         <div class="resource-list">
           <div class="resource-item">
-            <div>
-              <strong>文學對讀：龍應台《親愛的安德烈》</strong>
-              <div style="font-size:14px; color:var(--muted);">探討華人家庭中父母的「愛與控制」，以及兩代人對於「成功」與「幸福」定義的差異，對映小炎與父親的矛盾。</div>
-            </div>
+            <div><b>龍應台《目送》</b> —— 探討世代交替、親情羈絆與父母最終必須學會的「放手與成全」。</div>
           </div>
           <div class="resource-item">
-            <div>
-              <strong>空間記憶：吳明益《天橋上的魔術師》</strong>
-              <div style="font-size:14px; color:var(--muted);">透過中華商場的拆遷與庶民生活，對照《元素方城市》中「雜火店」作為城市邊緣社群記憶與根源的象徵。</div>
-            </div>
+            <div><b>侯文詠《我的天才夢》</b> —— 關於發掘自我天賦、興趣與面對龐大社會期待時的拉扯與抉擇。</div>
           </div>
           <div class="resource-item">
-            <div>
-              <strong>藝術追尋：劉若瑀《尋找心中的藍色火焰》（優人神鼓）</strong>
-              <div style="font-size:14px; color:var(--muted);">雖然此書名為巧合，但同樣探討了藝術工作者在傳統與創新間，尋找自我生命動力的過程。</div>
-            </div>
+            <div><b>社會學文章《隱形的階級與空間隔離》</b> —— 探討現代城市設計如何無形中將不同族群、階級進行空間劃分。</div>
           </div>
           <div class="resource-item">
-            <div>
-              <strong>社會學文章：認識「微歧視（Microaggressions）」</strong>
-              <div style="font-size:14px; color:var(--muted);">補充關於日常生活中不自覺的歧視言語（如電影中土族對火族說：「妳的火語說得真好」），適合用於知性寫作素材。</div>
-            </div>
+            <div><b>蔣勳《孤獨六講》</b> —— 從情慾孤獨與倫理孤獨的角度，思考打破群體刻板印象，尋找個體自由的可能。</div>
           </div>
         </div>
       </div>
 
-      <!-- 九、相關影片連結 -->
+      <!-- 第九部分：相關影片連結 -->
       <div class="card span-12">
-        <h2>九、相關主題探討影片</h2>
+        <h2>九、相關影片連結</h2>
         <div class="video-grid">
           <div class="video-card">
-            <h4>《元素》幕後：導演的移民故事</h4>
-            <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">了解皮克斯導演如何將韓國移民父母的故事轉化為動畫。</div>
-            <a href="https://www.youtube.com/results?search_query=Elemental+Peter+Sohn+interview" target="_blank">🎬 觀看影片</a>
+            <h4>《動物方城市》</h4>
+            <p>同樣探討城市中的偏見、種族刻板印象與打破職業天花板。</p>
+            <a href="https://www.youtube.com/results?search_query=動物方城市+解析" target="_blank">觀看影片</a>
           </div>
           <div class="video-card">
-            <h4>TED：危險的「單一故事」</h4>
-            <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">講述刻板印象如何扁平化一個人的價值，對應電影中的標籤。</div>
-            <a href="https://www.youtube.com/results?search_query=The+danger+of+a+single+story" target="_blank">🎬 觀看影片</a>
+            <h4>《腦筋急轉彎》</h4>
+            <p>深度探討壓抑的情緒、接納脆弱與面對真實自我的心理機制。</p>
+            <a href="https://www.youtube.com/results?search_query=腦筋急轉彎+解析" target="_blank">觀看影片</a>
           </div>
           <div class="video-card">
-            <h4>社會學短片：什麼是微歧視？</h4>
-            <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">解析日常言語中隱含的偏見，幫助學生釐清知性題概念。</div>
-            <a href="https://www.youtube.com/results?search_query=What+are+Microaggressions" target="_blank">🎬 觀看影片</a>
+            <h4>《青春養成記》</h4>
+            <p>聚焦亞裔移民家庭的母女關係、傳統期待與青少女的自我解放。</p>
+            <a href="https://www.youtube.com/results?search_query=青春養成記+解析" target="_blank">觀看影片</a>
           </div>
           <div class="video-card">
-            <h4>皮克斯特效解析：水與火的碰撞</h4>
-            <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">解析如何用特效呈現物理上的不可能，隱喻跨越心理障礙。</div>
-            <a href="https://www.youtube.com/results?search_query=Elemental+VFX+breakdown" target="_blank">🎬 觀看影片</a>
+            <h4>《元素方程式》幕後解析</h4>
+            <p>導演受訪解析，探討其韓國移民背景如何成為故事的靈感來源。</p>
+            <a href="https://www.youtube.com/results?search_query=元素方程式+導演+訪談" target="_blank">觀看影片</a>
           </div>
         </div>
       </div>
@@ -431,60 +389,62 @@
         <div class="lesson-grid">
           <div class="lesson-box">
             <h4>【情意題方向】</h4>
-            <ul class="clean-list" style="font-size:14px;">
-              <li>1. <b>《面具下的我》：</b>小炎用憤怒掩飾渴望，請敘述你曾用什麼情緒或行為掩飾真實的自己。</li>
-              <li>2. <b>《那份沉重的愛》：</b>以家人過度的期盼為題，寫下你如何在感恩與窒息間尋找平衡。</li>
-              <li>3. <b>《我的藍色火焰》：</b>藍色火焰代表傳承，請寫下一項你從家族中繼承，且深深影響你的特質或物品。</li>
+            <ul class="clean-list" style="padding-left:15px; font-size:15px;">
+              <li>那一刻，我不再壓抑自己。</li>
+              <li>父母的夢，我的夢。</li>
+              <li>生命中的那一場雨（寫一個為你帶來改變的異質人物）。</li>
             </ul>
           </div>
           <div class="lesson-box">
             <h4>【知性題方向】</h4>
-            <ul class="clean-list" style="font-size:14px;">
-              <li>1. <b>論「空間與權力」：</b>以元素市的交通設計為例，論述現代城市規劃中潛藏的階級不平等。</li>
-              <li>2. <b>論「微歧視」：</b>針對校園中「無心卻傷人」的刻板印象玩笑，提出你的觀察與改善之道。</li>
-              <li>3. <b>「生存」與「夢想」的距離：</b>探討社會資源多寡，如何決定一個人是否有資格追求自我實現。</li>
+            <ul class="clean-list" style="padding-left:15px; font-size:15px;">
+              <li>論「城市空間設計與族群融合」的關係。</li>
+              <li>標籤化社會的成因與解方。</li>
+              <li>傳統產業繼承與個人生涯發展的兩難抉擇。</li>
             </ul>
           </div>
           <div class="lesson-box">
             <h4>【課堂討論題】</h4>
-            <ul class="clean-list" style="font-size:14px;">
-              <li>1. 如果小炎沒有遇到水弟，她的人生會變成什麼樣子？</li>
-              <li>2. 「改變世界」還是「適應世界」？火族面對不公時，應該努力同化還是抗爭爭取權益？</li>
-              <li>3. 愛情真的能克服一切階級與物理差異嗎？電影的結局在現實中可能發生嗎？</li>
+            <ul class="clean-list" style="padding-left:15px; font-size:15px;">
+              <li>水弟的眼淚代表脆弱還是堅強？</li>
+              <li>為什麼火族在元素市最被邊緣化？</li>
+              <li>相愛真的能克服一切階級與物理差異嗎？</li>
             </ul>
           </div>
-          <div class="lesson-box" style="background:var(--soft);">
-            <h4 style="color:var(--pink-deep);">【範文賞析提醒：四段結構】</h4>
-            <ul class="clean-list" style="font-size:14px;">
-              <li><b>起 (現象)：</b>點出電影情節或現實生活中的矛盾點。</li>
-              <li><b>承 (剖析)：</b>深入分析該現象背後的心理或社會成因。</li>
-              <li><b>轉 (反思)：</b>加入個人獨特觀點，翻轉常規認知。</li>
-              <li><b>合 (昇華)：</b>提出兼具感性與理性的總結，留下餘韻。</li>
-            </ul>
-          </div>
+        </div>
+        <div class="writing-box" style="margin-top:16px;">
+          <b>※ 範文賞析提醒：</b>引導學生寫作時，切忌整篇只寫電影劇情大綱。必須將「電影情節」轉化為短短的「引子」，將 80% 的篇幅留給「個人生命經驗」的反思與「觀點深化」，方能拿到國寫高分。
         </div>
       </div>
 
-      <!-- 十一、一頁式課堂結語 -->
+      <!-- 十一、課堂結語 -->
       <div class="card span-12">
         <h2>十一、課堂結語</h2>
-        <blockquote class="quote" style="font-size:17px; line-height:2;">
-          「我們每個人，都是由不同的元素所構成。有時候我們熱烈如火，卻怕燒傷愛的人；有時候我們柔軟如水，卻在體制的容器裡失去了形狀。這部電影告訴我們，真正勇敢的不是永遠保持原狀，而是敢於伸出手，去觸碰那個令你恐懼、卻能讓你變得完整的人與夢想。當你不再害怕為了自己發光，你本身，就是最耀眼的藍色火焰。」
-        </blockquote>
+        <div class="quote">
+          「我們每個人生來都帶著獨特的屬性，有時像火般熾熱，有時像水般柔軟。不要害怕與你不同的人，因為正是那些看似不相容的差異，碰撞出了世界最美麗的化學反應。去愛，去理解，去成為你想成為的樣子。」
+        </div>
         <div class="pill-wrap">
-          <span class="pill"># 尋找自我</span>
-          <span class="pill"># 跨越界線</span>
-          <span class="pill"># 世代和解</span>
-          <span class="pill"># 撕下偏見</span>
-          <span class="pill"># 家族傳承</span>
-          <span class="pill"># 勇敢追夢</span>
-          <span class="pill"># 社會階級</span>
+          <span class="pill">#多元共融</span>
+          <span class="pill">#尋找自我</span>
+          <span class="pill">#打破偏見</span>
+          <span class="pill">#家庭羈絆</span>
+          <span class="pill">#勇敢跨界</span>
+          <span class="pill">#相互補足</span>
+          <span class="pill">#同理心</span>
         </div>
       </div>
+
     </div>
+    
+    <!-- 網頁最下方靠右的按鈕 -->
+    <div class="bottom-action">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
   </div>
 
   <script>
+    // 年段切換腳本
     function switchTab(index, btnElement) {
       const card = btnElement.closest('.card');
       const btns = card.querySelectorAll('.tab-btn');
