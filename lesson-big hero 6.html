@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>《大英雄天團》國文教學資源包</title>
+  <style>
+    :root{
+      --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
+      --pink:#ff86b7;--pink-deep:#ff5ea1;--lav:#b78dff;--lav-deep:#8e69e8;
+      --soft:#ffeaf4;--soft2:#f3edff;--line:#ecdaf6;--gold:#c79a56;
+      --shadow:0 12px 30px rgba(155, 112, 185, .14);--radius:24px;--radius-sm:16px;--maxw:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      background:radial-gradient(circle at top left, #fff0f7 0%, transparent 28%), radial-gradient(circle at top right, #f3ecff 0%, transparent 28%), linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--ink);line-height:1.8;
+    }
+    a{color:var(--lav-deep);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 80px;}
+    .topbar{margin-bottom:18px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--lav-deep);font-weight:700;font-size:14px;transition:0.2s;}
+    .back-link:hover{background:var(--soft2);text-decoration:none;}
+    
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));border:1px solid #f0dcec;border-radius:32px;box-shadow:var(--shadow);padding:34px 28px 30px;margin-bottom:24px;}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;}
+    .hero::before{width:180px;height:180px;background:#ffd9e9;right:-40px;top:-50px;}
+    .hero::after{width:180px;height:180px;background:#e7dcff;left:-40px;bottom:-60px;}
+    .eyebrow{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:linear-gradient(90deg, #ffe8f2, #f2ebff);color:var(--pink-deep);font-size:13px;font-weight:800;letter-spacing:.5px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,42px);line-height:1.22;color:#5d436b;position:relative;z-index:1;}
+    .hero-desc{margin:0;font-size:16px;color:var(--muted);max-width:900px;position:relative;z-index:1;}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1;}
+    .badge{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--pink-deep);border:1px solid #ffd4e5;}
+    
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .span-4{grid-column:span 4;}
+    .span-6{grid-column:span 6;}
+    .span-8{grid-column:span 8;}
+    .span-12{grid-column:span 12;}
+    
+    h2{font-size:20px;color:#5d436b;margin:0 0 20px;display:flex;align-items:center;gap:8px;}
+    h2::before{content:"";display:block;width:6px;height:20px;background:var(--pink);border-radius:4px;}
+    h3{font-size:18px;color:var(--ink);margin:16px 0 8px;}
+    
+    .kv{display:flex;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+    .kv b{min-width:100px;color:var(--lav-deep);}
+    .mini-list{list-style:none;padding:0;margin:0 0 16px;}
+    .mini-list li{position:relative;padding-left:20px;margin-bottom:8px;}
+    .mini-list li::before{content:"•";position:absolute;left:0;color:var(--pink);font-weight:bold;}
+    .callout{background:var(--soft2);padding:16px;border-radius:var(--radius-sm);border-left:4px solid var(--lav);font-weight:bold;color:var(--lav-deep);}
+    
+    .symbol-wrap{display:flex;flex-wrap:wrap;gap:16px;}
+    .symbol{background:var(--bg);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--line);flex:1 1 30%;}
+    .symbol strong{display:block;color:var(--pink-deep);margin-bottom:4px;font-size:16px;}
+    
+    .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+    .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
+    
+    /* 修正為兩排按鈕架構的 CSS */
+    .tabs-nav{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
+    .tab-row-group{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+    .tab-row-label{font-size:14px;font-weight:800;color:var(--pink-deep);margin-right:4px;}
+    
+    .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:8px 16px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;font-size:14px;}
+    .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    
+    .clean-list{padding-left:20px;margin:0;}
+    .clean-list li{margin-bottom:12px;}
+    .writing-box{background:var(--soft);border:1px dashed var(--pink);padding:16px;border-radius:var(--radius-sm);margin-top:16px;}
+    
+    .quote{margin:0;padding:20px;background:var(--bg2);border-left:4px solid var(--lav);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#6b5d77;}
+    
+    .resource-list{display:flex;flex-direction:column;gap:12px;}
+    .resource-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .resource-item::before{content:"📄";font-size:20px;}
+    
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
+    .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
+    .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
+    
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
+    
+    .bottom-back{display:flex;justify-content:flex-end;margin-top:40px;}
+
+    @media(max-width:768px){
+      .span-4, .span-6, .span-8{grid-column:span 12;}
+      .tab-row-group{align-items:flex-start; flex-direction:column; gap:8px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
+    <div class="hero">
+      <span class="eyebrow">跨媒介文本主題</span>
+      <h1>《大英雄天團》國文教學資源包</h1>
+      <p class="hero-desc">如果科技能治癒肉體，那我們該如何治癒破碎的心？這是一場關於失落、復仇與放下的情感療癒之旅，適合帶領學生探討生命中的失去與科技人性的邊界。</p>
+      <div class="badge-row">
+        <span class="badge">悲傷療癒</span>
+        <span class="badge">科技倫理</span>
+        <span class="badge">情意思辨</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- 一、課程定位 -->
+      <div class="card span-8">
+        <h2>一、課程定位與核心理念</h2>
+        <div class="kv"><b>課程名稱</b> <span>擁抱傷痛的科技溫度——《大英雄天團》思辨之旅</span></div>
+        <div class="kv"><b>建議時數</b> <span>100 分鐘（約 2 節課）</span></div>
+        <div class="kv"><b>核心能力</b> <span>同理心培養、科技倫理思辨、情緒覺察與轉化、國寫論述與抒情表達</span></div>
+        <div class="kv" style="border:none;"><b>課程目標</b> <span>引導學生探討「科技與人性的界線」，並透過主角阿廣與反派卡拉漢的對照，理解悲傷與復仇的雙面刃，最終學會如何「與失落共處」並轉化為成長的養分。</span></div>
+      </div>
+
+      <!-- 二、官方劇情 -->
+      <div class="card span-4">
+        <h2>二、官方劇情可用重點</h2>
+        <ul class="mini-list">
+          <li><b>突如其來的失落：</b> 阿正的意外離世讓阿廣陷入封閉。</li>
+          <li><b>療癒的跨界介入：</b> 杯麵以程式設定的關懷填補人性脆弱。</li>
+          <li><b>仇恨的歧路對照：</b> 阿廣與卡拉漢同樣失去摯愛卻走向復仇。</li>
+          <li><b>放下執念的救贖：</b> 透過遺留的影像找回初心。</li>
+        </ul>
+        <div class="callout">
+          課堂導入句：「當悲傷化為憤怒的猛獸時，我們該如何為心找到解藥？」
+        </div>
+      </div>
+
+      <!-- 三、主題與象徵物 -->
+      <div class="card span-12">
+        <h2>三、主題關鍵字與象徵物</h2>
+        <div class="symbol-wrap">
+          <div class="symbol"><strong>🎈 醫療機器人（杯麵）</strong> 象徵無條件的愛與接納、不帶偏見的純粹治癒力量。</div>
+          <div class="symbol"><strong>🧢 阿正的帽子</strong> 象徵精神的傳承、未竟的理想以及手足間無法割捨的愛。</div>
+          <div class="symbol"><strong>🎭 歌舞伎面具</strong> 象徵執念與復仇、逃避現實的偽裝，以及被悲傷吞噬的自我。</div>
+          <div class="symbol"><strong>🤖 微型機器人</strong> 象徵科技的雙面刃，端看使用者的起心動念，可創造亦可毀滅。</div>
+          <div class="symbol"><strong>🤜🤛 碰拳 (Balalala)</strong> 象徵信任的建立、冰冷科技與人類情感的跨界連結。</div>
+          <div class="symbol"><strong>🌸 奏舊金山</strong> 象徵文化的融合與多元，暗示不同思維碰撞帶來的新可能。</div>
+        </div>
+      </div>
+
+      <!-- 四、課堂流程 -->
+      <div class="card span-12">
+        <h2>四、課堂流程建議（100 分鐘）</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>0-15分 (暖身)</h4>
+            <p>情緒九宮格：請學生分享「失去重要事物的第一反應」，引入悲傷五階段。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>15-40分 (文本分析)</h4>
+            <p>解析劇中阿廣與卡拉漢教授面對創傷的差異化選擇與心理動機。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>40-60分 (小組討論)</h4>
+            <p>科技倫理辯論：「如果未來有『悲傷消除晶片』，我們該不該植入？」</p>
+          </div>
+          <div class="lesson-box">
+            <h4>60-80分 (跨文本)</h4>
+            <p>延伸閱讀 C.S.路易斯《卿卿如晤》或討論AI在心理治療上的實踐。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>80-100分 (寫作)</h4>
+            <p>國寫情意題與知性題的破題技巧說明，並發下大綱學習單進行架構構思。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 五、各年段切換 -->
+      <div class="card span-12">
+        <h2>五、各年段按鈕切換教學設計</h2>
+        <div class="tabs-nav">
+          <!-- 國中一排 -->
+          <div class="tab-row-group">
+            <button class="tab-btn active" onclick="switchTab(0, this)">國一 (情緒覺察)</button>
+            <button class="tab-btn" onclick="switchTab(1, this)">國二 (衝動管理)</button>
+            <button class="tab-btn" onclick="switchTab(2, this)">國三 (價值抉擇)</button>
+          </div>
+          <!-- 高中一排 -->
+          <div class="tab-row-group">
+            <button class="tab-btn" onclick="switchTab(3, this)">高一 (失落療癒)</button>
+            <button class="tab-btn" onclick="switchTab(4, this)">高二 (科技倫理)</button>
+            <button class="tab-btn" onclick="switchTab(5, this)">高三 (精神傳承)</button>
+          </div>
+        </div>
+        
+        <div class="tab-panel active" id="panel-0">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>辨識悲傷、學習傾訴與情緒覺察。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>畫出心中的「杯麵」：畫出能在難過時陪伴自己的對象或事物。</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《給杯麵的一封信》：練習將內心的挫折具體化並尋求心靈對話。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「有時候，我們只需要一個不帶評價的擁抱。」</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-1">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>探討憤怒與復仇的代價、人際衝動管理。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>情緒紅綠燈演練：當憤怒如面具般覆蓋理智時，如何按下暫停鍵。</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《當生氣成為怪獸》：記敘一次失控的經歷及事後的反思修補。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「復仇是一把雙面刃，砍向敵人的同時，也割傷了自己。」</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-2">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>面臨困境時的價值觀抉擇與成長轉變。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>劇情改寫：假設阿廣當下真的消滅了卡拉漢，故事與他的人生會如何發展？</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《選擇原諒的勇氣》：論述原諒是為了放過自己，還是成全對方。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「真正的強大，不是擁有毀滅的力量，而是懂得在盛怒中收手。」</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-3">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>深度剖析悲傷五階段理論與失落療癒。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>影片象徵意義分析：阿正的測試影片為何能喚醒被仇恨蒙蔽的阿廣？</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《告別的必修課》：以情意抒發角度，描寫如何將逝者的愛化為前行的光。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「死亡終結了生命，但沒有終結關係；愛，會為我們找到出路。」</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-4">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>科技發展與人性倫理的拉扯與反思。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>辯論會：AI 機器人是否能真正具備「愛」與「同理心」？</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《科技與人性的天平》：探討科技在醫療照護中的優勢與無法取代的人味。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「代碼寫不出靈魂的溫度，但科技可以成為傳遞愛的完美載體。」</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-5">
+          <div class="lesson-grid">
+            <div class="lesson-box"><h4>教學重點</h4><p>探討生命有限性、精神不朽與文化傳承。</p></div>
+            <div class="lesson-box"><h4>活動設計</h4><p>遺言與墓誌銘設計：從電影反觀自我，思索自己想留給世界什麼。</p></div>
+            <div class="lesson-box"><h4>寫作任務</h4><p>《從「未竟」到「傳承」》：進階知性論述，評析精神傳承的普世價值。</p></div>
+            <div class="lesson-box"><h4>美文佳句</h4><p>「我們無法阻止生命的消逝，卻能決定讓逝者的光芒如何在世間延續。」</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 六、學習單 -->
+      <div class="card span-6">
+        <h2>六、學生版學習單題型建議</h2>
+        <ul class="clean-list">
+          <li><b>（一）選擇題：</b><br>1. 杯麵的設計初衷為何？<br>2. 劇中面具代表了何種心理狀態？<br>3. 阿廣放棄復仇的最關鍵轉折點是？</li>
+          <li><b>（二）填充與推理：</b> 寫出悲傷五階段並對應主角阿廣的行為；推論微型機器人具備的兩面性特徵。</li>
+          <li><b>（三）簡答題：</b> 為什麼杯麵要詢問「你對我的服務還滿意嗎」才能關機？這句話對劇情發展有何深意？</li>
+          <li><b>（四）開放思辨：</b> 如果你擁有微型機器人，你會用來做什麼？你認為AI能真正理解人類的痛苦嗎？</li>
+        </ul>
+        <div class="writing-box">
+          <b>✍️ 學習單巧思：</b> 鼓勵學生在空白處畫出屬於自己的「情緒防護罩」。
+        </div>
+      </div>
+
+      <!-- 七、教師講義 -->
+      <div class="card span-6">
+        <h2>七、教師講義引導重點</h2>
+        <ul class="clean-list">
+          <li><b>背景主題：</b> 科技外殼下的創傷療癒心理學，包裝在超級英雄故事中的自我和解。</li>
+          <li><b>面具誕生：</b> 卡拉漢與阿廣皆失去至親，無法承受痛楚而戴上面具，將悲痛轉為對外攻擊。</li>
+          <li><b>崩潰邊緣：</b> 阿廣強行拔除杯麵醫療晶片的一幕，是人性被「仇恨」凌駕理智的最佳寫照，亦是教育重點。</li>
+          <li><b>真相救贖：</b> 阿正的測試影片證明了「為了幫助人」才是科技與知識的終極價值。</li>
+        </ul>
+        <blockquote class="quote">
+          「我們無法阻止生命中的失去，但我們能選擇如何讓逝者的精神，在我們的每一次善意中延續。」
+        </blockquote>
+      </div>
+
+      <!-- 八、延伸閱讀 -->
+      <div class="card span-12">
+        <h2>八、延伸閱讀與跨文本資料</h2>
+        <div class="resource-list">
+          <div class="resource-item"><b>《卿卿如晤》（C.S. Lewis）</b> － 探討深刻的喪妻之痛與信仰反思，適合對照阿廣的失落感。</div>
+          <div class="resource-item"><b>《AI 醫療革命》相關文章</b> － 探討科技在醫療照護與心理支持上的實際應用與倫理。</div>
+          <div class="resource-item"><b>〈傷慟的辯證：悲傷五階段理論〉</b> － 心理學家庫伯勒-羅絲的經典理論，可作為學理分析框架。</div>
+          <div class="resource-item"><b>《科學怪人》（瑪麗·雪萊）</b> － 跨文本對照科技造物與人類情感的失控與責任界線。</div>
+        </div>
+      </div>
+
+      <!-- 九、相關影片 -->
+      <div class="card span-12">
+        <h2>九、相關影片推薦</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <h3>TED：如何與悲傷共處</h3>
+            <p>Nora McInerny：我們不是從悲傷中走出來，而是帶著悲傷繼續前行。</p>
+            <a href="https://www.youtube.com/watch?v=khkJkR-ipfw" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h3>TED：科技發展與人類控制</h3>
+            <p>Sam Harris：探討科技倫理、AI 發展與可能失控的人性邊界。</p>
+            <a href="https://www.youtube.com/watch?v=8nt3edWLgIg" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h3>大英雄天團：官方版預告</h3>
+            <p>中英字幕官方預告，可用於課堂開場，建立學生先備知識與興趣。</p>
+            <a href="https://www.youtube.com/watch?v=z3biFxZIJOQ" target="_blank">觀看影片</a>
+          </div>
+          <div class="video-card">
+            <h3>阿正的測試影片 (經典片段)</h3>
+            <p>電影經典感人片段，探討科技研發的助人初心與不朽的精神傳承。</p>
+            <a href="https://www.youtube.com/watch?v=gTlywZ3Xw9E" target="_blank">觀看影片</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十、國寫題庫 -->
+      <div class="card span-12">
+        <h2>十、國寫與課堂討論題庫</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>【情意題方向】</h4>
+            <ol style="padding-left: 20px; margin: 0;">
+              <li>那些未曾好好說的再見</li>
+              <li>我生命中的「杯麵」</li>
+              <li>縫合心碎的記憶</li>
+            </ol>
+          </div>
+          <div class="lesson-box">
+            <h4>【知性題方向】</h4>
+            <ol style="padding-left: 20px; margin: 0;">
+              <li>科技介入心理治療的利與弊</li>
+              <li>復仇的正義與私刑探討</li>
+              <li>科技發展的「人本」考量</li>
+            </ol>
+          </div>
+          <div class="lesson-box">
+            <h4>【討論題與範文賞析】</h4>
+            <ol style="padding-left: 20px; margin: 0;">
+              <li>卡拉漢與阿廣的對照說明了什麼？</li>
+              <li>杯麵的犧牲對阿廣的意義？</li>
+              <li><b>賞析提醒：</b>注意學生在論述科技時是否兼顧情感溫度。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十一、結語 -->
+      <div class="card span-12">
+        <h2>十一、課堂結語</h2>
+        <blockquote class="quote">
+          當我們的心破了一個洞，科技或許能給予冰冷的支撐，但真正能填補那個洞的，永遠是愛與記憶。《大英雄天團》讓我們看見，悲傷不需要被消滅，它只需要被理解、被擁抱。當我們終於願意放下復仇的面具，逝去的人便從未真正離開，他們將化為我們心中的「杯麵」，陪伴我們走向更遠的未來。
+        </blockquote>
+        <div class="pill-wrap">
+          <span class="pill">#悲傷療癒</span>
+          <span class="pill">#科技倫理</span>
+          <span class="pill">#手足情深</span>
+          <span class="pill">#放下執念</span>
+          <span class="pill">#陪伴與愛</span>
+          <span class="pill">#成長蛻變</span>
+          <span class="pill">#情緒覺察</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 網頁最下方的回到總覽按鈕 -->
+    <div class="bottom-back">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+
+  </div>
+
+  <script>
+    // 年段切換腳本
+    function switchTab(index, btnElement) {
+      const card = btnElement.closest('.card');
+      const btns = card.querySelectorAll('.tab-btn');
+      const panels = card.querySelectorAll('.tab-panel');
+      
+      btns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btnElement.classList.add('active');
+      panels[index].classList.add('active');
+    }
+  </script>
+</body>
+</html>
+```
