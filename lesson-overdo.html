@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>《這一秒過火》國文教學資源包</title>
+  <style>
+    :root{
+      --bg:#fff8fc;--bg2:#f8f2ff;--card:#ffffff;--ink:#4b4154;--muted:#7d7188;
+      --pink:#ff86b7;--pink-deep:#ff5ea1;--lav:#b78dff;--lav-deep:#8e69e8;
+      --soft:#ffeaf4;--soft2:#f3edff;--line:#ecdaf6;--gold:#c79a56;
+      --shadow:0 12px 30px rgba(155, 112, 185, .14);--radius:24px;--radius-sm:16px;--maxw:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      background:radial-gradient(circle at top left, #fff0f7 0%, transparent 28%), radial-gradient(circle at top right, #f3ecff 0%, transparent 28%), linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--ink);line-height:1.8;
+    }
+    a{color:var(--lav-deep);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 18px 80px;}
+    .topbar{margin-bottom:18px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--lav-deep);font-weight:700;font-size:14px;transition:0.2s;}
+    .back-link:hover{background:var(--soft2);text-decoration:none;}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,248,.92) 50%, rgba(243,237,255,.94));border:1px solid #f0dcec;border-radius:32px;box-shadow:var(--shadow);padding:34px 28px 30px;margin-bottom:24px;}
+    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(8px);opacity:.45;}
+    .hero::before{width:180px;height:180px;background:#ffd9e9;right:-40px;top:-50px;}
+    .hero::after{width:180px;height:180px;background:#e7dcff;left:-40px;bottom:-60px;}
+    .eyebrow{display:inline-block;margin-bottom:12px;padding:7px 12px;border-radius:999px;background:linear-gradient(90deg, #ffe8f2, #f2ebff);color:var(--pink-deep);font-size:13px;font-weight:800;letter-spacing:.5px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,42px);line-height:1.22;color:#5d436b;position:relative;z-index:1;}
+    .hero-desc{margin:0;font-size:16px;color:var(--muted);max-width:900px;position:relative;z-index:1;}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1;}
+    .badge{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--soft);color:var(--pink-deep);border:1px solid #ffd4e5;}
+    
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .span-4{grid-column:span 4;}
+    .span-6{grid-column:span 6;}
+    .span-8{grid-column:span 8;}
+    .span-12{grid-column:span 12;}
+    
+    h2{font-size:20px;color:#5d436b;margin:0 0 20px;display:flex;align-items:center;gap:8px;}
+    h2::before{content:"";display:block;width:6px;height:20px;background:var(--pink);border-radius:4px;}
+    h3{font-size:18px;color:var(--ink);margin:16px 0 8px;}
+    
+    .kv{display:flex;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+    .kv b{min-width:100px;color:var(--lav-deep);}
+    .mini-list{list-style:none;padding:0;margin:0 0 16px;}
+    .mini-list li{position:relative;padding-left:20px;margin-bottom:8px;}
+    .mini-list li::before{content:"•";position:absolute;left:0;color:var(--pink);font-weight:bold;}
+    .callout{background:var(--soft2);padding:16px;border-radius:var(--radius-sm);border-left:4px solid var(--lav);font-weight:bold;color:var(--lav-deep);}
+    
+    .symbol-wrap{display:flex;flex-wrap:wrap;gap:16px;}
+    .symbol{background:var(--bg);padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--line);flex:1 1 30%;}
+    .symbol strong{display:block;color:var(--pink-deep);margin-bottom:4px;font-size:16px;}
+    
+    .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+    .lesson-box{background:var(--bg2);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .lesson-box h4{margin:0 0 10px;color:var(--lav-deep);}
+    
+    .tabs-nav{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;}
+    .tab-btn{border:none;background:var(--bg);color:var(--muted);padding:10px 20px;border-radius:999px;font-weight:bold;cursor:pointer;border:1px solid var(--line);white-space:nowrap;transition:0.3s;}
+    .tab-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    
+    .clean-list{padding-left:20px;margin:0;}
+    .clean-list li{margin-bottom:12px;}
+    .writing-box{background:var(--soft);border:1px dashed var(--pink);padding:16px;border-radius:var(--radius-sm);margin-top:16px;}
+    
+    .quote{margin:0;padding:20px;background:var(--bg2);border-left:4px solid var(--lav);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#6b5d77;}
+    
+    .resource-list{display:flex;flex-direction:column;gap:12px;}
+    .resource-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--line);}
+    .resource-item::before{content:"📄";font-size:20px;}
+    
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px;}
+    .video-card{background:var(--bg);border-radius:var(--radius-sm);padding:16px;border:1px solid var(--line);text-align:center;}
+    .video-card a{display:inline-block;margin-top:12px;padding:8px 16px;background:var(--lav);color:#fff;border-radius:999px;font-size:14px;font-weight:bold;}
+    .video-card a:hover{background:var(--lav-deep);text-decoration:none;}
+    
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+    .pill{background:var(--line);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:14px;}
+    
+    @media(max-width:768px){
+      .span-4, .span-6, .span-8{grid-column:span 12;}
+      .tabs-nav{padding-bottom:10px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+    
+    <div class="hero">
+      <span class="eyebrow">跨媒介文本主題</span>
+      <h1>《這一秒過火》國文教學資源包</h1>
+      <p class="hero-desc">在命運的巨輪下，當愛恨情仇與家國存亡發生激烈碰撞，我們該如何安放那顆受盡創傷卻依然渴望救贖的心？本單元將帶領學生從民國虐戀中，淬鍊出最深刻的思辨與國寫力量。</p>
+      <div class="badge-row">
+        <span class="badge">#時代大義</span>
+        <span class="badge">#情感倫理</span>
+        <span class="badge">#國寫思辨</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- 一、課程定位與核心理念 -->
+      <div class="card span-8">
+        <h2>一、課程定位與核心理念</h2>
+        <div class="kv"><b>課程名稱</b>《這一秒過火》：在愛恨與家國間的抉擇思辨</div>
+        <div class="kv"><b>建議時數</b>2 節課（100 分鐘）</div>
+        <div class="kv"><b>核心能力</b>國寫情意抒發、知性論辯、人物心理分析、亂世情境同理心</div>
+        <div class="kv" style="border-bottom:none;"><b>課程目標</b>藉由慕容清嶧與任素素的愛恨糾葛與國難抉擇，引導學生思辨「個人恩怨」與「家國大義」的拉扯，並訓練國寫中處理複雜倫理與時代感的寫作技巧。</div>
+      </div>
+
+      <!-- 二、官方劇情可用重點 -->
+      <div class="card span-4">
+        <h2>二、官方劇情可用重點</h2>
+        <ul class="mini-list">
+          <li><b>身世錯置：</b>受虐童年與性格形塑。</li>
+          <li><b>恩情代價：</b>救命之恩卻換來家族滅頂。</li>
+          <li><b>叔嫂拉扯：</b>假死遁逃後以準大嫂回歸的倫理困境。</li>
+          <li><b>家國大義：</b>從私情恩怨昇華至抵抗強敵的時代悲歌。</li>
+        </ul>
+        <div class="callout">「在命運的巨輪下，所有的愛恨情仇，最終都必須面對時代的拷問。」</div>
+      </div>
+
+      <!-- 三、主題關鍵字與象徵物 -->
+      <div class="card span-12">
+        <h2>三、主題關鍵字與象徵物</h2>
+        <div class="symbol-wrap">
+          <div class="symbol"><strong>🩸 傷痕</strong>象徵無法抹滅的原生創痛與記憶，以及對世界的不信任。</div>
+          <div class="symbol"><strong>💊 醫藥</strong>象徵極欲療癒彼此，卻醫不好時代重病的無力感。</div>
+          <div class="symbol"><strong>🕊️ 假死</strong>象徵現實重壓下，個人為了保護他人的極端犧牲與逃避兩難。</div>
+          <div class="symbol"><strong>🎭 面具</strong>「準大嫂」身份象徵亂世中為了生存與復仇的無奈偽裝。</div>
+          <div class="symbol"><strong>🔥 燎原火</strong>呼應劇名，象徵愛與恨一體兩面，一旦點燃便不可收拾。</div>
+          <div class="symbol"><strong>⚔️ 烽火</strong>後期的國難，象徵摧毀個人私怨，逼迫人看清真愛的終極試煉。</div>
+        </div>
+      </div>
+
+      <!-- 四、課堂流程建議 -->
+      <div class="card span-12">
+        <h2>四、課堂流程建議（100 分鐘）</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>0-15分：極端情境暖身</h4>
+            <p>提問：「如果你是童年受苦的清嶧，你會選擇報復還是原諒？」</p>
+          </div>
+          <div class="lesson-box">
+            <h4>15-40分：文本與心理分析</h4>
+            <p>分析雙主角「假死、隱瞞、偽裝」的心理防衛機制與行為動機。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>40-60分：情與理的拉扯</h4>
+            <p>小組辯論：素素以「準大嫂」身份回歸是否為必要的惡？</p>
+          </div>
+          <div class="lesson-box">
+            <h4>60-80分：跨文本比較</h4>
+            <p>結合張愛玲《傾城之戀》，探討「城市傾覆與國難下的愛情觀」。</p>
+          </div>
+          <div class="lesson-box">
+            <h4>80-100分：國寫引導</h4>
+            <p>國寫題解構，從個人恩怨昇華至家國大義的寫作大綱規劃。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 五、各年段按鈕切換教學設計 -->
+      <div class="card span-12">
+        <h2>五、各年段按鈕切換教學設計</h2>
+        <div class="tabs-nav" id="tabs" style="flex-wrap: wrap;">
+          <div style="flex-basis: 100%; display: flex; gap: 10px; margin-bottom: 5px;">
+            <button class="tab-btn active" onclick="switchTab(0, this)">國一：同理與情感表達</button>
+            <button class="tab-btn" onclick="switchTab(1, this)">國二：性格與命運因果</button>
+            <button class="tab-btn" onclick="switchTab(2, this)">國三：愛恨抉擇與放下</button>
+          </div>
+          <div style="flex-basis: 100%; display: flex; gap: 10px;">
+            <button class="tab-btn" onclick="switchTab(3, this)">高一：時代背景與個人選擇</button>
+            <button class="tab-btn" onclick="switchTab(4, this)">高二：倫理困境與道德思辨</button>
+            <button class="tab-btn" onclick="switchTab(5, this)">高三：生死大義與終極救贖</button>
+          </div>
+        </div>
+        
+        <!-- 國一 -->
+        <div class="tab-panel active">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>理解人物遭遇與基本情感變化。</li>
+            <li><b>適合提問：</b>如果你是受苦的清嶧，你最需要別人給你什麼幫助？</li>
+            <li><b>活動設計：</b>寫一封信給劇中受傷的角色。</li>
+            <li><b>寫作任務：</b>【情意題】給受傷靈魂的一封信</li>
+            <li><b>寫作大綱：</b>引言（共鳴）- 發展（同理心與安撫）- 結語（給予祝福）</li>
+            <li><b>美文佳句：</b>最深的痛，往往需要最柔軟的愛來撫平。</li>
+          </ul>
+        </div>
+        <!-- 國二 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>探討「善良的代價」與角色的應對態度。</li>
+            <li><b>適合提問：</b>素素救人卻招來滅門，善良究竟值不值得？</li>
+            <li><b>活動設計：</b>善良法庭微辯論。</li>
+            <li><b>寫作任務：</b>【知性題】善良的界線與保護傘</li>
+            <li><b>寫作大綱：</b>破題（善良的定義）- 申論（代價與界線）- 結論（帶有鋒芒的善良）</li>
+            <li><b>美文佳句：</b>善良若無鋒芒，便成了任人宰割的羔羊。</li>
+          </ul>
+        </div>
+        <!-- 國三 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>分析怨恨與救贖，準備面對人生的重大轉折。</li>
+            <li><b>適合提問：</b>面對難以言說的痛與背叛，原諒別人還是放過自己？</li>
+            <li><b>活動設計：</b>角色心理剖析圖繪製。</li>
+            <li><b>寫作任務：</b>【情意題】放下與原諒</li>
+            <li><b>寫作大綱：</b>起（恨的執念）- 承（痛苦的折磨）- 轉（理解與放下）- 合（心靈的自由）</li>
+            <li><b>美文佳句：</b>原諒不是因為對方值得，而是因為自己的心需要自由。</li>
+          </ul>
+        </div>
+        <!-- 高一 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>將個人命運置於「時代巨輪」下審視。</li>
+            <li><b>適合提問：</b>時代的動盪如何改變一個人的選擇？</li>
+            <li><b>活動設計：</b>時代背景報告與角色獨白改寫。</li>
+            <li><b>寫作任務：</b>【知性題】大時代與小人物</li>
+            <li><b>寫作大綱：</b>破題（時代的無情）- 正反面（順應時代或反抗命運）- 結論（在夾縫中找尋意義）</li>
+            <li><b>美文佳句：</b>時代的一粒灰，落在個人頭上，就是一座無法翻越的山。</li>
+          </ul>
+        </div>
+        <!-- 高二 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>探討叔嫂身份、假死等極端情境下的倫理與道德。</li>
+            <li><b>適合提問：</b>當道德倫理與真愛衝突時，孰輕孰重？</li>
+            <li><b>活動設計：</b>哲學電車難題變體討論。</li>
+            <li><b>寫作任務：</b>【知性題】道德枷鎖與個人追求</li>
+            <li><b>寫作大綱：</b>前言（情理的衝突）- 論述（道德的本質與時代限制）- 總結（超越枷鎖的真誠）</li>
+            <li><b>美文佳句：</b>在理智的冰川下，暗湧著無法壓抑的感性洪流。</li>
+          </ul>
+        </div>
+        <!-- 高三 -->
+        <div class="tab-panel">
+          <ul class="clean-list">
+            <li><b>教學重點：</b>從私情昇華至「國家大義」，為大考深度鋪路。</li>
+            <li><b>適合提問：</b>當國家面臨存亡，個人的愛恨情仇是否還有意義？</li>
+            <li><b>活動設計：</b>國寫長文模擬考驗與同儕互評。</li>
+            <li><b>寫作任務：</b>【情意/知性題】家國之大與兒女情長</li>
+            <li><b>寫作大綱：</b>起（私情的糾葛）- 承（國難的衝擊）- 轉（昇華與犧牲）- 合（永恆的價值觀）</li>
+            <li><b>美文佳句：</b>所有的愛恨嗔痴，終將在歷史的長河中，化為守護家國的灰燼與微光。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 六、學習單 -->
+      <div class="card span-6">
+        <h2>六、學生版學習單題型建議</h2>
+        <ul class="clean-list">
+          <li><b>(一) 選擇題：</b><br>
+            1. 慕容清嶧性格冷峻且具防備心，最深層原因為何？<br>
+            (A) 軍閥的傲氣 (B) 遭抱錯受盡虐待的童年 (C) 醫學理性<br>
+            2. 任素素以「方牧蘭」身分回歸，主要製造了何種文學效果？<br>
+            (A) 懸疑推理 (B) 倫理衝突與戲劇性 (C) 奇幻色彩<br>
+            3. 故事尾聲兩人對抗強敵，呼應了哪句俗諺？<br>
+            (A) 覆巢之下無完卵 (B) 留得青山在 (C) 冤冤相報何時了
+          </li>
+          <li><b>(二) 填充推理：</b><br>
+            1. 任素素的回歸身分是「_____」，製造了極大的______困境。<br>
+            2. 劇中充滿愛與______的拉扯，最後因______的到來而昇華。
+          </li>
+          <li><b>(三) 簡答題：</b>試分析任素素選擇「假死遁逃」的心理動機與無奈。</li>
+          <li><b>(四) 開放思辨題：</b>在和平與戰亂時代，「愛情」的本質有何不同？</li>
+        </ul>
+        <div class="writing-box">
+          <span style="color:var(--pink); font-weight:bold;">✍️ 寫作區：</span><br><br>
+          _______________________________________________________<br>
+          _______________________________________________________
+        </div>
+      </div>
+
+      <!-- 七、教師講義 -->
+      <div class="card span-6">
+        <h2>七、教師講義引導重點</h2>
+        <ul class="clean-list">
+          <li><b>背景主題：</b>民國軍閥混戰下的身份錯置與極致虐戀。</li>
+          <li><b>面具誕生：</b>分析「方牧蘭」身份如何成為素素的保護色，卻也是刺傷清嶧的利刃。</li>
+          <li><b>崩潰邊緣：</b>探討清嶧經歷身體殘害（斷手筋）與心理背叛後的 PTSD 與絕望感。</li>
+          <li><b>真相救贖：</b>當國難逼迫兩人直面內心，真相帶來的殘酷與最終解脫。</li>
+          <li><b>板書關鍵字：</b>#身分錯置 #善良代價 #倫理禁忌 #家國大義 #愛恨一瞬</li>
+        </ul>
+        <blockquote class="quote">
+          「悲劇的最高境界，不是把美好的東西毀滅給人看，而是在毀滅的廢墟中，依然有人願意燃起燎原的愛火，去對抗整個時代的荒蕪。」
+        </blockquote>
+      </div>
+
+      <!-- 八、延伸閱讀 -->
+      <div class="card span-12">
+        <h2>八、延伸閱讀與跨文本資料</h2>
+        <div class="resource-list">
+          <div class="resource-item">
+            <div>
+              <strong>張愛玲《傾城之戀》</strong><br>
+              <span style="font-size:14px; color:var(--muted);">探討亂世中、城市傾覆下的愛情與人性算計，可與本劇互相參照。</span>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div>
+              <strong>匪我思存《如果這一秒，我沒遇見你》</strong><br>
+              <span style="font-size:14px; color:var(--muted);">本劇原著小說，引導學生深究文字敘述與影視改編的差異。</span>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div>
+              <strong>白先勇《臺北人》</strong><br>
+              <span style="font-size:14px; color:var(--muted);">探討時代動盪對個人命運與記憶的深刻影響，呼應時代悲歌。</span>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div>
+              <strong>龍應台《大江大海一九四九》</strong><br>
+              <span style="font-size:14px; color:var(--muted);">提供真實的歷史視角，理解大時代下小人物的顛沛流離與別離。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 九、相關影片 -->
+      <div class="card span-12">
+        <h2>九、相關影片連結</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4 style="margin:0 0 8px; color:var(--ink);">【民國歷史解碼】</h4>
+            <p style="font-size:14px; color:var(--muted); margin:0;">軍閥割據時期的社會樣貌與兒女情長</p>
+            <a href="https://www.youtube.com/watch?v=placeholder1" target="_blank">前往觀看 →</a>
+          </div>
+          <div class="video-card">
+            <h4 style="margin:0 0 8px; color:var(--ink);">張愛玲《傾城之戀》</h4>
+            <p style="font-size:14px; color:var(--muted); margin:0;">文學賞析：亂世中的愛情與婚姻</p>
+            <a href="https://www.youtube.com/watch?v=placeholder2" target="_blank">前往觀看 →</a>
+          </div>
+          <div class="video-card">
+            <h4 style="margin:0 0 8px; color:var(--ink);">從心理學看創傷</h4>
+            <p style="font-size:14px; color:var(--muted); margin:0;">「原生家庭創傷」與親密關係的修復</p>
+            <a href="https://www.youtube.com/watch?v=placeholder3" target="_blank">前往觀看 →</a>
+          </div>
+          <div class="video-card">
+            <h4 style="margin:0 0 8px; color:var(--ink);">【國寫滿分秘訣】</h4>
+            <p style="font-size:14px; color:var(--muted); margin:0;">如何寫出具有「時代感」的深度文章？</p>
+            <a href="https://www.youtube.com/watch?v=placeholder4" target="_blank">前往觀看 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十、國寫與課堂討論題庫 -->
+      <div class="card span-12">
+        <h2>十、國寫與課堂討論題庫</h2>
+        <div class="lesson-grid">
+          <div class="lesson-box">
+            <h4>【情意題方向】</h4>
+            <ul class="clean-list" style="font-size:14px;">
+              <li><b>未燼的灰：</b>以曾有過的深刻遺憾為題，寫下心路歷程。</li>
+              <li><b>面具之下：</b>為保護自己而戴上面具的經驗書寫。</li>
+              <li><b>重逢：</b>若能與遺憾的過去重逢，你想說什麼？</li>
+            </ul>
+          </div>
+          <div class="lesson-box">
+            <h4>【知性題方向】</h4>
+            <ul class="clean-list" style="font-size:14px;">
+              <li><b>善良的界線：</b>論述善良是否需要底線與保護傘。</li>
+              <li><b>家國與私怨：</b>面對家國危機，個人私仇該如何安放？</li>
+              <li><b>身分與命運：</b>論述後天環境與先天身分對人生的影響。</li>
+            </ul>
+          </div>
+          <div class="lesson-box">
+            <h4>【課堂討論題】</h4>
+            <ul class="clean-list" style="font-size:14px;">
+              <li>假死遁逃是負責任的保護，還是自私的逃避？</li>
+              <li>叔嫂戀設定在文學中營造了何種衝突感？</li>
+              <li>若無戰爭，兩人會走向什麼樣的結局？</li>
+            </ul>
+          </div>
+          <div class="lesson-box" style="background:var(--soft);">
+            <h4 style="color:var(--pink-deep);">【範文賞析提醒】</h4>
+            <p style="font-size:14px; margin:0;">知性題應注重「正反論辯」與「清晰價值觀」；情意題要求「細節描寫」與「情緒漸層」。避免灑狗血，要寫出深層的無奈與釋懷。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 十一、課堂結語 -->
+      <div class="card span-12">
+        <h2>十一、課堂結語</h2>
+        <blockquote class="quote">
+          《這一秒過火》不只是一部民國愛情的悲歌，它是一面映照著人性脆弱與堅韌的鏡子。在那個烽火連天的歲月裡，愛恨的界線變得模糊，生存的渴望與道德的枷鎖不斷碰撞。它告訴我們，即便命運以痛吻我，我們仍能選擇在殘垣斷壁中，點燃那把名為理解與原諒的燎原之火。希望同學們能將這份對時代的悲憫，化為筆下的溫度，寫出屬於你們的深刻篇章。
+        </blockquote>
+        <div class="pill-wrap">
+          <span class="pill">#身世錯置</span>
+          <span class="pill">#原生創傷</span>
+          <span class="pill">#假死遁逃</span>
+          <span class="pill">#倫理拉扯</span>
+          <span class="pill">#家國大義</span>
+          <span class="pill">#愛恨糾葛</span>
+          <span class="pill">#人性試煉</span>
+          <span class="pill">#文學思辨</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 靠右回到總覽按鈕 -->
+    <div style="text-align: right; margin-top: 32px;">
+      <a href="index.html" class="back-link">← 回到單元總覽</a>
+    </div>
+  </div>
+
+  <script>
+    // 年段切換腳本
+    function switchTab(index, btnElement) {
+      const card = btnElement.closest('.card');
+      const btns = card.querySelectorAll('.tab-btn');
+      const panels = card.querySelectorAll('.tab-panel');
+      
+      btns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btnElement.classList.add('active');
+      panels[index].classList.add('active');
+    }
+  </script>
+</body>
+</html>
